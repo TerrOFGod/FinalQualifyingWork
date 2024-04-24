@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DM66i58JHLmgmLskYKF1jyaU7jQbALjx6pLtrWWEAs8rshNo1neByHCMrIrayk42KVNiBICKMP4sHm9nBTHCpA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\MainPlugin.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\LordVT\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
