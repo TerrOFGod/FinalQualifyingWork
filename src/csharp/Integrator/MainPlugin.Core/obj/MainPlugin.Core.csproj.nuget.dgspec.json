@@ -8,7 +8,7 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\MainPlugin.Core.csproj",
-        "projectName": "MainPlugin.Core",
+        "projectName": "gpt-text-generator-entities",
         "projectPath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\MainPlugin.Core.csproj",
         "packagesPath": "C:\\Users\\LordVT\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\obj\\",

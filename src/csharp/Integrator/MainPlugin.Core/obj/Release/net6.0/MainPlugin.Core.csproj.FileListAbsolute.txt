@@ -1,0 +1,12 @@
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\bin\Release\net6.0\MainPlugin.Core.deps.json
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\bin\Release\net6.0\MainPlugin.Core.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\bin\Release\net6.0\MainPlugin.Core.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.csproj.AssemblyReference.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.AssemblyInfoInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.AssemblyInfo.cs
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.csproj.CoreCompileInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\refint\MainPlugin.Core.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\MainPlugin.Core.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\net6.0\ref\MainPlugin.Core.dll

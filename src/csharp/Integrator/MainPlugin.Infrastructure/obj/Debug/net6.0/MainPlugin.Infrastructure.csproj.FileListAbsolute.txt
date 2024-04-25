@@ -1,0 +1,15 @@
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Debug\net6.0\MainPlugin.Infrastructure.deps.json
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Debug\net6.0\MainPlugin.Infrastructure.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Debug\net6.0\MainPlugin.Infrastructure.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Debug\net6.0\MainPlugin.Core.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Debug\net6.0\MainPlugin.Core.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.AssemblyInfo.cs
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.csproj.CopyComplete
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\refint\MainPlugin.Infrastructure.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\MainPlugin.Infrastructure.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Debug\net6.0\ref\MainPlugin.Infrastructure.dll

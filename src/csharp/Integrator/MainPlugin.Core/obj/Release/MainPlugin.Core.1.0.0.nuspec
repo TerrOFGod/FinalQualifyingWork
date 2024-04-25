@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>MainPlugin.Core</id>
+    <version>1.0.0</version>
+    <authors>MainPlugin.Core</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\bin\Release\net6.0\MainPlugin.Core.dll" target="lib\net6.0\MainPlugin.Core.dll" />
+  </files>
+</package>

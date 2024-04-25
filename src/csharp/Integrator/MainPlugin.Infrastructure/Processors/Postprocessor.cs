@@ -65,7 +65,7 @@ namespace MainPlugin.Infrastructure.Processors
         private (string npc, string player) GetInterlocutors(string text)
         {
             var res = (npc: "", player: "");
-            string pattern = @"(?<variant>\d(\.\d)*)\s(?<npcName>\w+):\s""(?<npcPhrase>.+)""\s(?<playerName>\w+):\s""(?<playerPhrase>.+)""";
+            string pattern = @"(?<variant>\d(\.\d)*)\s""?(?<npcName>\w+)""?:\s""?(?<npcPhrase>.+)""?\s""?(?<playerName>\w+)""?:\s""?(?<playerPhrase>.+)""?";
 
             // Create a regular expression object
             Regex regex = new(pattern, RegexOptions.Singleline);

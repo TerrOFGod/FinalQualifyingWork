@@ -555,14 +555,14 @@
           }
         }
       },
-      "MainPlugin.Core/1.0.0": {
+      "gpt-text-generator-entities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
-          "bin/placeholder/MainPlugin.Core.dll": {}
+          "bin/placeholder/gpt-text-generator-entities.dll": {}
         },
         "runtime": {
-          "bin/placeholder/MainPlugin.Core.dll": {}
+          "bin/placeholder/gpt-text-generator-entities.dll": {}
         }
       }
     }
@@ -1282,7 +1282,7 @@
         "tensorflow.net.nuspec"
       ]
     },
-    "MainPlugin.Core/1.0.0": {
+    "gpt-text-generator-entities/1.0.0": {
       "type": "project",
       "path": "../MainPlugin.Core/MainPlugin.Core.csproj",
       "msbuildProject": "../MainPlugin.Core/MainPlugin.Core.csproj"
@@ -1291,10 +1291,10 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "IronPython >= 3.4.1",
-      "MainPlugin.Core >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.29",
       "Newtonsoft.Json >= 13.0.3",
-      "TensorFlow.NET >= 0.150.0"
+      "TensorFlow.NET >= 0.150.0",
+      "gpt-text-generator-entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1306,7 +1306,7 @@
     "version": "1.0.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\MainPlugin.Infrastructure.csproj",
-      "projectName": "MainPlugin.Infrastructure",
+      "projectName": "gpt-text-generator-infrastructure",
       "projectPath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\MainPlugin.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\LordVT\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\obj\\",
