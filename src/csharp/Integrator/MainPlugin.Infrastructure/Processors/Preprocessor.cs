@@ -6,7 +6,7 @@ namespace MainPlugin.Infrastructure.Processors
 {
     public class Preprocessor : IPreprocessor
     {
-        public string GenerateBasicDialogueRequest(SmartNPC npc, int depth, int variety)
+        public string GenerateBasicBranchedDialogueRequest(SmartNPC npc, int depth, int variety)
         {
             string entry = GenerateEntryString(npc);
             string characteristics = $"Личностные качества: {string.Join(", ", npc.PersonalCharacteristics)}";

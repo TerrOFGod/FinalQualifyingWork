@@ -9,6 +9,6 @@ namespace MainPlugin.Core.Entities.Interfaces.Processors
 {
     public interface IPreprocessor
     {
-        string GenerateBasicDialogueRequest(SmartNPC npc, int depth, int variety);
+        string GenerateBasicBranchedDialogueRequest(SmartNPC npc, int depth, int variety);
     }
 }

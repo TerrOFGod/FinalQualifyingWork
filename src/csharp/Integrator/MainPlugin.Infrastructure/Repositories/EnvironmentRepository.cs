@@ -1,10 +1,12 @@
 ﻿using MainPlugin.Core.Entities.Interfaces;
+using MainPlugin.Core.Entities.Models.Interactors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Environment = MainPlugin.Core.Entities.Models.Interactors.Environment;
 
 namespace MainPlugin.Infrastructure.Repositories
 {

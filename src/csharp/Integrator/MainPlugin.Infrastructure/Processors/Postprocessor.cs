@@ -11,7 +11,7 @@ namespace MainPlugin.Infrastructure.Processors
 {
     public class Postprocessor : IPostprocessor
     {
-        public DialogueEntry DecodeAPIResponse(SmartNPC npc, string response)
+        public DialogueEntry DecodeAPIBranchedDialogueResponse(SmartNPC npc, string response)
         {
             DialogueEntry dialogueEntry = new DialogueEntry();
             dialogueEntry.Childs = new List<DialogueNode>();

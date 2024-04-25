@@ -10,7 +10,7 @@ namespace MainPlugin.Core.Entities.Interfaces.Processors
 {
     public interface IPostprocessor
     {
-        DialogueEntry DecodeAPIResponse(SmartNPC npc, string response);
+        DialogueEntry DecodeAPIBranchedDialogueResponse(SmartNPC npc, string response);
         //Quest ParseQuest();
         //bool CheckСorrectness(); // планирую написать нейронку с подкреплением на python подключу с IronPython
     }
