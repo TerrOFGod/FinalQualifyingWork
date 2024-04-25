@@ -9,6 +9,7 @@
 	<Title>GPTTextGenerator.Infrastructure</Title>
 	<Authors>InanisPluvia</Authors>
 	<PackageOutputPath>C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\NugetRepo</PackageOutputPath>
+	<Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

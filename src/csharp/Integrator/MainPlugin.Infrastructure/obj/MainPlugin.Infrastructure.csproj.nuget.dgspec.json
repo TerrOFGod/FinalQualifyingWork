@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\MainPlugin.Core.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\MainPlugin.Core.csproj",
         "projectName": "gpt-text-generator-entities",
@@ -66,7 +66,7 @@
       }
     },
     "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\MainPlugin.Infrastructure.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\MainPlugin.Infrastructure.csproj",
         "projectName": "gpt-text-generator-infrastructure",

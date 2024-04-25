@@ -555,7 +555,7 @@
           }
         }
       },
-      "gpt-text-generator-entities/1.0.0": {
+      "gpt-text-generator-entities/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
@@ -1282,7 +1282,7 @@
         "tensorflow.net.nuspec"
       ]
     },
-    "gpt-text-generator-entities/1.0.0": {
+    "gpt-text-generator-entities/1.0.1": {
       "type": "project",
       "path": "../MainPlugin.Core/MainPlugin.Core.csproj",
       "msbuildProject": "../MainPlugin.Core/MainPlugin.Core.csproj"
@@ -1294,7 +1294,7 @@
       "Microsoft.EntityFrameworkCore >= 6.0.29",
       "Newtonsoft.Json >= 13.0.3",
       "TensorFlow.NET >= 0.150.0",
-      "gpt-text-generator-entities >= 1.0.0"
+      "gpt-text-generator-entities >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -1303,7 +1303,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\MainPlugin.Infrastructure.csproj",
       "projectName": "gpt-text-generator-infrastructure",
