@@ -1,0 +1,15 @@
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.AssemblyInfo.cs
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net6.0\GPTTextGenerator.Infrastructure.deps.json
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net6.0\GPTTextGenerator.Infrastructure.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net6.0\GPTTextGenerator.Infrastructure.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net6.0\GPTTextGenerator.Entities.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net6.0\GPTTextGenerator.Entities.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.csproj.CopyComplete
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\refint\GPTTextGenerator.Infrastructure.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\GPTTextGenerator.Infrastructure.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\obj\Release\net6.0\ref\GPTTextGenerator.Infrastructure.dll

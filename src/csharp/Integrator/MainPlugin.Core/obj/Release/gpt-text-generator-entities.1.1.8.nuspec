@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>gpt-text-generator-entities</id>
+    <version>1.1.8</version>
+    <title>GPTTextGenerator.Entites</title>
+    <authors>InanisPluvia</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\bin\Release\net6.0\GPTTextGenerator.Entities.dll" target="lib\net6.0\GPTTextGenerator.Entities.dll" />
+  </files>
+</package>

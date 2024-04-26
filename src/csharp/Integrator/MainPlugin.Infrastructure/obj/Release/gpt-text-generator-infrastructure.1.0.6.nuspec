@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>gpt-text-generator-infrastructure</id>
+    <version>1.0.6</version>
+    <title>GPTTextGenerator.Infrastructure</title>
+    <authors>InanisPluvia</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="gpt-text-generator-entities" version="1.0.6" exclude="Build,Analyzers" />
+        <dependency id="IronPython" version="3.4.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="6.0.29" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="TensorFlow.NET" version="0.150.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net6.0\GPTTextGenerator.Infrastructure.dll" target="lib\net6.0\GPTTextGenerator.Infrastructure.dll" />
+  </files>
+</package>

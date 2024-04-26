@@ -1,13 +1,8 @@
-﻿using MainPlugin.Core.Entities.Interfaces;
-using MainPlugin.Core.Entities.Models.Interactions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using GPTTextGenerator.Entities.Interfaces;
+using GPTTextGenerator.Entities.Models.Interactions;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MainPlugin.Infrastructure.Repositories
+namespace GPTTextGenerator.Infrastructure.Repositories
 {
     public class ChainQuestRepository : IRepository<ChainQuest>
     {

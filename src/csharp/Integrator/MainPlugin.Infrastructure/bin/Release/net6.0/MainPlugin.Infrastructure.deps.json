@@ -6,13 +6,13 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "MainPlugin.Infrastructure/1.0.0": {
+      "MainPlugin.Infrastructure/1.0.1": {
         "dependencies": {
           "IronPython": "3.4.1",
           "Microsoft.EntityFrameworkCore": "6.0.29",
           "Newtonsoft.Json": "13.0.3",
           "TensorFlow.NET": "0.150.0",
-          "gpt-text-generator-entities": "1.0.0"
+          "gpt-text-generator-entities": "1.0.1"
         },
         "runtime": {
           "MainPlugin.Infrastructure.dll": {}
@@ -398,7 +398,7 @@
           }
         }
       },
-      "gpt-text-generator-entities/1.0.0": {
+      "gpt-text-generator-entities/1.0.1": {
         "runtime": {
           "MainPlugin.Core.dll": {}
         }
@@ -406,7 +406,7 @@
     }
   },
   "libraries": {
-    "MainPlugin.Infrastructure/1.0.0": {
+    "MainPlugin.Infrastructure/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
@@ -614,7 +614,7 @@
       "path": "tensorflow.net/0.150.0",
       "hashPath": "tensorflow.net.0.150.0.nupkg.sha512"
     },
-    "gpt-text-generator-entities/1.0.0": {
+    "gpt-text-generator-entities/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

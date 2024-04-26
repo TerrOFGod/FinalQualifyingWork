@@ -1,8 +1,9 @@
-﻿using MainPlugin.Core.Entities.Models.Interactions;
-using Microsoft.EntityFrameworkCore;
-using MainPlugin.Core.Entities.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
+using GPTTextGenerator.Entities.Interfaces;
+using GPTTextGenerator.Entities.Models.Interactions;
+using System.Linq.Expressions;
 
-namespace MainPlugin.Infrastructure.Contexts
+namespace GPTTextGenerator.Infrastructure.Contexts
 {
     public class BasicDbContext : DbContext
     {

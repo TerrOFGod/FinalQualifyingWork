@@ -1,7 +1,7 @@
 ﻿using System.Text;
 using Newtonsoft.Json;
 
-namespace MainPlugin.Infrastructure.API
+namespace GPTTextGenerator.Infrastructure.API
 {
     public class GptApiClient
     {
@@ -47,12 +47,10 @@ namespace MainPlugin.Infrastructure.API
                     var jsonResponse = await response.Content.ReadAsStringAsync();
                     dynamic responseData = JsonConvert.DeserializeObject(jsonResponse);
                     string responseContent = responseData.choices[0].message.content;
-                    Console.WriteLine("Response: " + responseContent);
                     return responseContent;
                 }
                 else
                 {
-                    Console.WriteLine("Error: " + response.ReasonPhrase);
                     return "Error: " + response.ReasonPhrase;
                 }
             }

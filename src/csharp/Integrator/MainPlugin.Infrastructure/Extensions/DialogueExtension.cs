@@ -1,4 +1,4 @@
-﻿using MainPlugin.Core.Entities.Models.Interactions;
+﻿using GPTTextGenerator.Entities.Models.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace MainPlugin.Infrastructure.Extensions
+namespace GPTTextGenerator.Infrastructure.Extensions
 {
     public static class DialogueExtension
     {

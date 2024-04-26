@@ -1,13 +1,8 @@
-﻿using MainPlugin.Core.Entities.Interfaces;
-using MainPlugin.Core.Entities.Models.Interactors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using GPTTextGenerator.Entities.Interfaces;
+using GPTTextGenerator.Entities.Models.Interactors;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace MainPlugin.Infrastructure.Repositories
+namespace GPTTextGenerator.Infrastructure.Repositories
 {
     public class NPCRepository : IRepository<SmartNPC>
     {

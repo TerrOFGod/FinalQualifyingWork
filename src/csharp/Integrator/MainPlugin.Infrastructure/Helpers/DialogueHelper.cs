@@ -1,13 +1,14 @@
-﻿using MainPlugin.Core.Entities.Models.Interactions;
-using MainPlugin.Core.Entities.Models.Interactors;
-using MainPlugin.Infrastructure.Processors;
+﻿using GPTTextGenerator.Entities.Models.Interactions;
+using GPTTextGenerator.Entities.Models.Interactors;
+using Analyzer = GPTTextGenerator.Infrastructure.Analyzer.Analyzer;
+using GPTTextGenerator.Infrastructure.Processors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainPlugin.Infrastructure.Helpers
+namespace GPTTextGenerator.Infrastructure.Helpers
 {
     public static class DialogueHelper
     {
@@ -16,5 +17,11 @@ namespace MainPlugin.Infrastructure.Helpers
 
         public static DialogueEntry DecodeAPIBranchedDialogueResponse(this SmartNPC npc, string response)
             => new Postprocessor().DecodeAPIBranchedDialogueResponse(npc, response);
+
+        public static List<string> GetAllDialogueBranches(this DialogueEntry entry)
+            => new List<string>();
+
+        public static bool CheckDialogueCorrection(this List<string> dialogueBranches)
+            => true;
     }
 }

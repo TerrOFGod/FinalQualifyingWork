@@ -1,28 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.IO;
-using IronPython.Zlib;
-using Tensorflow;
+﻿using Tensorflow;
 //using Microsoft.PythonTools.Interpreter;
-using Tensorflow.Keras;
-using Tensorflow.Keras.Layers;
-using Tensorflow.Operations.Initializers;
 using IronPython.Compiler;
+using GPTTextGenerator.Entities.Interfaces.Processors;
 
-namespace MainPlugin.Infrastructure.Analyzer
+namespace GPTTextGenerator.Infrastructure.Analyzer
 {
-    public class Analyzer
+    public class Analyzer : IAnalyzer
     {
         private static SavedModel model;
         private static Tokenizer tokenizer;
 
-        public bool CheckCorrections(string dialogue)
+        public Analyzer()
+        {
+
+        }
+
+        public bool CheckCorrections(List<string> dialogueBranches)
         {
             return true;
         }
 
-/*        public bool CheckCorrections(string dialogue)
+/*        public bool CheckCorrections(string dialogueBranches)
         {
             using (Py.GIL())
             {
