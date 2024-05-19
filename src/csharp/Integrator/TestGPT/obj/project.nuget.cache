@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "aSU735r78+U/gSRu2K7l6+wGyFUN06FqfNC1HMNDlXXPEZF0uQ3IVqHwXoXvh2ciVW2/8kyeNQ4ycMQZ17ORwA==",
+  "dgSpecHash": "YEA18wefR0zCRneGXWmFL5T//ntWKnpS2iGifs60utsEbgfNvu8GnherqpCXkI6DTX5tOJfqw6fBdQvGljyDFQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\TestGPT\\TestGPT.csproj",
   "expectedPackageFiles": [
@@ -32,7 +32,9 @@
     "C:\\Users\\LordVT\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.1\\system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
-    "C:\\Users\\LordVT\\.nuget\\packages\\tensorflow.net\\0.150.0\\tensorflow.net.0.150.0.nupkg.sha512"
+    "C:\\Users\\LordVT\\.nuget\\packages\\tensorflow.net\\0.150.0\\tensorflow.net.0.150.0.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\gpt-text-generator-entities\\1.1.14\\gpt-text-generator-entities.1.1.14.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\gpt-text-generator-infrastructure\\1.1.14\\gpt-text-generator-infrastructure.1.1.14.nupkg.sha512"
   ],
   "logs": []
 }
