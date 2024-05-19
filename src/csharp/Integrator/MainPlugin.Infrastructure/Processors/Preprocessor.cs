@@ -1,4 +1,5 @@
 ﻿using GPTTextGenerator.Entities.Interfaces.Processors;
+using GPTTextGenerator.Entities.Models.Interactions;
 using GPTTextGenerator.Entities.Models.Interactors;
 using System.Linq;
 using static IronPython.Modules.PythonIterTools;
@@ -24,6 +25,29 @@ namespace GPTTextGenerator.Infrastructure.Processors
             string endBranch = string.Join('.', list);
 
             return $"{entry}. {characteristics}. {society}. {behavior}. {branchesLimitation} Оформи в виде нумерованного цифрового списка. Формат списка regex: @\"(?<variant>\\d+(?:\\.\\d+)*)\\s+(?<playerName>\\w+)\\s*:\\s*\"\"(?<playerPhrase>[^\"\"]+)\"\"\\s+(?<npcName>\\w+)\\s*:\\s*\"\"(?<npcPhrase>[^\"\"]+)\"\"\". Конечное значение {endBranch} . Варианты игрока первого уровня имеют формат цифры и находятся на уровне вступительной фразы, то есть вступление 0 варианты игрока: 1, 2, .....";
+        }
+
+        public string GenerateBasicSteppedDialogueRequest(SmartNPC npc, DialogueNode prevNode, int variety)
+        {
+            
+            string entry = $"Сгенерируй следующую ступень диалога для NPC {npc.Name}";
+            string characteristics = $"Личностные качества: {string.Join(", ", npc.PersonalCharacteristics)}";
+            string society = "Социальные связи: " + string.Join(", ",
+                npc.SocialConnections.Select(con => $"{con.RelatedNPC.Name} (тип связи - {con.Type})"));
+            string behavior = $"Поведение: {string.Join(", ", npc.Behaviors)}";
+            string prevDialogueStep = $"Предыдущая фраза диалога игрока: {(prevNode != null ? prevNode.InterlocutorPlayer + ": " + prevNode.PlayerText : "")}\nПредыдущая фраза диалога NPC: {(prevNode != null ? npc.Name + ": " + prevNode.NPCText : "")}";
+            List<string> list = new List<string>();
+            //list.Add("0");
+            for (int i = 0; i < variety; i++)
+            {
+                list.Add($"\n {i + 1}. Игрок: [Вариант {i + 1}] \n {npc.Name}: [Ответ на Вариант {i + 1}]");
+            }
+
+            string variantJoin = string.Join(' ', list);
+            string formatter = $"Ответ должен быть в формате: {variantJoin}";
+            string prompt = $"{entry} (тип - {npc.Type}, возраст - {npc.Age} лет, внешность - {npc.Appearance}, профессия - {npc.Profession}). {characteristics}. {society}. {behavior}. {prevDialogueStep}. {formatter}";
+
+            return prompt;
         }
 
         private string GenerateBranchesLimitationString(SmartNPC npc, int depth, int variety)
