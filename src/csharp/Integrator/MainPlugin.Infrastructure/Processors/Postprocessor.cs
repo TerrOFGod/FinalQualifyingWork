@@ -20,7 +20,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
             foreach (var line in result)
             {
                 var node = new DialogueNode();
-                node.Name = prevNodeKey + "." + line.Key;
+                node.Name = prevNodeKey == "" ? line.Key : prevNodeKey + line.Key;
                 node.Childs = new List<DialogueNode>();
                 node.InterlocutorNPC = npcName;
                 node.NPCText = line.Value[npcName]["NPC"];
@@ -99,7 +99,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
 
         private Dictionary<string, Dictionary<string, Dictionary<string, string>>> ParseTextToDict(string text)
         {
-            string pattern = @"(?<variant>\d+(?:\.\d+)*)\s+(?<playerName>\w+)\s*:\s*""(?<playerPhrase>[^""]+)""\s+(?<npcName>\w+)\s*:\s*""(?<npcPhrase>[^""]+)""";
+            string pattern = @"(?<variant>\d.)\s+(?<playerName>\w+)\s*:\s*""(?<playerPhrase>[^""]+)""\s+(?<npcName>\w+)\s*:\s*""(?<npcPhrase>[^""]+)""";
             MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.Singleline);
 
             Dictionary<string, Dictionary<string, Dictionary<string, string>>> groups = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();

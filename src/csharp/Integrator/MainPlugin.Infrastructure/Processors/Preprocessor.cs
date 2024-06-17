@@ -40,13 +40,13 @@ namespace GPTTextGenerator.Infrastructure.Processors
             //list.Add("0");
             for (int i = 0; i < variety; i++)
             {
-                list.Add($"\n {i + 1}. Игрок: [Вариант {i + 1}] \n {npc.Name}: [Ответ на Вариант {i + 1}]");
+                list.Add($"\n {i + 1}. Игрок: \"[Вариант {i + 1}]\" \n {npc.Name}: \"[Ответ на Вариант {i + 1}]\"");
             }
 
             string variantJoin = string.Join(" ", list);
             string formatter = $"Ответ должен быть в формате: {variantJoin}";
             string prompt = 
-                $"{entry} (тип - {npc.Type}, возраст - {npc.Age} лет, внешность - {npc.Appearance}, профессия - {npc.Profession}). {characteristics}. {society}. {behavior}. {prevDialogueStep}. {formatter}";
+                $"{entry} (тип - {npc.Type}, возраст - {npc.Age} лет, внешность - {npc.Appearance}, профессия - {npc.Profession}). {characteristics}. {society}. {behavior}. {prevDialogueStep}. {formatter}. Длина фраз не более 2 предложений.";
 
             return prompt;
         }
@@ -59,7 +59,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
             string society = "Социальные связи: " + string.Join(", ",
                 npc.SocialConnections.Select(con => $"{con.RelatedNPC.Name} (тип связи - {con.Type})"));
             string behavior = $"Поведение: {string.Join(", ", npc.Behaviors)}";
-            string prompt = $"{entry} (тип - {npc.Type}, возраст - {npc.Age} лет, внешность - {npc.Appearance}, профессия - {npc.Profession}). {characteristics}. {society}. {behavior}.";
+            string prompt = $"{entry} (тип - {npc.Type}, возраст - {npc.Age} лет, внешность - {npc.Appearance}, профессия - {npc.Profession}). {characteristics}. {society}. {behavior}. Напиши только фразу. Не более 2 предложений.";
 
             return prompt;
         }

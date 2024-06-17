@@ -19,10 +19,10 @@ namespace GPTTextGenerator.Infrastructure.Extensions
         {
             DialogueEntry root = new();
             root.Text = await client.GenerateIntroductoryPhrase(npc);
-            root.Childs = new();
+            root.Childs = new List<DialogueNode>();
 
             List<DialogueNode> currentNodes = new List<DialogueNode>();
-            currentNodes.Add(new DialogueNode { NPCText = root.Text, InterlocutorNPC = npc.Name, PlayerText = "", InterlocutorPlayer = "Игрок" });
+            currentNodes.Add(new DialogueNode { Name = "", NPCText = root.Text, InterlocutorNPC = npc.Name, PlayerText = "", InterlocutorPlayer = "Игрок" });
 
             for (int i = 0; i < depth; i++)
             {
@@ -53,8 +53,6 @@ namespace GPTTextGenerator.Infrastructure.Extensions
 
                 currentNodes = newNodes;
             }
-
-            root.Childs = currentNodes;
 
             return root;
         }
