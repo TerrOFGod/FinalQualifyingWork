@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GPTTextGenerator.Entities.Interfaces;
-public interface IPlugin
+namespace GPTTextGenerator.Entities.Interfaces
 {
-    string Name { get; }
-    string Description { get; }
-    void GenerateQuest();
+    public interface IPlugin
+    {
+        string Name { get; }
+        string Description { get; }
+        void GenerateQuest();
+    }
 }
-

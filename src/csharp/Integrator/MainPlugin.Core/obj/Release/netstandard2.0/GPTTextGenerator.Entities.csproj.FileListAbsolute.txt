@@ -1,0 +1,5 @@
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\netstandard2.0\GPTTextGenerator.Entities.csproj.AssemblyReference.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\netstandard2.0\GPTTextGenerator.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\netstandard2.0\GPTTextGenerator.Entities.AssemblyInfoInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\netstandard2.0\GPTTextGenerator.Entities.AssemblyInfo.cs
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Core\obj\Release\netstandard2.0\GPTTextGenerator.Entities.csproj.CoreCompileInputs.cache

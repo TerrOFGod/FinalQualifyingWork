@@ -1,6 +1,7 @@
 ﻿using GPTTextGenerator.Entities.Models.Objects;
 using GPTTextGenerator.Entities.Interfaces;
 using GPTTextGenerator.Entities.Models.Actions;
+using System.Collections.Generic;
 
 namespace GPTTextGenerator.Entities.Models.Interactions
 {

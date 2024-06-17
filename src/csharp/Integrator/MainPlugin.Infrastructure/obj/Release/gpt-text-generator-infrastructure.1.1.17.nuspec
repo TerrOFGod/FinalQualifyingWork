@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>gpt-text-generator-infrastructure</id>
+    <version>1.1.17</version>
+    <title>GPTTextGenerator.Infrastructure</title>
+    <authors>InanisPluvia</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net5.0">
+        <dependency id="gpt-text-generator-entities" version="1.1.17" exclude="Build,Analyzers" />
+        <dependency id="BERTTokenizers" version="1.2.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="5.0.17" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ML" version="3.0.1" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ML.OnnxRuntime" version="1.18.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ML.OnnxRuntime.Managed" version="1.18.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.ML.OnnxTransformer" version="3.0.1" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="RestSharp" version="111.2.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Integrator\MainPlugin.Infrastructure\bin\Release\net5.0\GPTTextGenerator.Infrastructure.dll" target="lib\net5.0\GPTTextGenerator.Infrastructure.dll" />
+  </files>
+</package>

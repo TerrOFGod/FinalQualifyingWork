@@ -2,11 +2,7 @@
 using GPTTextGenerator.Entities.Models.Interactions;
 using GPTTextGenerator.Entities.Models.Interactors;
 using GPTTextGenerator.Infrastructure.Extensions;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using Newtonsoft.Json.Linq;
 using System.Text.RegularExpressions;
-using System.Xml.Linq;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace GPTTextGenerator.Infrastructure.Processors
 {
@@ -14,6 +10,30 @@ namespace GPTTextGenerator.Infrastructure.Processors
     {
         private static string npcName = "";
         private static string playerName = "";
+
+        public List<DialogueNode> DecodeAPISteppedDialogueResponse(SmartNPC npc, string prevNodeKey, string response)
+        { 
+            List<DialogueNode> dialogueNodes = new List<DialogueNode>();
+
+            var result = ParseTextToDict(response);
+
+            foreach (var line in result)
+            {
+                var node = new DialogueNode();
+                node.Name = prevNodeKey + "." + line.Key;
+                node.Childs = new List<DialogueNode>();
+                node.InterlocutorNPC = npcName;
+                node.NPCText = line.Value[npcName]["NPC"];
+                node.InterlocutorPlayer = playerName;
+                node.PlayerText = line.Value[playerName]["Player"];
+                var level = line.Key.Split('.', (char)StringSplitOptions.RemoveEmptyEntries).Length;
+                //Console.WriteLine(level);
+
+                dialogueNodes.Add(node);
+            }
+
+            return dialogueNodes;
+        }
 
         public DialogueEntry DecodeAPIBranchedDialogueResponse(SmartNPC npc, string response)
         {
@@ -54,7 +74,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
                 node.NPCText = line.Value[npcName]["NPC"];
                 node.InterlocutorPlayer = playerName;
                 node.PlayerText = line.Value[playerName]["Player"];
-                var level = line.Key.Split('.', StringSplitOptions.RemoveEmptyEntries).Length;
+                var level = line.Key.Split('.', (char)StringSplitOptions.RemoveEmptyEntries).Length;
                 //Console.WriteLine(level);
 
                 if (level - 1 == 0)
@@ -63,7 +83,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
                 }
                 else
                 {
-                    var parent = dialogueEntry.GetDialogueNodeByName(line.Key[..^2]);
+                    var parent = dialogueEntry.GetDialogueNodeByName(line.Key.Remove(line.Key.Length - 2));
                     parent.AddChildToNode(node);
                 }
             }
@@ -73,7 +93,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
 
         private DialogueNode ParseBranch(string separator)
         {
-            DialogueNode branch = new();
+            DialogueNode branch = new DialogueNode();
             return branch;
         }
 
@@ -82,7 +102,7 @@ namespace GPTTextGenerator.Infrastructure.Processors
             string pattern = @"(?<variant>\d+(?:\.\d+)*)\s+(?<playerName>\w+)\s*:\s*""(?<playerPhrase>[^""]+)""\s+(?<npcName>\w+)\s*:\s*""(?<npcPhrase>[^""]+)""";
             MatchCollection matches = Regex.Matches(text, pattern, RegexOptions.Singleline);
 
-            Dictionary<string, Dictionary<string, Dictionary<string, string>>> groups = new();
+            Dictionary<string, Dictionary<string, Dictionary<string, string>>> groups = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
 
             foreach (Match match in matches)
             {
@@ -94,18 +114,18 @@ namespace GPTTextGenerator.Infrastructure.Processors
 
                 if (!groups.ContainsKey(key))
                 {
-                    groups[key] = new();
+                    groups[key] = new Dictionary<string, Dictionary<string, string>>();
                 }
 
                 if (!groups[key].ContainsKey(playerName))
                 {
-                    groups[key][playerName] = new();
+                    groups[key][playerName] = new Dictionary<string, string>();
                 }
                 groups[key][playerName]["Player"] = playerPhrase;
 
                 if (!groups[key].ContainsKey(npcName))
                 {
-                    groups[key][npcName] = new();
+                    groups[key][npcName] = new Dictionary<string, string>();
                 }
                 groups[key][npcName]["NPC"] = npcPhrase;
             }

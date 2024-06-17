@@ -1,5 +1,6 @@
 ﻿using GPTTextGenerator.Entities.Enums;
 using GPTTextGenerator.Entities.Interfaces;
+using System.Collections.Generic;
 
 namespace GPTTextGenerator.Entities.Models.Misc
 {

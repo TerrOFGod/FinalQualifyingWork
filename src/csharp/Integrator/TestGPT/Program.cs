@@ -2,6 +2,7 @@
 using GPTTextGenerator.Entities.Models.Interactions;
 using GPTTextGenerator.Entities.Models.Interactors;
 using GPTTextGenerator.Infrastructure.API;
+using GPTTextGenerator.Infrastructure.Extensions;
 using GPTTextGenerator.Infrastructure.Helpers;
 
 string key = "sk-or-vv-cf448da6158b0c0215d461b7fefdd9465d76648a70ae54695421dbbdfa56c2c1";
@@ -65,17 +66,11 @@ npc.Behaviors = new List<string>() { "Агрессивный в бою", "Дру
 
 GptApiClient client = new(key, "https://api.vsegpt.ru/v1/", "anthropic/claude-3-haiku");
 
-var requestString = npc.GenerateBasicBranchedDialogueRequest(2, 2);
-
-string responseString;
 DialogueEntry branchedDialogue;
 
 do
 {
-    responseString = await client.SendRequest(requestString);
-
-    branchedDialogue = npc.DecodeAPIBranchedDialogueResponse(responseString);
-
+    branchedDialogue = await client.GenerateDialogueTree(npc, 2, 2);
 } while (!branchedDialogue.GetAllDialogueBranches().CheckDialogueCorrection());
 
 WriteDialogue(branchedDialogue);

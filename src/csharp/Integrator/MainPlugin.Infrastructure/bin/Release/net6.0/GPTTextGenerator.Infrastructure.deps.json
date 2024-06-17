@@ -6,16 +6,32 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "GPTTextGenerator.Infrastructure/1.1.14": {
+      "GPTTextGenerator.Infrastructure/1.1.15": {
         "dependencies": {
+          "BERTTokenizers": "1.2.0",
           "IronPython": "3.4.1",
           "Microsoft.EntityFrameworkCore": "6.0.29",
+          "Microsoft.ML": "3.0.1",
+          "Microsoft.ML.OnnxRuntime": "1.18.0",
+          "Microsoft.ML.OnnxRuntime.Managed": "1.18.0",
+          "Microsoft.ML.OnnxTransformer": "3.0.1",
           "Newtonsoft.Json": "13.0.3",
+          "RestSharp": "111.2.0",
           "TensorFlow.NET": "0.150.0",
-          "gpt-text-generator-entities": "1.1.14"
+          "TorchSharp": "0.102.5",
+          "TsBERT": "1.1.0",
+          "gpt-text-generator-entities": "1.1.15"
         },
         "runtime": {
           "GPTTextGenerator.Infrastructure.dll": {}
+        }
+      },
+      "BERTTokenizers/1.2.0": {
+        "runtime": {
+          "lib/net6.0/BERTTokenizers.dll": {
+            "assemblyVersion": "1.2.0.0",
+            "fileVersion": "1.2.0.0"
+          }
         }
       },
       "DynamicLanguageRuntime/1.3.4": {
@@ -38,6 +54,55 @@
         }
       },
       "Fody/6.7.0": {},
+      "FSharp.Core/6.0.6": {
+        "runtime": {
+          "lib/netstandard2.1/FSharp.Core.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.622.46901"
+          }
+        },
+        "resources": {
+          "lib/netstandard2.1/cs/FSharp.Core.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/netstandard2.1/de/FSharp.Core.resources.dll": {
+            "locale": "de"
+          },
+          "lib/netstandard2.1/es/FSharp.Core.resources.dll": {
+            "locale": "es"
+          },
+          "lib/netstandard2.1/fr/FSharp.Core.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/netstandard2.1/it/FSharp.Core.resources.dll": {
+            "locale": "it"
+          },
+          "lib/netstandard2.1/ja/FSharp.Core.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/netstandard2.1/ko/FSharp.Core.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/netstandard2.1/pl/FSharp.Core.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/netstandard2.1/pt-BR/FSharp.Core.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/netstandard2.1/ru/FSharp.Core.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/netstandard2.1/tr/FSharp.Core.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/netstandard2.1/zh-Hans/FSharp.Core.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll": {
+            "locale": "zh-Hant"
+          }
+        }
+      },
       "Google.Protobuf/3.21.12": {
         "runtime": {
           "lib/net5.0/Google.Protobuf.dll": {
@@ -67,6 +132,17 @@
           "lib/net6.0/IronPython.dll": {
             "assemblyVersion": "3.4.1.0",
             "fileVersion": "3.4.1.1000"
+          }
+        }
+      },
+      "IronSnappy/1.3.0": {
+        "dependencies": {
+          "System.Memory": "4.5.5"
+        },
+        "runtime": {
+          "lib/netstandard2.1/IronSnappy.dll": {
+            "assemblyVersion": "1.3.0.0",
+            "fileVersion": "1.3.0.0"
           }
         }
       },
@@ -199,6 +275,386 @@
           }
         }
       },
+      "Microsoft.ML/3.0.1": {
+        "dependencies": {
+          "Microsoft.ML.CpuMath": "3.0.1",
+          "Microsoft.ML.DataView": "3.0.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.CodeDom": "6.0.0",
+          "System.Collections.Immutable": "6.0.0",
+          "System.Memory": "4.5.5",
+          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Threading.Channels": "4.7.1"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          },
+          "lib/netstandard2.0/Microsoft.ML.Data.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          },
+          "lib/netstandard2.0/Microsoft.ML.KMeansClustering.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          },
+          "lib/netstandard2.0/Microsoft.ML.PCA.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          },
+          "lib/netstandard2.0/Microsoft.ML.StandardTrainers.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          },
+          "lib/netstandard2.0/Microsoft.ML.Transforms.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          },
+          "lib/netstandard2.0/Microsoft.ML.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libLdaNative.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libLdaNative.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libLdaNative.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libLdaNative.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libLdaNative.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/LdaNative.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.2100.124.6804"
+          },
+          "runtimes/win-x64/native/LdaNative.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.2100.124.6804"
+          },
+          "runtimes/win-x86/native/LdaNative.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.2100.124.6804"
+          }
+        }
+      },
+      "Microsoft.ML.CpuMath/3.0.1": {
+        "dependencies": {
+          "System.Numerics.Tensors": "8.0.0"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.ML.CpuMath.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          }
+        }
+      },
+      "Microsoft.ML.DataView/3.0.1": {
+        "dependencies": {
+          "System.Collections.Immutable": "6.0.0",
+          "System.Memory": "4.5.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.DataView.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          }
+        }
+      },
+      "Microsoft.ML.OnnxRuntime/1.18.0": {
+        "dependencies": {
+          "Microsoft.ML.OnnxRuntime.Managed": "1.18.0"
+        },
+        "runtimeTargets": {
+          "runtimes/android/native/onnxruntime.aar": {
+            "rid": "android",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/Info.plist": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/coreml_provider_factory.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/cpu_provider_factory.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/onnxruntime_c_api.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/onnxruntime_cxx_api.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/onnxruntime_cxx_inline.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/onnxruntime_float16.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/onnxruntime_run_options_config_keys.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Headers/onnxruntime_session_options_config_keys.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/Info.plist": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64/onnxruntime.framework/onnxruntime": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/coreml_provider_factory.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/cpu_provider_factory.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/onnxruntime_c_api.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/onnxruntime_cxx_api.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/onnxruntime_cxx_inline.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/onnxruntime_float16.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/onnxruntime_run_options_config_keys.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Headers/onnxruntime_session_options_config_keys.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/Info.plist": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-maccatalyst/onnxruntime.framework/onnxruntime": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/coreml_provider_factory.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/cpu_provider_factory.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/onnxruntime_c_api.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/onnxruntime_cxx_api.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/onnxruntime_cxx_inline.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/onnxruntime_float16.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/onnxruntime_run_options_config_keys.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Headers/onnxruntime_session_options_config_keys.h": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/Info.plist": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/ios/native/onnxruntime.xcframework/ios-arm64_x86_64-simulator/onnxruntime.framework/onnxruntime": {
+            "rid": "ios",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libonnxruntime.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libonnxruntime.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libonnxruntime.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libonnxruntime.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/onnxruntime.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.18.24.515"
+          },
+          "runtimes/win-arm64/native/onnxruntime.lib": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/onnxruntime_providers_shared.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "1.18.24.515"
+          },
+          "runtimes/win-arm64/native/onnxruntime_providers_shared.lib": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/onnxruntime.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.18.24.515"
+          },
+          "runtimes/win-x64/native/onnxruntime.lib": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/onnxruntime_providers_shared.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "1.18.24.515"
+          },
+          "runtimes/win-x64/native/onnxruntime_providers_shared.lib": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/onnxruntime.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.18.24.515"
+          },
+          "runtimes/win-x86/native/onnxruntime.lib": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/onnxruntime_providers_shared.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "1.18.24.515"
+          },
+          "runtimes/win-x86/native/onnxruntime_providers_shared.lib": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Microsoft.ML.OnnxRuntime.Managed/1.18.0": {
+        "dependencies": {
+          "System.Memory": "4.5.5"
+        },
+        "runtime": {
+          "lib/net6.0/Microsoft.ML.OnnxRuntime.dll": {
+            "assemblyVersion": "0.0.0.0",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "Microsoft.ML.OnnxTransformer/3.0.1": {
+        "dependencies": {
+          "Google.Protobuf": "3.21.12",
+          "Microsoft.ML": "3.0.1",
+          "Microsoft.ML.OnnxRuntime.Managed": "1.18.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.ML.OnnxTransformer.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "3.0.124.6804"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "Microsoft.NETCore.Targets/1.1.0": {},
       "Mono.Unix/7.1.0-final.1.21458.1": {
         "runtime": {
           "lib/net6.0/Mono.Unix.dll": {
@@ -315,6 +771,18 @@
           }
         }
       },
+      "Protobuf.FSharp/0.1.3": {
+        "dependencies": {
+          "FSharp.Core": "6.0.6",
+          "Google.Protobuf": "3.21.12"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Protobuf.FSharp.dll": {
+            "assemblyVersion": "0.1.3.0",
+            "fileVersion": "0.1.3.0"
+          }
+        }
+      },
       "Protobuf.Text/0.7.2": {
         "dependencies": {
           "Google.Protobuf": "3.21.12"
@@ -337,6 +805,14 @@
           }
         }
       },
+      "RestSharp/111.2.0": {
+        "runtime": {
+          "lib/net6.0/RestSharp.dll": {
+            "assemblyVersion": "111.2.0.0",
+            "fileVersion": "111.2.0.0"
+          }
+        }
+      },
       "Serilog/2.10.0": {
         "runtime": {
           "lib/netstandard2.1/Serilog.dll": {
@@ -353,6 +829,54 @@
           "lib/net5.0/Serilog.Sinks.Console.dll": {
             "assemblyVersion": "4.1.0.0",
             "fileVersion": "4.1.0.0"
+          }
+        }
+      },
+      "SharpZipLib/1.4.0": {
+        "runtime": {
+          "lib/net6.0/ICSharpCode.SharpZipLib.dll": {
+            "assemblyVersion": "1.4.0.12",
+            "fileVersion": "1.4.0.12"
+          }
+        }
+      },
+      "SkiaSharp/2.88.6": {
+        "dependencies": {
+          "SkiaSharp.NativeAssets.Win32": "2.88.6",
+          "SkiaSharp.NativeAssets.macOS": "2.88.6"
+        },
+        "runtime": {
+          "lib/net6.0/SkiaSharp.dll": {
+            "assemblyVersion": "2.88.0.0",
+            "fileVersion": "2.88.6.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.macOS/2.88.6": {
+        "runtimeTargets": {
+          "runtimes/osx/native/libSkiaSharp.dylib": {
+            "rid": "osx",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Win32/2.88.6": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/libSkiaSharp.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libSkiaSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x86/native/libSkiaSharp.dll": {
+            "rid": "win-x86",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -380,8 +904,77 @@
           }
         }
       },
+      "System.IO/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0",
+          "System.Text.Encoding": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
       "System.Memory/4.5.5": {},
+      "System.Numerics.Tensors/8.0.0": {
+        "runtime": {
+          "lib/net6.0/System.Numerics.Tensors.dll": {
+            "assemblyVersion": "8.0.0.0",
+            "fileVersion": "8.0.23.53103"
+          }
+        }
+      },
+      "System.Reflection/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.IO": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Emit.ILGeneration/4.3.0": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Emit.Lightweight/4.3.0": {
+        "dependencies": {
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Emit.ILGeneration": "4.3.0",
+          "System.Reflection.Primitives": "4.3.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Reflection.Primitives/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Runtime/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0"
+        }
+      },
       "System.Runtime.CompilerServices.Unsafe/6.0.0": {},
+      "System.Text.Encoding/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
+      "System.Threading.Channels/4.7.1": {},
+      "System.Threading.Tasks/4.3.0": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0",
+          "Microsoft.NETCore.Targets": "1.1.0",
+          "System.Runtime": "4.3.0"
+        }
+      },
       "TensorFlow.NET/0.150.0": {
         "dependencies": {
           "MethodBoundaryAspect.Fody": "2.0.149",
@@ -398,7 +991,81 @@
           }
         }
       },
-      "gpt-text-generator-entities/1.1.14": {
+      "TfCheckpoint/1.0.0": {
+        "dependencies": {
+          "FSharp.Core": "6.0.6",
+          "IronSnappy": "1.3.0",
+          "TfProto": "1.0.0"
+        },
+        "runtime": {
+          "lib/net5.0/TfCheckpoint.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TfProto/1.0.0": {
+        "dependencies": {
+          "FSharp.Core": "6.0.6",
+          "Protobuf.FSharp": "0.1.3"
+        },
+        "runtime": {
+          "lib/netstandard2.1/TfProto.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TorchSharp/0.102.5": {
+        "dependencies": {
+          "Google.Protobuf": "3.21.12",
+          "SharpZipLib": "1.4.0",
+          "SkiaSharp": "2.88.6",
+          "System.Memory": "4.5.5"
+        },
+        "runtime": {
+          "lib/net6.0/TorchSharp.dll": {
+            "assemblyVersion": "0.102.5.0",
+            "fileVersion": "0.102.5.0"
+          }
+        },
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libLibTorchSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-arm64/native/libLibTorchSharp.dylib": {
+            "rid": "osx-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/osx-x64/native/libLibTorchSharp.dylib": {
+            "rid": "osx-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/LibTorchSharp.dll": {
+            "rid": "win-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
+      "TsBERT/1.1.0": {
+        "dependencies": {
+          "FSharp.Core": "6.0.6",
+          "TfCheckpoint": "1.0.0",
+          "TorchSharp": "0.102.5"
+        },
+        "runtime": {
+          "lib/net6.0/TsBERT.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
+        }
+      },
+      "gpt-text-generator-entities/1.1.15": {
         "runtime": {
           "GPTTextGenerator.Entities.dll": {}
         }
@@ -406,10 +1073,17 @@
     }
   },
   "libraries": {
-    "GPTTextGenerator.Infrastructure/1.1.14": {
+    "GPTTextGenerator.Infrastructure/1.1.15": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "BERTTokenizers/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-g9sA7AIvzc0lzt1JZ4XLsus67lKHcxRqYqIWCrVs/80WRLJMxeRVyGFps4ZHE4Qan1JeyKZOB5pzBvtL2SM9dQ==",
+      "path": "berttokenizers/1.2.0",
+      "hashPath": "berttokenizers.1.2.0.nupkg.sha512"
     },
     "DynamicLanguageRuntime/1.3.4": {
       "type": "package",
@@ -425,6 +1099,13 @@
       "path": "fody/6.7.0",
       "hashPath": "fody.6.7.0.nupkg.sha512"
     },
+    "FSharp.Core/6.0.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ZSwKKw+q50wDYHNs12WkKKgZ5vJScN2+cbq6+4jvn8H/D2W8rGMlybGNLHSF96v/Igx680mV7fPTtQe3V/quxg==",
+      "path": "fsharp.core/6.0.6",
+      "hashPath": "fsharp.core.6.0.6.nupkg.sha512"
+    },
     "Google.Protobuf/3.21.12": {
       "type": "package",
       "serviceable": true,
@@ -438,6 +1119,13 @@
       "sha512": "sha512-2CKriGKn8KAdEHTpV6umPaEA5kq2tod5npH1V07JeEetJO0PqNYLD7ovJcUB4ZfPVPhwdrlGkOeqyJx8EGGJVA==",
       "path": "ironpython/3.4.1",
       "hashPath": "ironpython.3.4.1.nupkg.sha512"
+    },
+    "IronSnappy/1.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EFkwQ8C0RlQHM1UraPL6Yaino+JbPlj5NOVlX4PbnAW8YcN6uEFqfxZAkkIuTZTVKyc9IIpUAt+nZv1Tp4PGiA==",
+      "path": "ironsnappy/1.3.0",
+      "hashPath": "ironsnappy.1.3.0.nupkg.sha512"
     },
     "MethodBoundaryAspect.Fody/2.0.149": {
       "type": "package",
@@ -523,6 +1211,62 @@
       "path": "microsoft.extensions.primitives/6.0.0",
       "hashPath": "microsoft.extensions.primitives.6.0.0.nupkg.sha512"
     },
+    "Microsoft.ML/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AE4DFwsDNVM5+2RVH3X9mRsqPSs+DrEd7TVA5TyLxPEerQC8wl5YTVQOVMsWCp2AroWGXEIny8xyXdOXfC+9BA==",
+      "path": "microsoft.ml/3.0.1",
+      "hashPath": "microsoft.ml.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.CpuMath/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-uVDD37oZMzPOtSpiACtVSOin7++4qohkAhsMO2l+90AToNPjatKTd6XiJoVI3+k7gxnP6UL7WJSafWOq4/s2KQ==",
+      "path": "microsoft.ml.cpumath/3.0.1",
+      "hashPath": "microsoft.ml.cpumath.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.DataView/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mkZt1r6Nx5CAoD3klhC7VMQFzwWMHHjoYpv3X9u+GMvTMbSRaDdiA88HUoOzT7kCeq4/L1nKctmrByhLK28Xjw==",
+      "path": "microsoft.ml.dataview/3.0.1",
+      "hashPath": "microsoft.ml.dataview.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.ML.OnnxRuntime/1.18.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-K379Dh/KZAm0RwrieOueiNFsES5/0qr5f9aHYA7ZU04AJa0U5BxvAKc26DTwjVpJ6q46JXTK9TzVYOeQuVZyTg==",
+      "path": "microsoft.ml.onnxruntime/1.18.0",
+      "hashPath": "microsoft.ml.onnxruntime.1.18.0.nupkg.sha512"
+    },
+    "Microsoft.ML.OnnxRuntime.Managed/1.18.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tXjZ8nCjFJZSw8qltPFwpiyS6WTB1uxRNiWVujzr/nlwwtpMlE8wIF0JvuaxsE+LzZzNGAeYggKxbrrafRxwJw==",
+      "path": "microsoft.ml.onnxruntime.managed/1.18.0",
+      "hashPath": "microsoft.ml.onnxruntime.managed.1.18.0.nupkg.sha512"
+    },
+    "Microsoft.ML.OnnxTransformer/3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-14b9/8JzR05eu41cc52ay0VVEY+gdTtMThyzWcBAexHbRG2kCEzuGWlngQSmgR2qV1zocxVAnm1+37lgjuTdUw==",
+      "path": "microsoft.ml.onnxtransformer/3.0.1",
+      "hashPath": "microsoft.ml.onnxtransformer.3.0.1.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aOZA3BWfz9RXjpzt0sRJJMjAscAUm3Hoa4UWAfceV9UTYxgwZ1lZt5nO2myFf+/jetYQo4uTP7zS8sJY67BBxg==",
+      "path": "microsoft.netcore.targets/1.1.0",
+      "hashPath": "microsoft.netcore.targets.1.1.0.nupkg.sha512"
+    },
     "Mono.Unix/7.1.0-final.1.21458.1": {
       "type": "package",
       "serviceable": true,
@@ -544,6 +1288,13 @@
       "path": "oneof/3.0.263",
       "hashPath": "oneof.3.0.263.nupkg.sha512"
     },
+    "Protobuf.FSharp/0.1.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1ew2flKvGXx/5wdXd4Yh2P8QISTcAn/voDYGYiNPo0jVmBd9c8MnEZB1m+1kYRcO2XjB7dC/0T/NEXTA0pkwtw==",
+      "path": "protobuf.fsharp/0.1.3",
+      "hashPath": "protobuf.fsharp.0.1.3.nupkg.sha512"
+    },
     "Protobuf.Text/0.7.2": {
       "type": "package",
       "serviceable": true,
@@ -558,6 +1309,13 @@
       "path": "razorvine.pickle/1.4.0",
       "hashPath": "razorvine.pickle.1.4.0.nupkg.sha512"
     },
+    "RestSharp/111.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OkWr6AGM0zirdkRpxVOxXMWx9OHEIWrDzrpx1XIx5KyvTcmtjJVsKBscVkYTcFerhj5w5Bny7boRIV4a0ENGaQ==",
+      "path": "restsharp/111.2.0",
+      "hashPath": "restsharp.111.2.0.nupkg.sha512"
+    },
     "Serilog/2.10.0": {
       "type": "package",
       "serviceable": true,
@@ -571,6 +1329,34 @@
       "sha512": "sha512-K6N5q+5fetjnJPvCmkWOpJ/V8IEIoMIB1s86OzBrbxwTyHxdx3pmz4H+8+O/Dc/ftUX12DM1aynx/dDowkwzqg==",
       "path": "serilog.sinks.console/4.1.0",
       "hashPath": "serilog.sinks.console.4.1.0.nupkg.sha512"
+    },
+    "SharpZipLib/1.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CdkbBSPIpHD8xBlu+8kDJiqc1Tf9iV89BObnqcvEbwysXSj5h1MfaeLgeeaxPZmi7CTJO8FDofBBNxBW0Vml7A==",
+      "path": "sharpziplib/1.4.0",
+      "hashPath": "sharpziplib.1.4.0.nupkg.sha512"
+    },
+    "SkiaSharp/2.88.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wdfeBAQrEQCbJIRgAiargzP1Uy+0grZiG4CSgBnhAgcJTsPzlifIaO73JRdwIlT3TyBoeU9jEqzwFUhl4hTYnQ==",
+      "path": "skiasharp/2.88.6",
+      "hashPath": "skiasharp.2.88.6.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.macOS/2.88.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Sko9LFxRXSjb3OGh5/RxrVRXxYo48tr5NKuuSy6jB85GrYt8WRqVY1iLOLwtjPiVAt4cp+pyD4i30azanS64dw==",
+      "path": "skiasharp.nativeassets.macos/2.88.6",
+      "hashPath": "skiasharp.nativeassets.macos.2.88.6.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Win32/2.88.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7TzFO0u/g2MpQsTty4fyCDdMcfcWI+aLswwfnYXr3gtNS6VLKdMXPMeKpJa3pJSLnUBN6wD0JjuCe8OoLBQ6cQ==",
+      "path": "skiasharp.nativeassets.win32/2.88.6",
+      "hashPath": "skiasharp.nativeassets.win32.2.88.6.nupkg.sha512"
     },
     "System.CodeDom/6.0.0": {
       "type": "package",
@@ -593,12 +1379,61 @@
       "path": "system.diagnostics.diagnosticsource/6.0.1",
       "hashPath": "system.diagnostics.diagnosticsource.6.0.1.nupkg.sha512"
     },
+    "System.IO/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3qjaHvxQPDpSOYICjUoTsmoq5u6QJAFRUITgeT/4gqkF1bajbSmb1kwSxEA8AHlofqgcKJcM8udgieRNhaJ5Cg==",
+      "path": "system.io/4.3.0",
+      "hashPath": "system.io.4.3.0.nupkg.sha512"
+    },
     "System.Memory/4.5.5": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-XIWiDvKPXaTveaB7HVganDlOCRoj03l+jrwNvcge/t8vhGYKvqV+dMv6G4SAX2NoNmN0wZfVPTAlFwZcZvVOUw==",
       "path": "system.memory/4.5.5",
       "hashPath": "system.memory.4.5.5.nupkg.sha512"
+    },
+    "System.Numerics.Tensors/8.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fhODzTe9ON9IzmRfyVeA6L8yXOciMtpq1YufkRVBliggcVKZE+XDxqIn46+yF4PWR6wNPuDpXtPpuY86VcKxUA==",
+      "path": "system.numerics.tensors/8.0.0",
+      "hashPath": "system.numerics.tensors.8.0.0.nupkg.sha512"
+    },
+    "System.Reflection/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KMiAFoW7MfJGa9nDFNcfu+FpEdiHpWgTcS2HdMpDvt9saK3y/G4GwprPyzqjFH9NTaGPQeWNHU+iDlDILj96aQ==",
+      "path": "system.reflection/4.3.0",
+      "hashPath": "system.reflection.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit.ILGeneration/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-59tBslAk9733NXLrUJrwNZEzbMAcu8k344OYo+wfSVygcgZ9lgBdGIzH/nrg3LYhXceynyvTc8t5/GD4Ri0/ng==",
+      "path": "system.reflection.emit.ilgeneration/4.3.0",
+      "hashPath": "system.reflection.emit.ilgeneration.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.Emit.Lightweight/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oadVHGSMsTmZsAF864QYN1t1QzZjIcuKU3l2S9cZOwDdDueNTrqq1yRj7koFfIGEnKpt6NjpL3rOzRhs4ryOgA==",
+      "path": "system.reflection.emit.lightweight/4.3.0",
+      "hashPath": "system.reflection.emit.lightweight.4.3.0.nupkg.sha512"
+    },
+    "System.Reflection.Primitives/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
+      "path": "system.reflection.primitives/4.3.0",
+      "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
+    },
+    "System.Runtime/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JufQi0vPQ0xGnAczR13AUFglDyVYt4Kqnz1AZaiKZ5+GICq0/1MH/mO/eAJHt/mHW1zjKBJd7kV26SrxddAhiw==",
+      "path": "system.runtime/4.3.0",
+      "hashPath": "system.runtime.4.3.0.nupkg.sha512"
     },
     "System.Runtime.CompilerServices.Unsafe/6.0.0": {
       "type": "package",
@@ -607,6 +1442,27 @@
       "path": "system.runtime.compilerservices.unsafe/6.0.0",
       "hashPath": "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
     },
+    "System.Text.Encoding/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-BiIg+KWaSDOITze6jGQynxg64naAPtqGHBwDrLaCtixsa5bKiR8dpPOHA7ge3C0JJQizJE+sfkz1wV+BAKAYZw==",
+      "path": "system.text.encoding/4.3.0",
+      "hashPath": "system.text.encoding.4.3.0.nupkg.sha512"
+    },
+    "System.Threading.Channels/4.7.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6akRtHK/wab3246t4p5v3HQrtQk8LboOt5T4dtpNgsp3zvDeM4/Gx8V12t0h+c/W9/enUrilk8n6EQqdQorZAA==",
+      "path": "system.threading.channels/4.7.1",
+      "hashPath": "system.threading.channels.4.7.1.nupkg.sha512"
+    },
+    "System.Threading.Tasks/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
+      "path": "system.threading.tasks/4.3.0",
+      "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
+    },
     "TensorFlow.NET/0.150.0": {
       "type": "package",
       "serviceable": true,
@@ -614,7 +1470,35 @@
       "path": "tensorflow.net/0.150.0",
       "hashPath": "tensorflow.net.0.150.0.nupkg.sha512"
     },
-    "gpt-text-generator-entities/1.1.14": {
+    "TfCheckpoint/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-2LPbhWT52a6c02U69dvHeHTbQ4bxtOwozU1uj44rsjwRXY/gISfRY2VFwijQo3fspDwPgXe0U33al6EAe8hcpA==",
+      "path": "tfcheckpoint/1.0.0",
+      "hashPath": "tfcheckpoint.1.0.0.nupkg.sha512"
+    },
+    "TfProto/1.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NkJdk33p2drlNo9cQa01LbcQIWY3+LuoI0ty3t/r2qUNWWZan0oN2MdcdmPoFIgzxBu57fcDhJCpV52MdqZMbQ==",
+      "path": "tfproto/1.0.0",
+      "hashPath": "tfproto.1.0.0.nupkg.sha512"
+    },
+    "TorchSharp/0.102.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6rOpVTrvh4719IWYrHXzm802KZzKkP4t6tCkfyqQMnkqhoN1u9bQZT3m+w41yvhY7JN1uQ2SfznD/pNtX4Kj7g==",
+      "path": "torchsharp/0.102.5",
+      "hashPath": "torchsharp.0.102.5.nupkg.sha512"
+    },
+    "TsBERT/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Kn+iPc+qrD+PmYGeML/AlY+zP2aXmV5hj/k4gLnjR/6h2rxAon07CPMdc5mk2OoO+EvBYgXeHS+ZZvCl/rr+lA==",
+      "path": "tsbert/1.1.0",
+      "hashPath": "tsbert.1.1.0.nupkg.sha512"
+    },
+    "gpt-text-generator-entities/1.1.15": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

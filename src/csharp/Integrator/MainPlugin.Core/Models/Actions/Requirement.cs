@@ -1,4 +1,5 @@
 ﻿using GPTTextGenerator.Entities.Interfaces;
+using System;
 
 namespace GPTTextGenerator.Entities.Models.Actions
 {

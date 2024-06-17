@@ -1,93 +1,71 @@
-﻿using Tensorflow;
-//using Microsoft.PythonTools.Interpreter;
-using IronPython.Compiler;
+﻿using BERTTokenizers;
+using Microsoft.ML.OnnxRuntime;
+using Microsoft.ML.OnnxRuntime.Tensors;
 using GPTTextGenerator.Entities.Interfaces.Processors;
 
 namespace GPTTextGenerator.Infrastructure.Analyzer
 {
+    public struct BertInput
+    {
+        public long[] InputIds { get; set; }
+        public long[] AttentionMask { get; set; }
+        public long[] TypeIds { get; set; }
+    }
+
     public class Analyzer : IAnalyzer
     {
-        private static SavedModel model;
-        private static Tokenizer tokenizer;
+        private static BertUncasedBaseTokenizer tokenizer;
+        private InferenceSession _onnxSession;
 
         public Analyzer()
         {
+            tokenizer = new BertUncasedBaseTokenizer();
+            _onnxSession = new InferenceSession("dialogue_classifier.onnx");
+        }
 
+        public float ValidateDialogue(long[] inputIds, long[] attentionMask)
+        {
+            var inputs = new List<NamedOnnxValue>
+            {
+                NamedOnnxValue.CreateFromTensor("input_ids",
+                    new DenseTensor<long>(inputIds, new[] { 1, inputIds.Length })),
+                NamedOnnxValue.CreateFromTensor("attention_mask",
+                    new DenseTensor<long>(attentionMask, new[] { 1, attentionMask.Length }))
+            };
+
+            using var results = _onnxSession.Run(inputs);
+            var output = results.First().AsTensor<float>().ToArray();
+
+            return output[0];  // Возвращаем вероятность корректности диалога
         }
 
         public bool CheckCorrections(List<string> dialogueBranches)
         {
-            return true;
-        }
-
-/*        public bool CheckCorrections(string dialogueBranches)
-        {
-            using (Py.GIL())
+            foreach (var branch in dialogueBranches)
             {
-                // Загружаем обученную модель
-                model = SavedModel.Load("dialogue_model.h5");
+                // Get the sentence tokens.
+                var tokens = tokenizer.Tokenize(branch);
+                // Console.WriteLine(String.Join(", ", tokens));
 
-                // Загружаем токенизатор
-                tokenizer = new Tokenizer();
-                tokenizer.WordCount = 10000;
-                tokenizer.StringStart = "<START>";
-                tokenizer.StringEnd = "<END>";
-                tokenizer.Unknown = "<UNKNOWN>";
-                tokenizer.Load("tokenizer.json");
+                // Encode the sentence and pass in the count of the tokens in the sentence.
+                var encoded = tokenizer.Encode(tokens.Count, branch);
 
-                // Преобразуем текстовые данные в числовые вектора
-                dynamic texts = new object[] { "text1", "text2", "text3" };
-                dynamic sequences = tokenizer.TextsToSequences(texts);
-                dynamic max_length = sequences.Length;
-                dynamic X = new Sequence[sequences.Length]();
-                for (int i = 0; i < sequences.Length; i++)
+                // Break out encoding to InputIds, AttentionMask and TypeIds from list of (input_id, attention_mask, type_id).
+                var bertInput = new BertInput()
                 {
-                    X[i] = tokenizer.PadSequences(new Sequence[] { sequences[i] }, maxlen: max_length)[0];
-                }
+                    InputIds = encoded.Select(t => t.InputIds).ToArray(),
+                    AttentionMask = encoded.Select(t => t.AttentionMask).ToArray(),
+                    TypeIds = encoded.Select(t => t.TokenTypeIds).ToArray(),
+                };
 
-                // Определяем целевую переменную
-                dynamic y = new object[sequences.Length]();
-                for (int i = 0; i < sequences.Length; i++)
-                {
-                    y[i] = (bool)Tokenizer.IsCorrect(texts[i]) ? 1 : 0;
-                }
+                // Run the model.
+                var score = ValidateDialogue(bertInput.InputIds, bertInput.AttentionMask);
 
-                // Проверяем корректность составленного диалога
-                dynamic input = new int[] { 1, 2, 3, 4 };
-                dynamic output = model.Signatures["serving_default"].Invoke(new Tensor[] { new DenseValues(input) })["output_0"].ToList();
-
-                dynamic predicted_text = tokenizer.SequencesToTexts(new Sequence[] { input })[0];
-                dynamic actual_text = texts[Array.IndexOf(y, 1)];
-
-                Console.WriteLine($"Предсказание: {predicted_text}");
-                Console.WriteLine($"Фактическое значение: {actual_text}");
-
-                Console.WriteLine(output[0]);
+                if (score < 0.5)
+                    return false;
             }
-        }*/
 
-        static int[] GetInputIds(string inputText)
-        {
-            // Преобразование текстовой строки в массив идентификаторов слов
-            // Здесь должна быть реализация преобразования текстовой строки в массив идентификаторов слов
-            // Например, разбивка текста на слова, получение индексов слов из словаря слов и т.п.
-            return new int[] { 1, 2, 3, 4 };
-        }
-
-        static float[] GetInputValues(int[] inputIds)
-        {
-            // Преобразование массива идентификаторов слов в массив значений для входного слоя нейронной сети
-            // Здесь должна быть реализация преобразования массива идентификаторов слов в массив значений для входного слоя нейронной сети
-            // Например, получение векторов эмбеддинга для каждого идентификатора слова и т.п.
-            return new float[] { 0.1f, 0.2f, 0.3f, 0.4f };
-        }
-
-        static float[] GetNewTrainingData()
-        {
-            // Получение новых данных для дообучения модели
-            // Здесь должна быть реализация получения новых данных для дообучения модели
-            // Например, разбивка текста на слова, получение индексов слов из словаря слов, получение векторов эмбеддинга и т.п.
-            return new float[] { 0.5f, 0.6f, 0.7f, 0.8f };
+            return true;
         }
     }
 }

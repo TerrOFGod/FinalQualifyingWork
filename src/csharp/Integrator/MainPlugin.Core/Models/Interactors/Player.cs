@@ -4,6 +4,7 @@ using GPTTextGenerator.Entities.Models.Actions;
 using GPTTextGenerator.Entities.Models.Interactions;
 using System.Numerics;
 using Action = GPTTextGenerator.Entities.Models.Actions.Action;
+using System.Collections.Generic;
 
 namespace GPTTextGenerator.Entities.Models.Interactors
 {

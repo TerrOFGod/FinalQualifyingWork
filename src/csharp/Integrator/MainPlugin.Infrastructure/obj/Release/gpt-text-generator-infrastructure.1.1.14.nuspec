@@ -12,6 +12,7 @@
         <dependency id="IronPython" version="3.4.1" exclude="Build,Analyzers" />
         <dependency id="Microsoft.EntityFrameworkCore" version="6.0.29" exclude="Build,Analyzers" />
         <dependency id="Newtonsoft.Json" version="13.0.3" exclude="Build,Analyzers" />
+        <dependency id="RestSharp" version="111.2.0" exclude="Build,Analyzers" />
         <dependency id="TensorFlow.NET" version="0.150.0" exclude="Build,Analyzers" />
       </group>
     </dependencies>
