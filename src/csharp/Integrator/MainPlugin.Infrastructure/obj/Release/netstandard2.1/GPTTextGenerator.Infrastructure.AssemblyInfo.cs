@@ -13,11 +13,11 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("InanisPluvia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.17.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.17")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.18.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.18")]
 [assembly: System.Reflection.AssemblyProductAttribute("GPTTextGenerator.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GPTTextGenerator.Infrastructure")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.1.17.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.18.0")]
 
 // Создано классом WriteCodeFragment MSBuild.
 

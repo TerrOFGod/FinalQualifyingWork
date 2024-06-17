@@ -13,7 +13,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.1.17",
+    "version": "1.1.18",
     "restore": {
       "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\GPTTextGenerator.Entities.csproj",
       "projectName": "gpt-text-generator-entities",

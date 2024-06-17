@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "2Gk9EliP12GKK6DGiOBzsAlSwG3/3mt8fKEa1056pD2sQA/UR1FPUy49n6BlkmNdh5LzBz0XJNXJ+9Gbi1Zz3A==",
+  "dgSpecHash": "XD+tvvxL9JUOm44YaroNy7DqhsED9OrWz+t7t2qy0aX4/DLh+u6YqwQDd4sJxJhGXuUeiGrqZpS38UArbt7slg==",
   "success": true,
   "projectFilePath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\TestGPT\\TestGPT.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\LordVT\\.nuget\\packages\\berttokenizers\\1.2.0\\berttokenizers.1.2.0.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\fastberttokenizer\\1.0.28\\fastberttokenizer.1.0.28.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\google.protobuf\\3.19.6\\google.protobuf.3.19.6.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.17\\microsoft.entityframeworkcore.5.0.17.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.17\\microsoft.entityframeworkcore.abstractions.5.0.17.nupkg.sha512",
@@ -39,11 +39,12 @@
     "C:\\Users\\LordVT\\.nuget\\packages\\system.reflection.emit.lightweight\\4.3.0\\system.reflection.emit.lightweight.4.3.0.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.reflection.primitives\\4.3.0\\system.reflection.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.runtime\\4.3.0\\system.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
-    "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\LordVT\\.nuget\\packages\\gpt-text-generator-entities\\1.1.17\\gpt-text-generator-entities.1.1.17.nupkg.sha512",
-    "C:\\Users\\LordVT\\.nuget\\packages\\gpt-text-generator-infrastructure\\1.1.17\\gpt-text-generator-infrastructure.1.1.17.nupkg.sha512"
+    "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
   "logs": []
 }

@@ -2,8 +2,22 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.1": {
-      "BERTTokenizers/1.2.0": {
-        "type": "package"
+      "FastBertTokenizer/1.0.28": {
+        "type": "package",
+        "dependencies": {
+          "System.Memory": "4.5.5",
+          "System.Text.Json": "8.0.3"
+        },
+        "compile": {
+          "lib/netstandard2.0/FastBertTokenizer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/FastBertTokenizer.dll": {
+            "related": ".xml"
+          }
+        }
       },
       "Google.Protobuf/3.19.6": {
         "type": "package",
@@ -985,7 +999,7 @@
           }
         }
       },
-      "gpt-text-generator-entities/1.1.17": {
+      "gpt-text-generator-entities/1.1.18": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
@@ -998,37 +1012,23 @@
     }
   },
   "libraries": {
-    "BERTTokenizers/1.2.0": {
-      "sha512": "g9sA7AIvzc0lzt1JZ4XLsus67lKHcxRqYqIWCrVs/80WRLJMxeRVyGFps4ZHE4Qan1JeyKZOB5pzBvtL2SM9dQ==",
+    "FastBertTokenizer/1.0.28": {
+      "sha512": "7luZ+kHNzGesTIri8FfTEq6hLqPrMkd0Gq4KdFyytqDnqSueuQckxzqb7yYI6FOL9ucEwD7szMJAXDfcaywJ2A==",
       "type": "package",
-      "path": "berttokenizers/1.2.0",
+      "path": "fastberttokenizer/1.0.28",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "LICENSE.txt",
-        "berttokenizers.1.2.0.nupkg.sha512",
-        "berttokenizers.nuspec",
-        "content/Vocabularies/base_cased.txt",
-        "content/Vocabularies/base_cased_german.txt",
-        "content/Vocabularies/base_cased_large.txt",
-        "content/Vocabularies/base_cased_multilingual.txt",
-        "content/Vocabularies/base_uncased.txt",
-        "content/Vocabularies/base_uncased_large.txt",
-        "contentFiles/any/net5.0/Vocabularies/base_cased.txt",
-        "contentFiles/any/net5.0/Vocabularies/base_cased_german.txt",
-        "contentFiles/any/net5.0/Vocabularies/base_cased_large.txt",
-        "contentFiles/any/net5.0/Vocabularies/base_cased_multilingual.txt",
-        "contentFiles/any/net5.0/Vocabularies/base_uncased.txt",
-        "contentFiles/any/net5.0/Vocabularies/base_uncased_large.txt",
-        "contentFiles/any/net6.0/Vocabularies/base_cased.txt",
-        "contentFiles/any/net6.0/Vocabularies/base_cased_german.txt",
-        "contentFiles/any/net6.0/Vocabularies/base_cased_large.txt",
-        "contentFiles/any/net6.0/Vocabularies/base_cased_multilingual.txt",
-        "contentFiles/any/net6.0/Vocabularies/base_uncased.txt",
-        "contentFiles/any/net6.0/Vocabularies/base_uncased_large.txt",
-        "lib/net5.0/BERTTokenizers.dll",
-        "lib/net6.0/BERTTokenizers.dll",
-        "logo.png"
+        "README.md",
+        "fastberttokenizer.1.0.28.nupkg.sha512",
+        "fastberttokenizer.nuspec",
+        "icon.png",
+        "lib/net6.0/FastBertTokenizer.dll",
+        "lib/net6.0/FastBertTokenizer.xml",
+        "lib/net8.0/FastBertTokenizer.dll",
+        "lib/net8.0/FastBertTokenizer.xml",
+        "lib/netstandard2.0/FastBertTokenizer.dll",
+        "lib/netstandard2.0/FastBertTokenizer.xml"
       ]
     },
     "Google.Protobuf/3.19.6": {
@@ -2648,7 +2648,7 @@
         "version.txt"
       ]
     },
-    "gpt-text-generator-entities/1.1.17": {
+    "gpt-text-generator-entities/1.1.18": {
       "type": "project",
       "path": "../MainPlugin.Core/GPTTextGenerator.Entities.csproj",
       "msbuildProject": "../MainPlugin.Core/GPTTextGenerator.Entities.csproj"
@@ -2656,7 +2656,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.1": [
-      "BERTTokenizers >= 1.2.0",
+      "FastBertTokenizer >= 1.0.28",
       "Microsoft.EntityFrameworkCore >= 5.0.17",
       "Microsoft.ML >= 3.0.1",
       "Microsoft.ML.OnnxRuntime >= 1.18.0",
@@ -2664,7 +2664,7 @@
       "Microsoft.ML.OnnxTransformer >= 3.0.1",
       "Newtonsoft.Json >= 13.0.3",
       "RestSharp >= 111.2.0",
-      "gpt-text-generator-entities >= 1.1.17"
+      "gpt-text-generator-entities >= 1.1.18"
     ]
   },
   "packageFolders": {
@@ -2673,7 +2673,7 @@
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
-    "version": "1.1.17",
+    "version": "1.1.18",
     "restore": {
       "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\GPTTextGenerator.Infrastructure.csproj",
       "projectName": "gpt-text-generator-infrastructure",
@@ -2719,9 +2719,9 @@
       "netstandard2.1": {
         "targetAlias": "netstandard2.1",
         "dependencies": {
-          "BERTTokenizers": {
+          "FastBertTokenizer": {
             "target": "Package",
-            "version": "[1.2.0, )"
+            "version": "[1.0.28, )"
           },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
@@ -2771,16 +2771,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.423\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Пакет BERTTokenizers 1.2.0 несовместим с netstandard2.1 (.NETStandard,Version=v2.1). Пакет BERTTokenizers 1.2.0 поддерживает:\r\n  - net5.0 (.NETCoreApp,Version=v5.0)\r\n  - net6.0 (.NETCoreApp,Version=v6.0)",
-      "libraryId": "BERTTokenizers",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.1"
-      ]
-    }
-  ]
+  }
 }

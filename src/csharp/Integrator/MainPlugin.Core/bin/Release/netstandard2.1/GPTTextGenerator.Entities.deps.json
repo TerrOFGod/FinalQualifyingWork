@@ -1,0 +1,24 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.1/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.1": {},
+    ".NETStandard,Version=v2.1/": {
+      "GPTTextGenerator.Entities/1.1.18": {
+        "runtime": {
+          "GPTTextGenerator.Entities.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GPTTextGenerator.Entities/1.1.18": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

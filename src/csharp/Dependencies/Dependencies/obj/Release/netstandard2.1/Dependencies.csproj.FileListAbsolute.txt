@@ -1,0 +1,10 @@
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\bin\Release\netstandard2.1\Dependencies.deps.json
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\bin\Release\netstandard2.1\Dependencies.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\bin\Release\netstandard2.1\Dependencies.pdb
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.csproj.AssemblyReference.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.AssemblyInfoInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.AssemblyInfo.cs
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.dll
+C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\Dependencies\Dependencies\obj\Release\netstandard2.1\Dependencies.pdb

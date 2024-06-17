@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\GPTTextGenerator.Entities.csproj": {
-      "version": "1.1.17",
+      "version": "1.1.18",
       "restore": {
         "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\GPTTextGenerator.Entities.csproj",
         "projectName": "gpt-text-generator-entities",

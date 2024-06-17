@@ -5,7 +5,7 @@
   },
   "projects": {
     "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\GPTTextGenerator.Entities.csproj": {
-      "version": "1.1.17",
+      "version": "1.1.18",
       "restore": {
         "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\GPTTextGenerator.Entities.csproj",
         "projectName": "gpt-text-generator-entities",
@@ -67,7 +67,7 @@
       }
     },
     "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\GPTTextGenerator.Infrastructure.csproj": {
-      "version": "1.1.17",
+      "version": "1.1.18",
       "restore": {
         "projectUniqueName": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\GPTTextGenerator.Infrastructure.csproj",
         "projectName": "gpt-text-generator-infrastructure",
@@ -113,9 +113,9 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "dependencies": {
-            "BERTTokenizers": {
+            "FastBertTokenizer": {
               "target": "Package",
-              "version": "[1.2.0, )"
+              "version": "[1.0.28, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",

@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scaffold", "Scaffold\Scaffold.csproj", "{88794C3E-E34D-48C0-9422-895FD27FBBB3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPlugin", "MainPlugin", "{26A94222-023E-4635-AF04-B739FA802E42}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ScaffoldPlugin", "ScaffoldPlugin", "{E7EF6865-5988-47C9-9C18-0E4C523DA63F}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GPTTextGenerator.Entities", "MainPlugin.Core\GPTTextGenerator.Entities.csproj", "{D173E85B-DA14-4806-97AE-15A96228B379}"
 EndProject

@@ -5,4 +5,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="gpt-text-generator-entities" Version="1.1.18" />
+    <PackageReference Include="gpt-text-generator-infrastructure" Version="1.1.18" />
+  </ItemGroup>
+
 </Project>

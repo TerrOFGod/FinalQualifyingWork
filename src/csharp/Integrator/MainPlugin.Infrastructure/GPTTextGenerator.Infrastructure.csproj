@@ -9,11 +9,11 @@
 	<Title>GPTTextGenerator.Infrastructure</Title>
 	<Authors>InanisPluvia</Authors>
 	<PackageOutputPath>C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\NugetRepo</PackageOutputPath>
-	<Version>1.1.17</Version>
+	<Version>1.1.18</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BERTTokenizers" Version="1.2.0" />
+    <PackageReference Include="FastBertTokenizer" Version="1.0.28" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
     <PackageReference Include="Microsoft.ML" Version="3.0.1" />
     <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.18.0" />

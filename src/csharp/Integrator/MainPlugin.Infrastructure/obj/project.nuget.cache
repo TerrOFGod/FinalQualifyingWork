@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "7max9p5TwCVA1FMKgwEn58Q31udPAGmUPZSB3Po6WioJV7a8C1oqXUZmEj5J45HsRj9C/kawJPE74xwgqTTpSA==",
-  "success": false,
+  "dgSpecHash": "Br5mv/2F+L5+7NgChuFo6I8+iwxJsgZyDltTG44myEKyQkYxjmXjdjVH0V/ZiOMG0y67w8FJZNZd5UJzdXqy5Q==",
+  "success": true,
   "projectFilePath": "C:\\Users\\LordVT\\Desktop\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Infrastructure\\GPTTextGenerator.Infrastructure.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\LordVT\\.nuget\\packages\\berttokenizers\\1.2.0\\berttokenizers.1.2.0.nupkg.sha512",
+    "C:\\Users\\LordVT\\.nuget\\packages\\fastberttokenizer\\1.0.28\\fastberttokenizer.1.0.28.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\google.protobuf\\3.19.6\\google.protobuf.3.19.6.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\microsoft.bcl.numerics\\8.0.0\\microsoft.bcl.numerics.8.0.0.nupkg.sha512",
@@ -49,18 +49,7 @@
     "C:\\Users\\LordVT\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.channels\\4.7.1\\system.threading.channels.4.7.1.nupkg.sha512",
     "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
-    "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\LordVT\\.nuget\\packages\\gpt-text-generator-entities\\1.1.17\\gpt-text-generator-entities.1.1.17.nupkg.sha512"
+    "C:\\Users\\LordVT\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1202",
-      "level": "Error",
-      "message": "Пакет BERTTokenizers 1.2.0 несовместим с netstandard2.1 (.NETStandard,Version=v2.1). Пакет BERTTokenizers 1.2.0 поддерживает:\r\n  - net5.0 (.NETCoreApp,Version=v5.0)\r\n  - net6.0 (.NETCoreApp,Version=v6.0)",
-      "libraryId": "BERTTokenizers",
-      "targetGraphs": [
-        ".NETStandard,Version=v2.1"
-      ]
-    }
-  ]
+  "logs": []
 }

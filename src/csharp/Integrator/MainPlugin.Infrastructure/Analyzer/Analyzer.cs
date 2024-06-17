@@ -1,4 +1,5 @@
-﻿using BERTTokenizers;
+﻿//using BERTTokenizers;
+using FastBertTokenizer;
 using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
 using GPTTextGenerator.Entities.Interfaces.Processors;
@@ -14,12 +15,13 @@ namespace GPTTextGenerator.Infrastructure.Analyzer
 
     public class Analyzer : IAnalyzer
     {
-        private static BertUncasedBaseTokenizer tokenizer;
+        private static BertTokenizer tokenizer;
         private InferenceSession _onnxSession;
 
         public Analyzer()
         {
-            tokenizer = new BertUncasedBaseTokenizer();
+            tokenizer = new BertTokenizer();
+            tokenizer.LoadTokenizerJsonAsync("bert-base-uncased").Wait();
             _onnxSession = new InferenceSession("dialogue_classifier.onnx");
         }
 
@@ -43,23 +45,11 @@ namespace GPTTextGenerator.Infrastructure.Analyzer
         {
             foreach (var branch in dialogueBranches)
             {
-                // Get the sentence tokens.
-                var tokens = tokenizer.Tokenize(branch);
-                // Console.WriteLine(String.Join(", ", tokens));
-
-                // Encode the sentence and pass in the count of the tokens in the sentence.
-                var encoded = tokenizer.Encode(tokens.Count, branch);
-
-                // Break out encoding to InputIds, AttentionMask and TypeIds from list of (input_id, attention_mask, type_id).
-                var bertInput = new BertInput()
-                {
-                    InputIds = encoded.Select(t => t.InputIds).ToArray(),
-                    AttentionMask = encoded.Select(t => t.AttentionMask).ToArray(),
-                    TypeIds = encoded.Select(t => t.TokenTypeIds).ToArray(),
-                };
+                // Encode the sentence and get the InputIds, AttentionMask and TypeIds.
+                var (inputIds, attentionMask, typeIds) = tokenizer.Encode(branch);
 
                 // Run the model.
-                var score = ValidateDialogue(bertInput.InputIds, bertInput.AttentionMask);
+                var score = ValidateDialogue(inputIds.ToArray(), attentionMask.ToArray());
 
                 if (score < 0.5)
                     return false;
@@ -69,3 +59,4 @@ namespace GPTTextGenerator.Infrastructure.Analyzer
         }
     }
 }
+
