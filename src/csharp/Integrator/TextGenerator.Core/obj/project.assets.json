@@ -13,11 +13,11 @@
   "project": {
     "version": "1.1.18",
     "restore": {
-      "projectUniqueName": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\TextGenerator.Core.csproj",
+      "projectUniqueName": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj",
       "projectName": "gpt-text-generator-entities",
-      "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\TextGenerator.Core.csproj",
+      "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj",
       "packagesPath": "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\",
-      "outputPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\MainPlugin.Core\\obj\\",
+      "outputPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\VseTTrofimchuk\\AppData\\Roaming\\NuGet\\NuGet.Config",

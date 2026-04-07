@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<LangVersion>10.0</LangVersion>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<PackageId>gpt-text-generator-infrastructure</PackageId>
+	<Title>GPTTextGenerator.Infrastructure</Title>
+	<Authors>InanisPluvia</Authors>
+	<PackageOutputPath>C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\NugetRepo</PackageOutputPath>
+	<Version>1.1.18</Version>
+	<TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastBertTokenizer" Version="1.0.28" />
+    <PackageReference Include="LLamaSharp" Version="0.26.0" />
+    <PackageReference Include="LLamaSharp.semantic-kernel" Version="0.26.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.ML" Version="3.0.1" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.18.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.18.0" />
+    <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="3.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Qdrant.Client" Version="1.17.0" />
+    <PackageReference Include="RestSharp" Version="111.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TextGenerator.Core\TextGenerator.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+    <PackageReference Include="LLamaSharp.Jinja.Executors" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,274 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj": {}
+  },
+  "projects": {
+    "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj": {
+      "version": "1.1.18",
+      "restore": {
+        "projectUniqueName": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj",
+        "projectName": "gpt-text-generator-entities",
+        "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj",
+        "packagesPath": "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\",
+        "outputPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\VseTTrofimchuk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\VseTTrofimchuk\\.dotnet\\sdk\\9.0.309\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj": {
+      "version": "1.1.18",
+      "restore": {
+        "projectUniqueName": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj",
+        "projectName": "gpt-text-generator-infrastructure",
+        "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\",
+        "outputPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "configFilePaths": [
+          "C:\\Users\\VseTTrofimchuk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0",
+          "netstandard2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj": {
+                "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj"
+              }
+            }
+          },
+          "netstandard2.1": {
+            "targetAlias": "netstandard2.1",
+            "projectReferences": {
+              "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj": {
+                "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.300"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FastBertTokenizer": {
+              "target": "Package",
+              "version": "[1.0.28, )"
+            },
+            "LLamaSharp": {
+              "target": "Package",
+              "version": "[0.26.0, )"
+            },
+            "LLamaSharp.Jinja.Executors": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "LLamaSharp.semantic-kernel": {
+              "target": "Package",
+              "version": "[0.26.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Microsoft.ML.OnnxRuntime": {
+              "target": "Package",
+              "version": "[1.18.0, )"
+            },
+            "Microsoft.ML.OnnxRuntime.Managed": {
+              "target": "Package",
+              "version": "[1.18.0, )"
+            },
+            "Microsoft.ML.OnnxTransformer": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Qdrant.Client": {
+              "target": "Package",
+              "version": "[1.17.0, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\VseTTrofimchuk\\.dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
+        },
+        "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
+          "dependencies": {
+            "FastBertTokenizer": {
+              "target": "Package",
+              "version": "[1.0.28, )"
+            },
+            "LLamaSharp": {
+              "target": "Package",
+              "version": "[0.26.0, )"
+            },
+            "LLamaSharp.semantic-kernel": {
+              "target": "Package",
+              "version": "[0.26.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.ML": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Microsoft.ML.OnnxRuntime": {
+              "target": "Package",
+              "version": "[1.18.0, )"
+            },
+            "Microsoft.ML.OnnxRuntime.Managed": {
+              "target": "Package",
+              "version": "[1.18.0, )"
+            },
+            "Microsoft.ML.OnnxTransformer": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "Qdrant.Client": {
+              "target": "Package",
+              "version": "[1.17.0, )"
+            },
+            "RestSharp": {
+              "target": "Package",
+              "version": "[111.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Users\\VseTTrofimchuk\\.dotnet\\sdk\\9.0.309\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
