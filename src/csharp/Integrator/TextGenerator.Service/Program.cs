@@ -1,43 +1,46 @@
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Cache;
+using TextGenerator.Core.Interfaces.EdgeAI;
+using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Interfaces.Narrative;
 using TextGenerator.Core.Interfaces.Processors;
-using TextGenerator.Infrastructure.Agents;
-using TextGenerator.Infrastructure.API;
-using TextGenerator.Infrastructure.Processors;
-using TextGenerator.Infrastructure.Analyzer;
+using TextGenerator.Core.Interfaces.RAG;
+using TextGenerator.Infrastructure.Caching;
 using TextGenerator.Infrastructure.EdgeAI;
 using TextGenerator.Infrastructure.Memory;
+using TextGenerator.Infrastructure.Narrative.Agents;
+using TextGenerator.Infrastructure.Narrative.Environment;
+using TextGenerator.Infrastructure.Processors;
 using TextGenerator.Infrastructure.RAG;
 using TextGenerator.Infrastructure.Reward;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Настройка OpenAI
-var openAIConfig = builder.Configuration.GetSection("OpenAI");
-var apiKey = openAIConfig["ApiKey"] ?? throw new InvalidOperationException("OpenAI ApiKey missing");
-var baseUrl = openAIConfig["BaseUrl"] ?? "https://api.openai.com/v1/";
-var model = openAIConfig["Model"] ?? "gpt-3.5-turbo";
-
-builder.Services.AddSingleton(new GptApiClient(apiKey, baseUrl, model));
 
 // 1. Конфигурация локальной LLM
 builder.Services.Configure<LLamaSharpOptions>(builder.Configuration.GetSection("LocalLLM"));
-builder.Services.AddSingleton<LocalLLMClient>();
+builder.Services.AddSingleton<ILLMClient, LocalLLMClient>();
 
 // 2. Компоненты памяти и RAG
-builder.Services.AddSingleton<VectorMemoryService>();
+builder.Services.AddSingleton<IVectorMemory, VectorMemoryService>();
 builder.Services.AddSingleton<IMemory, QdrantMemory>(); // требуется Qdrant.Client
-builder.Services.AddScoped<RAGService>();
-builder.Services.AddScoped<Summarizer>();
+builder.Services.AddScoped<IRAGService, RAGService>();
+builder.Services.AddScoped<ISummarizer, Summarizer>();
+builder.Services.AddScoped<IDialogueCache, DialogueCache>();
+builder.Services.AddMemoryCache(); // IMemoryCache
 
-// 3. Пре/постпроцессоры
-builder.Services.AddScoped<IPreprocessor, Preprocessor>();
-builder.Services.AddScoped<IPostprocessor, Postprocessor>();
+// 3. Narrative Environment
+builder.Services.AddSingleton<INarrativeEnvironment, NarrativeEnvironmentService>();
 
-// 4. Система наград
-builder.Services.AddSingleton<IAnalyzer, Analyzer>(); // если модель ONNX доступна
-builder.Services.AddSingleton<IRewardSystem, RewardCalculator>();
+// 4. Пре/постпроцессоры
+builder.Services.AddScoped<IPreprocessor, PreprocessorService>();
+builder.Services.AddScoped<IPostprocessor, PostprocessorService>();
 
-// 5. Нарративный агент
+// 5. Система наград и метрик
+builder.Services.AddSingleton<IAnalyzer, DialogueAnalyzer>(); // если модель ONNX доступна
+builder.Services.AddSingleton<IRewardCalculator, RewardCalculator>();
+builder.Services.AddSingleton<IRewardCollector, RewardCollector>();
+
+// 6. Нарративный агент
 builder.Services.AddScoped<INarrativeAgent, NarrativeAgent>();
 
 builder.Services.AddControllers();

@@ -1,7 +1,7 @@
 ﻿using Google.Protobuf.Collections;
 using Qdrant.Client;
 using Qdrant.Client.Grpc;
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Memory;
 
 namespace TextGenerator.Infrastructure.Memory;
 
@@ -28,28 +28,18 @@ namespace TextGenerator.Infrastructure.Memory;
 
         public async Task AddMemory(string text, float[] embedding, string metadata)
         {
-            // Convert float[] to ReadOnlyMemory<float>
-            var vectorMemory = new ReadOnlyMemory<float>(embedding);
-
-            // Build payload as MapField<string, Value>
-            var payload = new MapField<string, Value>
-            {
-                { "text", new Value { StringValue = text } },
-                { "metadata", new Value { StringValue = metadata } }
-            };
-
             var point = new PointStruct
             {
                 Id = Guid.NewGuid(),
-                Vectors = new Vectors
+                Vectors = embedding,
+                Payload =
                 {
-                    Vector = embedding
+                    ["text"] = new Value { StringValue = text },
+                    ["metadata"] = new Value { StringValue = metadata },
+                    ["timestamp"] = new Value { IntegerValue = DateTime.UtcNow.Ticks }   // добавлено
                 }
             };
             
-            point.Payload.Add("text", new Value { StringValue = text });
-            point.Payload.Add("metadata", new Value { StringValue = metadata });
-
             await _client.UpsertAsync(CollectionName, new[] { point });
         }
 
@@ -65,6 +55,26 @@ namespace TextGenerator.Infrastructure.Memory;
                 {
                     var text = textValue.StringValue ?? string.Empty;
                     result.Add((text, scoredPoint.Score));
+                }
+            }
+            return result;
+        }
+        
+        public async Task<List<(string Text, float Score, DateTime Timestamp)>> RetrieveRelevantWithTimestamp(string query, float[] queryEmbedding, int topK)
+        {
+            var searchResult = await _client.SearchAsync(CollectionName, queryEmbedding, limit: (ulong)topK);
+    
+            var result = new List<(string Text, float Score, DateTime Timestamp)>();
+            foreach (var scoredPoint in searchResult)
+            {
+                if (scoredPoint.Payload.TryGetValue("text", out var textValue) &&
+                    scoredPoint.Payload.TryGetValue("timestamp", out var tsValue))
+                {
+                    var text = textValue.StringValue ?? string.Empty;
+                    var timestamp = tsValue.HasIntegerValue
+                        ? new DateTime(tsValue.IntegerValue, DateTimeKind.Utc)
+                        : DateTime.MinValue;
+                    result.Add((text, scoredPoint.Score, timestamp));
                 }
             }
             return result;

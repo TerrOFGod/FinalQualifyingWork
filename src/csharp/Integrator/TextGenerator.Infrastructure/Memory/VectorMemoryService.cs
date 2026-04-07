@@ -1,9 +1,10 @@
 ﻿using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
+using TextGenerator.Core.Interfaces.Memory;
 
 namespace TextGenerator.Infrastructure.Memory;
 
-public class VectorMemoryService
+public class VectorMemoryService : IVectorMemory
 {
     private readonly InferenceSession _embeddingSession;
 

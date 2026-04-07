@@ -1,9 +1,10 @@
-﻿using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactors;
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Interfaces;
+using TextGenerator.Core.Models.Actors;
 
 namespace TextGenerator.Core.Models.Actions
 {
-    public class SocialConnection : IBase
+    public class SocialConnection : IEntity
     {
         public int ID { get; set; }
 

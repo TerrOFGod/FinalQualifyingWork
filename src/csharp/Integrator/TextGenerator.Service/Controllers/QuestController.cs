@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Narrative;
+using TextGenerator.Core.Models.Actors;
 using TextGenerator.Core.Models.Interactions;
-using TextGenerator.Core.Models.Interactors;
+using TextGenerator.Core.Models.Interactions.Quests;
 
 namespace TextGenerator.Service.Controllers;
 

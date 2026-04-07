@@ -1,82 +1,91 @@
-## File Tree @ 2026-04-07 15:37:13
+## File Tree @ 2026-04-07 17:27:37
 ```
 ├── Integrator.sln
 ├── TextGenerator.Core/
-│   ├── Enums/
-│   │   ├── ItemType.cs
-│   │   ├── StatType.cs
-│   │   └── Status.cs
+│   ├── Common/
+│   │   ├── Enums/
+│   │   │   ├── ItemType.cs
+│   │   │   ├── StatType.cs
+│   │   │   └── Status.cs
+│   │   └── IEntity.cs
 │   ├── Interfaces/
-│   │   ├── IBase.cs
-│   │   ├── IPlugin.cs
-│   │   ├── IRepository.cs
-│   │   ├── Memorize/
+│   │   ├── Cache/
+│   │   │   └── IDialogueCache.cs
+│   │   ├── EdgeAI/
+│   │   │   └── ILLMClient.cs
+│   │   ├── Memory/
 │   │   │   ├── IMemory.cs
+│   │   │   ├── IRewardCalculator.cs
+│   │   │   ├── IRewardCollector.cs
+│   │   │   ├── ISummarizer.cs
+│   │   │   └── IVectorMemory.cs
+│   │   ├── Narrative/
 │   │   │   ├── INarrativeAgent.cs
-│   │   │   └── IRewardSystem.cs
-│   │   └── Processors/
-│   │       ├── IAnalyzer.cs
-│   │       ├── IPostprocessor.cs
-│   │       └── IPreprocessor.cs
+│   │   │   └── INarrativeEnvironment.cs
+│   │   ├── Processors/
+│   │   │   ├── IAnalyzer.cs
+│   │   │   ├── IPostprocessor.cs
+│   │   │   └── IPreprocessor.cs
+│   │   ├── RAG/
+│   │   │   └── IRAGService.cs
+│   │   └── RL/
+│   │       └── IRLFineTuner.cs
 │   ├── Models/
 │   │   ├── Actions/
-│   │   │   ├── Action.cs
-│   │   │   ├── Reaction.cs
+│   │   │   ├── GameAction.cs
+│   │   │   ├── GameReaction.cs
 │   │   │   ├── Requirement.cs
 │   │   │   └── SocialConnection.cs
+│   │   ├── Feedback/
+│   │   │   └── InteractionFeedback.cs
 │   │   ├── Interactions/
-│   │   │   ├── ChainQuest.cs
 │   │   │   ├── DialogueEntry.cs
 │   │   │   ├── DialogueNode.cs
-│   │   │   └── Quest.cs
+│   │   │   ├── Quest.cs
+│   │   │   └── QuestChain.cs
 │   │   ├── Interactors/
-│   │   │   ├── Environment.cs
+│   │   │   ├── GameEnvironment.cs
 │   │   │   ├── Player.cs
-│   │   │   └── SmartNPC.cs
-│   │   ├── Misc/
-│   │   │   ├── PObject.cs
-│   │   │   └── Stat.cs
-│   │   └── Objects/
-│   │       ├── Inventory.cs
-│   │       ├── Item.cs
-│   │       └── Reward.cs
+│   │   │   ├── SmartNPC.cs
+│   │   │   └── WorldContext.cs
+│   │   ├── Metrics/
+│   │   │   └── PersonalizationMetrics.cs
+│   │   ├── Objects/
+│   │   │   ├── Inventory.cs
+│   │   │   ├── Item.cs
+│   │   │   └── Reward.cs
+│   │   └── World/
+│   │       ├── GameObject.cs
+│   │       └── Stat.cs
 │   └── TextGenerator.Core.csproj
 ├── TextGenerator.Infrastructure/
-│   ├── API/
-│   │   └── GptApiClient.cs
 │   ├── Agents/
 │   │   └── NarrativeAgent.cs
 │   ├── Analyzer/
-│   │   └── Analyzer.cs
-│   ├── Contexts/
-│   │   └── BasicDbContext.cs
+│   │   └── DialogueAnalyzer.cs
+│   ├── Caching/
+│   │   └── DialogueCache.cs
 │   ├── EdgeAI/
 │   │   ├── LocalLLMClient.cs
 │   │   └── ModelDownloader.cs
 │   ├── Extensions/
-│   │   ├── ClientExtension.cs
-│   │   └── DialogueExtension.cs
-│   ├── Helpers/
-│   │   └── DialogueHelper.cs
+│   │   └── DialogueExtensions.cs
 │   ├── Memory/
 │   │   ├── QdrantMemory.cs
 │   │   ├── Summarizer.cs
 │   │   └── VectorMemoryService.cs
-│   ├── Processors/
-│   │   ├── Postprocessor.cs
-│   │   └── Preprocessor.cs
-│   ├── RAG/
-│   │   └── RAGService.cs
-│   ├── Repositories/
-│   │   ├── ChainQuestRepository.cs
-│   │   ├── DialogueEntryRepository.cs
-│   │   ├── DialogueNodeRepository.cs
-│   │   ├── EnvironmentRepository.cs
-│   │   ├── NPCRepository.cs
-│   │   ├── PlayerRepository.cs
-│   │   └── QuestRepository.cs
+│   ├── RL/
+│   │   └── RLFineTuner.cs
 │   ├── Reward/
-│   │   └── RewardCalculator.cs
+│   │   ├── RewardCalculator.cs
+│   │   └── RewardCollector.cs
+│   ├── Services/
+│   │   ├── NarrativeEnvironmentService.cs
+│   │   ├── Processors/
+│   │   │   ├── PostprocessorService.cs
+│   │   │   └── PreprocessorService.cs
+│   │   └── RAG/
+│   │       └── RAGService.cs
 │   └── TextGenerator.Infrastructure.csproj
 └── TextGenerator.Service/
     ├── Controllers/
@@ -91,9 +100,9 @@
     └── appsettings.json
 ```
 
-## File Analysis @ 2026-04-07 15:37:13
-- Total files: 62
-- .cs: 54
+## File Analysis @ 2026-04-07 17:27:37
+- Total files: 64
+- .cs: 56
 - .csproj: 3
 - .http: 1
 - .json: 3
@@ -101,7 +110,7 @@
 
 
 ---
-#### Integrator.sln @ 2026-04-07 15:37:13
+#### Integrator.sln @ 2026-04-07 17:27:37
 ```
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
@@ -157,15 +166,9 @@ EndGlobal
 ```
 
 ---
-#### TextGenerator.Core/Enums/ItemType.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Common/Enums/ItemType.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextGenerator.Core.Enums
+﻿namespace TextGenerator.Core.Common.Enums
 {
     public enum ItemType
     {
@@ -180,15 +183,9 @@ namespace TextGenerator.Core.Enums
 ```
 
 ---
-#### TextGenerator.Core/Enums/StatType.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Common/Enums/StatType.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextGenerator.Core.Enums
+﻿namespace TextGenerator.Core.Common.Enums
 {
     public enum StatType
     {
@@ -208,15 +205,9 @@ namespace TextGenerator.Core.Enums
 ```
 
 ---
-#### TextGenerator.Core/Enums/Status.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Common/Enums/Status.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextGenerator.Core.Enums
+﻿namespace TextGenerator.Core.Common.Enums
 {
     public enum Status
     {
@@ -230,17 +221,11 @@ namespace TextGenerator.Core.Enums
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/IBase.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Common/IEntity.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TextGenerator.Core.Interfaces
+﻿namespace TextGenerator.Core.Common
 {
-    public interface IBase
+    public interface IEntity
     {
         public int Id { get; }
     }
@@ -249,76 +234,102 @@ namespace TextGenerator.Core.Interfaces
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/IPlugin.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Cache/IDialogueCache.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TextGenerator.Core.Models.Interactions;
+using TextGenerator.Core.Models.Interactors;
 
-namespace TextGenerator.Core.Interfaces
+namespace TextGenerator.Core.Interfaces.Cache;
+
+public interface IDialogueCache
 {
-    public interface IPlugin
-    {
-        string Name { get; }
-        string Description { get; }
-        void GenerateQuest();
-    }
+    bool TryGet(string key, out DialogueEntry entry);
+    void Set(string key, DialogueEntry entry, TimeSpan? ttl = null);
+    string MakeKey(SmartNPC npc, Player player, string playerInput, string contextHash);
 }
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/IRepository.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/EdgeAI/ILLMClient.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace TextGenerator.Core.Interfaces.EdgeAI;
 
-namespace TextGenerator.Core.Interfaces
+public interface ILLMClient
 {
-    public interface IRepository<T> where T : class
-    {
-        IEnumerable<T> GetAll();
-        Task<List<T>> GetAllAsync();
-        T GetById(int id);
-        T GetByIdWithIncludes(int id);
-        Task<T> GetByIdAsync(int id);
-        Task<T> GetByIdWithIncludesAsync(int id);
-        bool Remove(int id);
-        void Add(in T sender);
-        void Update(in T sender);
-        int Save();
-        Task<int> SaveAsync();
-        public T Select(Expression<Func<T, bool>> predicate);
-        public Task<T> SelectAsync(Expression<Func<T, bool>> predicate);
-    }
+    Task<string> GenerateAsync(string prompt, int maxTokens = 256, float temperature = 0.7f);
 }
-
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/Memorize/IMemory.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Memory/IMemory.cs @ 2026-04-07 17:27:37
 ```
-﻿namespace TextGenerator.Core.Interfaces.Memorize;
+﻿namespace TextGenerator.Core.Interfaces.Memory;
 
 public interface IMemory
 {
     Task AddMemory(string text, float[] embedding, string metadata);
     Task<List<(string Text, float Score)>> RetrieveRelevant(string query, float[] queryEmbedding, int topK = 5);
+
+    Task<List<(string Text, float Score, DateTime Timestamp)>> RetrieveRelevantWithTimestamp(string query,
+        float[] queryEmbedding, int topK);
 }
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/Memorize/INarrativeAgent.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Memory/IRewardCalculator.cs @ 2026-04-07 17:27:37
+```
+﻿namespace TextGenerator.Core.Interfaces.Memory;
+
+public interface IRewardCalculator
+{
+    float CalculateReward(string generatedText, string context, string expectedStyle);
+}
+```
+
+---
+#### TextGenerator.Core/Interfaces/Memory/IRewardCollector.cs @ 2026-04-07 17:27:37
+```
+﻿using TextGenerator.Core.Models.Feedback;
+
+namespace TextGenerator.Core.Interfaces.Memory;
+
+public interface IRewardCollector
+{
+    void RecordFeedback(InteractionFeedback feedback);
+    Task<List<InteractionFeedback>> GetDatasetAsync();
+    Task SaveToDatasetAsync(string path);
+}
+```
+
+---
+#### TextGenerator.Core/Interfaces/Memory/ISummarizer.cs @ 2026-04-07 17:27:37
+```
+﻿namespace TextGenerator.Core.Interfaces.Memory;
+
+public interface ISummarizer
+{
+    Task<string> Summarize(string longText);
+}
+```
+
+---
+#### TextGenerator.Core/Interfaces/Memory/IVectorMemory.cs @ 2026-04-07 17:27:37
+```
+﻿namespace TextGenerator.Core.Interfaces.Memory;
+
+public interface IVectorMemory
+{
+    float[] GetEmbedding(string text);
+}
+```
+
+---
+#### TextGenerator.Core/Interfaces/Narrative/INarrativeAgent.cs @ 2026-04-07 17:27:37
 ```
 ﻿using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
 
-namespace TextGenerator.Core.Interfaces.Memorize;
+namespace TextGenerator.Core.Interfaces.Narrative;
 
 public interface INarrativeAgent
 {
@@ -328,18 +339,24 @@ public interface INarrativeAgent
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/Memorize/IRewardSystem.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Narrative/INarrativeEnvironment.cs @ 2026-04-07 17:27:37
 ```
-﻿namespace TextGenerator.Core.Interfaces.Memorize;
+﻿using TextGenerator.Core.Models.Actions;
+using TextGenerator.Core.Models.Interactors;
 
-public interface IRewardSystem
+namespace TextGenerator.Core.Interfaces.Narrative;
+
+public interface INarrativeEnvironment
 {
-    float CalculateReward(string generatedText, string context, string expectedStyle);
+    Task<WorldContext> GetRelevantContext(SmartNPC npc, Player player, string currentInput);
+    Task UpdateState(string entityId, string property, object value);
+    Task<IEnumerable<SocialConnection>> GetRelationships(int npcId);
+    Task LogInteraction(string description, DateTime timestamp);
 }
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/Processors/IAnalyzer.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Processors/IAnalyzer.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System;
 using System.Collections.Generic;
@@ -358,7 +375,7 @@ namespace TextGenerator.Core.Interfaces.Processors
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/Processors/IPostprocessor.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Processors/IPostprocessor.cs @ 2026-04-07 17:27:37
 ```
 ﻿using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
@@ -368,6 +385,7 @@ namespace TextGenerator.Core.Interfaces.Processors
     public interface IPostprocessor
     {
         DialogueEntry DecodeAPIBranchedDialogueResponse(SmartNPC npc, string response);
+        DialogueNode DecodeSingleStepDialogueResponse(SmartNPC npc, string response);
 
         Quest ParseQuest(string response);
         //Quest ParseQuest();
@@ -378,9 +396,10 @@ namespace TextGenerator.Core.Interfaces.Processors
 ```
 
 ---
-#### TextGenerator.Core/Interfaces/Processors/IPreprocessor.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/Processors/IPreprocessor.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Models.Interactors;
+﻿using TextGenerator.Core.Models.Interactions;
+using TextGenerator.Core.Models.Interactors;
 
 namespace TextGenerator.Core.Interfaces.Processors
 {
@@ -388,19 +407,43 @@ namespace TextGenerator.Core.Interfaces.Processors
     {
         string GenerateBasicBranchedDialogueRequest(SmartNPC npc, int depth, int variety);
         string GenerateQuestPrompt(SmartNPC npc, Player player, string goalDescription);
+        string GenerateBasicSteppedDialogueRequest(SmartNPC npc, DialogueNode prevNode, int variety, WorldContext context);
     }
 }
 
 ```
 
 ---
-#### TextGenerator.Core/Models/Actions/Action.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Interfaces/RAG/IRAGService.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces;
+﻿namespace TextGenerator.Core.Interfaces.RAG;
+
+public interface IRAGService
+{
+    Task<string> AugmentPrompt(string userQuery, string basePrompt);
+    Task StoreInteraction(string text, string metadata);
+}
+```
+
+---
+#### TextGenerator.Core/Interfaces/RL/IRLFineTuner.cs @ 2026-04-07 17:27:37
+```
+﻿namespace TextGenerator.Core.Interfaces.RL;
+
+public interface IRLFineTuner
+{
+    Task RunPeriodicFineTuningAsync();
+}
+```
+
+---
+#### TextGenerator.Core/Models/Actions/GameAction.cs @ 2026-04-07 17:27:37
+```
+﻿using TextGenerator.Core.Common;
 
 namespace TextGenerator.Core.Models.Actions
 {
-    public class Action : IBase
+    public class GameAction : IEntity
     {
         public int ID { get; set; }
 
@@ -415,13 +458,13 @@ namespace TextGenerator.Core.Models.Actions
 ```
 
 ---
-#### TextGenerator.Core/Models/Actions/Reaction.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Actions/GameReaction.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces;
+﻿using TextGenerator.Core.Common;
 
 namespace TextGenerator.Core.Models.Actions
 {
-    public class Reaction : IBase
+    public class GameReaction : IEntity
     {
         public int ID { get; set; }
 
@@ -436,14 +479,13 @@ namespace TextGenerator.Core.Models.Actions
 ```
 
 ---
-#### TextGenerator.Core/Models/Actions/Requirement.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Actions/Requirement.cs @ 2026-04-07 17:27:37
 ```
-﻿using System;
-using TextGenerator.Core.Interfaces;
+﻿using TextGenerator.Core.Common;
 
 namespace TextGenerator.Core.Models.Actions
 {
-    public class Requirement : IBase
+    public class Requirement : IEntity
     {
         public int ID { get; set; }
 
@@ -461,14 +503,15 @@ namespace TextGenerator.Core.Models.Actions
 ```
 
 ---
-#### TextGenerator.Core/Models/Actions/SocialConnection.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Actions/SocialConnection.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces;
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Interfaces;
 using TextGenerator.Core.Models.Interactors;
 
 namespace TextGenerator.Core.Models.Actions
 {
-    public class SocialConnection : IBase
+    public class SocialConnection : IEntity
     {
         public int ID { get; set; }
 
@@ -484,30 +527,39 @@ namespace TextGenerator.Core.Models.Actions
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactions/ChainQuest.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Feedback/InteractionFeedback.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces;
+﻿using TextGenerator.Core.Common;
 
-namespace TextGenerator.Core.Models.Interactions
+namespace TextGenerator.Core.Models.Feedback;
+
+public class InteractionFeedback : IEntity
 {
-    public class ChainQuest : IBase
-    {
-        public int Id => ChainQuestId;
-        public int ChainQuestId { get; set; }
-    }
+    public string Prompt { get; set; }
+    public string GeneratedResponse { get; set; }
+    public float Reward { get; set; }
+    public Dictionary<string, float> Metrics { get; set; } = new();
+    public DateTime Timestamp { get; set; } = DateTime.UtcNow;
+        
+    // Дополнительные поля для сбора неявной обратной связи
+    public int PlayerChoiceIndex { get; set; } = -1;      // какую ветку выбрал игрок
+    public double TimeToRespondMs { get; set; }           // время чтения/выбора
+    public bool QuestAccepted { get; set; }               // для квестов
+    public TimeSpan QuestCompletionTime { get; set; }     // время выполнения квеста
+    public int Id { get; }
 }
-
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactions/DialogueEntry.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactions/DialogueEntry.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System.Collections.Generic;
+using TextGenerator.Core.Common;
 using TextGenerator.Core.Interfaces;
 
 namespace TextGenerator.Core.Models.Interactions
 {
-    public class DialogueEntry : IBase
+    public class DialogueEntry : IEntity
     {
         public int ID { get; set; }
 
@@ -522,14 +574,15 @@ namespace TextGenerator.Core.Models.Interactions
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactions/DialogueNode.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactions/DialogueNode.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System.Collections.Generic;
+using TextGenerator.Core.Common;
 using TextGenerator.Core.Interfaces;
 
 namespace TextGenerator.Core.Models.Interactions
 {
-    public class DialogueNode : IBase
+    public class DialogueNode : IEntity
     {
         public int Id => ID;
         public int ID { get; set; }
@@ -545,16 +598,17 @@ namespace TextGenerator.Core.Models.Interactions
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactions/Quest.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactions/Quest.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System.Collections.Generic;
+using TextGenerator.Core.Common;
 using TextGenerator.Core.Interfaces;
 using TextGenerator.Core.Models.Actions;
 using TextGenerator.Core.Models.Objects;
 
 namespace TextGenerator.Core.Models.Interactions
 {
-    public class Quest : IBase
+    public class Quest : IEntity
     {
         public int Id => ID;
         public int ID { get; set; }
@@ -571,40 +625,58 @@ namespace TextGenerator.Core.Models.Interactions
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactors/Environment.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactions/QuestChain.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Models.Interactors;
-using System.Collections.Generic;
+﻿using TextGenerator.Core.Common;
 using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Misc;
 
-namespace TextGenerator.Core.Models.Interactors
+namespace TextGenerator.Core.Models.Interactions
 {
-    public class Environment : IBase
+    public class QuestChain : IEntity
     {
-        public int Id => EnvironmentId;
-        public int EnvironmentId { get; set; }
-        public IEnumerable<SmartNPC> SmartNPCs { get; set; }
-        public IEnumerable<Player> Players { get; set; }
-        public IEnumerable<PObject> Objects { get; set; }
+        public int Id => ChainQuestId;
+        public int ChainQuestId { get; set; }
     }
 }
 
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactors/Player.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactors/GameEnvironment.cs @ 2026-04-07 17:27:37
+```
+﻿using TextGenerator.Core.Models.Interactors;
+using System.Collections.Generic;
+using TextGenerator.Core.Common;
+using TextGenerator.Core.Interfaces;
+using TextGenerator.Core.Models.World;
+
+namespace TextGenerator.Core.Models.Interactors
+{
+    public class GameEnvironment : IEntity
+    {
+        public int Id => EnvironmentId;
+        public int EnvironmentId { get; set; }
+        public IEnumerable<SmartNPC> SmartNPCs { get; set; }
+        public IEnumerable<Player> Players { get; set; }
+        public IEnumerable<GameObject> Objects { get; set; }
+    }
+}
+
+```
+
+---
+#### TextGenerator.Core/Models/Interactors/Player.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System.Numerics;
+using TextGenerator.Core.Common;
 using TextGenerator.Core.Interfaces;
 using TextGenerator.Core.Models.Actions;
 using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Objects;
-using Action = TextGenerator.Core.Models.Actions.Action;
 
 namespace TextGenerator.Core.Models.Interactors
 {
-    public class Player : IBase
+    public class Player : IEntity
     {
         public int Id => ID;
         public int ID { get; set; }
@@ -612,26 +684,27 @@ namespace TextGenerator.Core.Models.Interactors
         public string Type { get; set; }
         public Vector3 Position { get; set; }
         public int Health { get; set; }
+        public int Level { get; set; }
         public Inventory Inventory { get; set; }
         public List<DialogueEntry> Dialogues { get; set; }
-        public List<Reaction> Reactions { get; set; }
-        public List<Action> Actions { get; set; }
+        public List<GameReaction> Reactions { get; set; }
+        public List<GameAction> Actions { get; set; }
     }
 }
 
 ```
 
 ---
-#### TextGenerator.Core/Models/Interactors/SmartNPC.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactors/SmartNPC.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces;
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Interfaces;
 using TextGenerator.Core.Models.Actions;
 using TextGenerator.Core.Models.Interactions;
-using Action = TextGenerator.Core.Models.Actions.Action;
 
 namespace TextGenerator.Core.Models.Interactors
 {
-    public class SmartNPC : IBase
+    public class SmartNPC : IEntity
     {
         public int Id => ID;
         public int ID { get; set; }
@@ -644,63 +717,65 @@ namespace TextGenerator.Core.Models.Interactors
         public List<SocialConnection> SocialConnections { get; set; } // Связаннае NPC, тип их связи(муж, работник и т.д.), взаимоотношения
         public List<string> Behaviors { get; set; } // Это может включать типы поведения NPC, например, "агрессивное", "пассивное", "нейтральное", и т.д.
         public List<DialogueEntry> Dialogues { get; set; }
-        public List<Reaction> Reactions { get; set; }
-        public List<Action> Actions { get; set; }
+        public List<GameReaction> Reactions { get; set; }
+        public List<GameAction> Actions { get; set; }
     }
 }
 
 ```
 
 ---
-#### TextGenerator.Core/Models/Misc/PObject.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Interactors/WorldContext.cs @ 2026-04-07 17:27:37
+```
+﻿namespace TextGenerator.Core.Models.Interactors;
+
+public class WorldContext
+{
+    public string LocationDescription { get; set; }
+    public List<string> RecentEvents { get; set; }
+    public Dictionary<string, string> EntityStates { get; set; }
+    public float TimeOfDay { get; set; }
+}
+```
+
+---
+#### TextGenerator.Core/Models/Metrics/PersonalizationMetrics.cs @ 2026-04-07 17:27:37
+```
+﻿namespace TextGenerator.Core.Models.Metrics;
+
+public class PersonalizationMetrics
+{
+    public float PersonalizationCoefficient { get; set; } // P
+    public float DynamicAdaptationCoefficient { get; set; } // D
+}
+
+public static class MetricsCalculator
+{
+    public static float ComputeP(Dictionary<string, float> relevances, Dictionary<string, float> weights)
+    {
+        float sum = 0;
+        foreach (var kv in relevances)
+            if (weights.ContainsKey(kv.Key)) sum += kv.Value * weights[kv.Key];
+        return sum / weights.Values.Sum();
+    }
+    
+    public static float ComputeD(float actualComplexity, float expectedComplexity, float maxComplexity)
+    {
+        return 1 - (Math.Abs(actualComplexity - expectedComplexity) / maxComplexity);
+    }
+}
+```
+
+---
+#### TextGenerator.Core/Models/Objects/Inventory.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System.Collections.Generic;
-using TextGenerator.Core.Enums;
-using TextGenerator.Core.Interfaces;
-
-namespace TextGenerator.Core.Models.Misc
-{
-    public class PObject : IBase
-    {
-        public int Id => PObjectId;
-        public int PObjectId { get; set; }
-        public IEnumerable<Stat>? Stats { get; set; }
-        public ItemType PObjectType { get; set; }
-        public string History { get; set; }
-    }
-}
-
-```
-
----
-#### TextGenerator.Core/Models/Misc/Stat.cs @ 2026-04-07 15:37:13
-```
-﻿using System;
-using TextGenerator.Core.Enums;
-using TextGenerator.Core.Interfaces;
-
-namespace TextGenerator.Core.Models.Misc
-{
-    public class Stat : IBase
-    {
-        public int Id => StatId;
-        public int StatId { get; set; }
-        public StatType StatType { get; set; }
-        public float Value { get; set; }
-    }
-}
-
-```
-
----
-#### TextGenerator.Core/Models/Objects/Inventory.cs @ 2026-04-07 15:37:13
-```
-﻿using System.Collections.Generic;
+using TextGenerator.Core.Common;
 using TextGenerator.Core.Interfaces;
 
 namespace TextGenerator.Core.Models.Objects
 {
-    public class Inventory : IBase
+    public class Inventory : IEntity
     {
         public int ID { get; set; }
 
@@ -714,14 +789,15 @@ namespace TextGenerator.Core.Models.Objects
 ```
 
 ---
-#### TextGenerator.Core/Models/Objects/Item.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Objects/Item.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Enums;
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Common.Enums;
 using TextGenerator.Core.Interfaces;
 
 namespace TextGenerator.Core.Models.Objects
 {
-    public class Item : IBase
+    public class Item : IEntity
     {
         public int ID { get; set; }
 
@@ -736,13 +812,14 @@ namespace TextGenerator.Core.Models.Objects
 ```
 
 ---
-#### TextGenerator.Core/Models/Objects/Reward.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/Objects/Reward.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces;
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Interfaces;
 
 namespace TextGenerator.Core.Models.Objects
 {
-    public class Reward : IBase
+    public class Reward : IEntity
     {
         public int ID { get; set; }
 
@@ -759,7 +836,46 @@ namespace TextGenerator.Core.Models.Objects
 ```
 
 ---
-#### TextGenerator.Core/TextGenerator.Core.csproj @ 2026-04-07 15:37:13
+#### TextGenerator.Core/Models/World/GameObject.cs @ 2026-04-07 17:27:37
+```
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Common.Enums;
+
+namespace TextGenerator.Core.Models.World
+{
+    public class GameObject : IEntity
+    {
+        public int Id => PObjectId;
+        public int PObjectId { get; set; }
+        public IEnumerable<Stat>? Stats { get; set; }
+        public ItemType PObjectType { get; set; }
+        public string History { get; set; }
+    }
+}
+
+```
+
+---
+#### TextGenerator.Core/Models/World/Stat.cs @ 2026-04-07 17:27:37
+```
+﻿using TextGenerator.Core.Common;
+using TextGenerator.Core.Common.Enums;
+
+namespace TextGenerator.Core.Models.World
+{
+    public class Stat : IEntity
+    {
+        public int Id => StatId;
+        public int StatId { get; set; }
+        public StatType StatType { get; set; }
+        public float Value { get; set; }
+    }
+}
+
+```
+
+---
+#### TextGenerator.Core/TextGenerator.Core.csproj @ 2026-04-07 17:27:37
 ```
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
@@ -780,111 +896,36 @@ namespace TextGenerator.Core.Models.Objects
 ```
 
 ---
-#### TextGenerator.Infrastructure/API/GptApiClient.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Agents/NarrativeAgent.cs @ 2026-04-07 17:27:37
 ```
-﻿using System.Text;
+﻿using System.Collections.Concurrent;
+using Microsoft.Extensions.Caching.Memory;
+using TextGenerator.Core.Interfaces.EdgeAI;
+using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Interfaces.Narrative;
+using TextGenerator.Core.Interfaces.Processors;
+using TextGenerator.Core.Interfaces.RAG;
 using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
-using RestSharp;
-using Newtonsoft.Json;
-using System.Net;
-
-namespace TextGenerator.Infrastructure.API
-{
-    public class RootResponse
-    {
-        public List<Choice> choices { get; set; }
-    }
-
-    public class Choice
-    {
-        public Message message { get; set; }
-    }
-
-    public class Message
-    {
-        public string content { get; set; }
-    }
-
-    public class GptApiClient
-    {
-        private readonly RestClient _restClient;
-        private readonly string _baseApiUrl;
-        private readonly string _apiKey;
-        private readonly string _model;
-
-        public GptApiClient(string apiKey, string baseApiUrl, string model)
-        {
-            _apiKey = apiKey;
-            _baseApiUrl = baseApiUrl;
-            _model = model;
-            _restClient = new RestClient(_baseApiUrl);
-        }
-
-        public async Task<string> SendRequest(string prompt)
-        {
-            try
-            {
-                var request = new RestRequest("chat/completions", Method.Post);
-                request.AddHeader("Authorization", $"Bearer {_apiKey}");
-                request.AddJsonBody(new
-                {
-                    model = _model,
-                    messages = new List<dynamic> { new { role = "user", content = prompt } },
-                    temperature = 0.7,
-                    n = 1,
-                    max_tokens = Convert.ToInt32(prompt.Length * 1.5),
-                    extra_headers = new { X_Title = "My App" } // опционально - передача информации об источнике API-вызова
-                });
-
-                var response = await _restClient.ExecuteAsync(request);
-
-                if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    var responseData = JsonConvert.DeserializeObject<RootResponse>(response.Content);
-                    return responseData.choices[0].message.content;
-                }
-                else
-                {
-                    return "Error: " + response.StatusCode;
-                }
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Exception: " + ex.Message);
-                throw new Exception(ex.Message);
-            }
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Agents/NarrativeAgent.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces.Memorize;
-using TextGenerator.Core.Models.Interactions;
-using TextGenerator.Core.Models.Interactors;
-using TextGenerator.Infrastructure.EdgeAI;
-using TextGenerator.Infrastructure.Memory;
-using TextGenerator.Infrastructure.Processors;
-using TextGenerator.Infrastructure.RAG;
-using TextGenerator.Infrastructure.Reward;
 
 namespace TextGenerator.Infrastructure.Agents;
 
     public class NarrativeAgent : INarrativeAgent
     {
-        private readonly LocalLLMClient _llm;
-        private readonly Preprocessor _preprocessor;
-        private readonly Postprocessor _postprocessor;
-        private readonly RAGService _rag;
-        private readonly RewardCalculator _reward;
-        private readonly Summarizer _summarizer;
+        private readonly ILLMClient _llm;
+        private readonly IPreprocessor _preprocessor;
+        private readonly IPostprocessor _postprocessor;
+        private readonly IRAGService _rag;
+        private readonly IRewardCalculator _reward;
+        private readonly ISummarizer _summarizer;
+        private readonly IMemoryCache _cache;
+        private readonly INarrativeEnvironment _narrativeEnv;
+        
+        // Храним последний узел диалога для каждой пары (NPC, Player)
+        private readonly ConcurrentDictionary<(int npcId, int playerId), DialogueNode> _lastNode = new();
 
-        public NarrativeAgent(LocalLLMClient llm, Preprocessor preprocessor, Postprocessor postprocessor,
-                              RAGService rag, RewardCalculator reward, Summarizer summarizer)
+        public NarrativeAgent(ILLMClient llm, IPreprocessor preprocessor, IPostprocessor postprocessor,
+            IRAGService rag, IRewardCalculator reward, ISummarizer summarizer, IMemoryCache cache, INarrativeEnvironment narrativeEnv)
         {
             _llm = llm;
             _preprocessor = preprocessor;
@@ -892,33 +933,49 @@ namespace TextGenerator.Infrastructure.Agents;
             _rag = rag;
             _reward = reward;
             _summarizer = summarizer;
+            _cache = cache;
+            _narrativeEnv = narrativeEnv;
         }
 
         public async Task<DialogueEntry> GenerateDialogue(SmartNPC npc, Player player, string playerInput, int depth, int variety)
         {
-            // 1. Получить релевантные воспоминания из RAG
-            var augmentedPrompt = await _rag.AugmentPrompt(playerInput,
-                _preprocessor.GenerateBasicBranchedDialogueRequest(npc, depth, variety));
+            var key = (npc.Id, player.Id);
+            _lastNode.TryGetValue(key, out var lastNode);
+            
+            // 1. Проверка кэша
+            string cacheKey = $"{npc.Id}_{player.Id}_{playerInput.GetHashCode()}";
+            if (_cache.TryGetValue(cacheKey, out DialogueEntry cached))
+                return cached;
 
-            // 2. Сгенерировать диалог через локальную LLM
-            string rawResponse = await _llm.GenerateAsync(augmentedPrompt, maxTokens: 1024);
+            // 2. Получение релевантного контекста из NarrativeEnvironment
+            var context = await _narrativeEnv.GetRelevantContext(npc, player, playerInput);
 
-            // 3. Постобработка
-            DialogueEntry dialogue = _postprocessor.DecodeAPIBranchedDialogueResponse(npc, rawResponse);
+            // 3. Формирование промпта для следующего шага (stepped)
+            string prompt = _preprocessor.GenerateBasicSteppedDialogueRequest(npc, lastNode, variety, context);
 
-            // 4. Оценка качества и сохранение награды
-            float reward = _reward.CalculateReward(rawResponse, playerInput, npc.PersonalCharacteristics[0]);
-            // можно сохранить reward для дальнейшего fine-tuning
+            // 4. RAG-усиление
+            var augmentedPrompt = await _rag.AugmentPrompt(playerInput, prompt);
 
-            // 5. Сохранить взаимодействие в памяти
-            await _rag.StoreInteraction($"Игрок: {playerInput} -> NPC: {dialogue.Text}", $"NPC={npc.Name}");
+            // 5. Генерация через локальную LLM
+            string rawResponse = await _llm.GenerateAsync(augmentedPrompt, maxTokens: 256);
 
-            return dialogue;
+            // 6. Постобработка – получаем только следующий узел диалога
+            var nextNode = _postprocessor.DecodeSingleStepDialogueResponse(npc, rawResponse);
+            var entry = new DialogueEntry { Text = nextNode.NPCText, Childs = new List<DialogueNode> { nextNode } };
+
+            // 7. Сохраняем в кэш
+            _cache.Set(cacheKey, entry, TimeSpan.FromMinutes(10));
+
+            // 8. Сохраняем в память (RAG)
+            await _rag.StoreInteraction($"NPC:{npc.Name} сказал: {nextNode.NPCText}", $"playerInput={playerInput}");
+    
+            _lastNode[key] = nextNode; // для следующего шага
+            return entry;
         }
 
         public async Task<Quest> GenerateQuest(SmartNPC npc, Player player, string goalDescription)
         {
-            var prompt = _preprocessor.GenerateQuestPrompt(npc, player, goalDescription); // новый метод в Preprocessor
+            var prompt = _preprocessor.GenerateQuestPrompt(npc, player, goalDescription); // новый метод в PreprocessorService
             var rawQuest = await _llm.GenerateAsync(prompt);
             var quest = _postprocessor.ParseQuest(rawQuest);
             await _rag.StoreInteraction($"Сгенерирован квест: {quest.Name}", $"NPC={npc.Name}");
@@ -928,7 +985,7 @@ namespace TextGenerator.Infrastructure.Agents;
 ```
 
 ---
-#### TextGenerator.Infrastructure/Analyzer/Analyzer.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Analyzer/DialogueAnalyzer.cs @ 2026-04-07 17:27:37
 ```
 ﻿//using BERTTokenizers;
 using FastBertTokenizer;
@@ -945,12 +1002,12 @@ namespace TextGenerator.Infrastructure.Analyzer
         public long[] TypeIds { get; set; }
     }
 
-    public class Analyzer : IAnalyzer
+    public class DialogueAnalyzer : IAnalyzer
     {
         private static BertTokenizer tokenizer;
         private InferenceSession _onnxSession;
 
-        public Analyzer()
+        public DialogueAnalyzer()
         {
             tokenizer = new BertTokenizer();
             tokenizer.LoadTokenizerJsonAsync("bert-base-uncased").Wait();
@@ -996,94 +1053,83 @@ namespace TextGenerator.Infrastructure.Analyzer
 ```
 
 ---
-#### TextGenerator.Infrastructure/Contexts/BasicDbContext.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Caching/DialogueCache.cs @ 2026-04-07 17:27:37
 ```
-﻿using Microsoft.EntityFrameworkCore;
-using TextGenerator.Core.Interfaces;
+﻿using Microsoft.Extensions.Caching.Memory;
+using TextGenerator.Core.Interfaces.Cache;
 using TextGenerator.Core.Models.Interactions;
-using System.Linq.Expressions;
+using TextGenerator.Core.Models.Interactors;
 
-namespace TextGenerator.Infrastructure.Contexts
+namespace TextGenerator.Infrastructure.Caching;
+
+public class DialogueCache : IDialogueCache
 {
-    public class BasicDbContext : DbContext
-    {
-        public DbSet<DialogueEntry> DialogueEntries { get; set; }
-        public DbSet<DialogueNode> DialogueNodes { get; set; }
-
-        public BasicDbContext(DbContextOptions<BasicDbContext> options) : base(options)
-        {
-        }
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<DialogueEntry>(entity =>
-            {
-                entity.HasKey(x => x.ID);
-                entity.HasMany(x => x.Childs)
-                      .WithOne()
-                      .HasForeignKey(x => x.ID)
-                      .OnDelete(DeleteBehavior.Cascade);
-            });
-
-            modelBuilder.Entity<DialogueNode>(entity =>
-            {
-                entity.HasKey(x => x.ID);
-                entity.HasMany(x => x.Childs)
-                      .WithOne()
-                      .HasForeignKey(x => x.ID)
-                      .OnDelete(DeleteBehavior.Cascade);
-            });
-        }
-    }
+    private readonly IMemoryCache _cache;
+    private readonly TimeSpan _defaultTtl = TimeSpan.FromMinutes(15);
+    
+    public DialogueCache(IMemoryCache cache) => _cache = cache;
+    
+    public bool TryGet(string key, out DialogueEntry entry) => _cache.TryGetValue(key, out entry);
+    public void Set(string key, DialogueEntry entry, TimeSpan? ttl = null) 
+        => _cache.Set(key, entry, ttl ?? _defaultTtl);
+    
+    public string MakeKey(SmartNPC npc, Player player, string playerInput, string contextHash)
+        => $"dial_{npc.Id}_{player.Id}_{playerInput.GetHashCode()}_{contextHash}";
 }
-
 ```
 
 ---
-#### TextGenerator.Infrastructure/EdgeAI/LocalLLMClient.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/EdgeAI/LocalLLMClient.cs @ 2026-04-07 17:27:37
 ```
 ﻿using LLama;
 using LLama.Common;
 using Microsoft.Extensions.Options;
 using System.Text;
 using LLama.Sampling;
+using TextGenerator.Core.Interfaces.EdgeAI;
 
 namespace TextGenerator.Infrastructure.EdgeAI;
 
-public class LocalLLMClient
+public class LocalLLMClient : ILLMClient
 {
-    private readonly InteractiveExecutor _executor;
+    private readonly Lazy<Task<InteractiveExecutor>> _executor;
     private readonly LLamaContext _context;
 
     public LocalLLMClient(IOptions<LLamaSharpOptions> options)
     {
-        var modelPath = options.Value.ModelPath;
+        _executor = new Lazy<Task<InteractiveExecutor>>(() => LoadModelAsync(options.Value.ModelPath));
+    }
+    
+    private async Task<InteractiveExecutor> LoadModelAsync(string modelPath)
+    {
         var parameters = new ModelParams(modelPath)
         {
             ContextSize = 2048,
             GpuLayerCount = 20,   // использовать GPU
             BatchSize = 512
         };
-        var model = LLamaWeights.LoadFromFile(parameters);
-        _context = model.CreateContext(parameters);
-        _executor = new InteractiveExecutor(_context);
+        var model = await Task.Run(() => LLamaWeights.LoadFromFile(parameters));
+        var context = model.CreateContext(parameters);
+        return new InteractiveExecutor(context);
     }
 
-    public async Task<string> GenerateAsync(string prompt, int maxTokens = 256)
+    public async Task<string> GenerateAsync(string prompt, int maxTokens = 256, float temperature = 0.7f)
     {
+        var executor = await _executor.Value;
+        
         var inferenceParams = new InferenceParams
         {
             MaxTokens = maxTokens,
             AntiPrompts = new[] { "\nИгрок:", "\nNPC:" },
             SamplingPipeline = new DefaultSamplingPipeline
             {
-                Temperature = 0.7f
+                Temperature = temperature
             }
         };
 
         var result = new StringBuilder();
 
-        await foreach (var token in _executor.InferAsync(prompt, inferenceParams))
+        await foreach (var token in executor.InferAsync(prompt, inferenceParams))
         {
             result.Append(token);
         }
@@ -1099,7 +1145,7 @@ public class LLamaSharpOptions
 ```
 
 ---
-#### TextGenerator.Infrastructure/EdgeAI/ModelDownloader.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/EdgeAI/ModelDownloader.cs @ 2026-04-07 17:27:37
 ```
 ﻿namespace TextGenerator.Infrastructure.EdgeAI;
 
@@ -1117,73 +1163,7 @@ public class ModelDownloader
 ```
 
 ---
-#### TextGenerator.Infrastructure/Extensions/ClientExtension.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Models.Interactions;
-using TextGenerator.Core.Models.Interactors;
-using TextGenerator.Infrastructure.Helpers;
-using TextGenerator.Infrastructure.API;
-
-namespace TextGenerator.Infrastructure.Extensions
-{
-    public static class ClientExtension
-    {
-        private static async Task<string> GenerateIntroductoryPhrase(this GptApiClient client, SmartNPC npc)
-        {
-            string prompt = npc.GenerateIntroductoryPhraseRequest();
-            string response = await client.SendRequest(prompt);
-
-            return response;
-        }
-
-        public static async Task<DialogueEntry> GenerateDialogueTree(this GptApiClient client, SmartNPC npc, int depth, int variety)
-        {
-            DialogueEntry root = new();
-            root.Text = await client.GenerateIntroductoryPhrase(npc);
-            root.Childs = new List<DialogueNode>();
-
-            List<DialogueNode> currentNodes = new List<DialogueNode>();
-            currentNodes.Add(new DialogueNode { Name = "", NPCText = root.Text, InterlocutorNPC = npc.Name, PlayerText = "", InterlocutorPlayer = "Игрок" });
-
-            for (int i = 0; i < depth; i++)
-            {
-                List<DialogueNode> newNodes = new List<DialogueNode>();
-
-                foreach (DialogueNode parentNode in currentNodes)
-                {
-                    parentNode.Childs = new List<DialogueNode>();
-                    string stepPrompt = npc.GenerateBasicSteppedDialogueRequest(parentNode, variety);
-                    string response = await client.SendRequest(stepPrompt);
-
-                    List<DialogueNode> childNodes = npc.DecodeAPISteppedDialogueResponse(parentNode.Name, response);
-
-                    foreach (DialogueNode childNode in childNodes)
-                    {
-                        if (i == 0)
-                        {
-                            root.Childs.Add(childNode); // Add child node to the root node at the initial step
-                        }
-                        else
-                        {
-                            parentNode.Childs.Add(childNode); // Add child node to the parent node for subsequent steps
-                        }
-
-                        newNodes.Add(childNode); // Add child node to the list of current nodes
-                    }
-                }
-
-                currentNodes = newNodes;
-            }
-
-            return root;
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Extensions/DialogueExtension.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Extensions/DialogueExtensions.cs @ 2026-04-07 17:27:37
 ```
 ﻿using TextGenerator.Core.Models.Interactions;
 using System;
@@ -1195,7 +1175,7 @@ using System.Threading.Tasks;
 
 namespace TextGenerator.Infrastructure.Extensions
 {
-    public static class DialogueExtension
+    public static class DialogueExtensions
     {
         public static void AddChildToEntry(this DialogueEntry entry, DialogueNode node)
         {
@@ -1268,54 +1248,12 @@ namespace TextGenerator.Infrastructure.Extensions
 ```
 
 ---
-#### TextGenerator.Infrastructure/Helpers/DialogueHelper.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Models.Interactions;
-using TextGenerator.Core.Models.Interactors;
-using Analyzer = TextGenerator.Infrastructure.Analyzer.Analyzer;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TextGenerator.Infrastructure.Processors;
-
-namespace TextGenerator.Infrastructure.Helpers
-{
-    public static class DialogueHelper
-    {
-        public static string GenerateBasicSteppedDialogueRequest(this SmartNPC npc, DialogueNode prevNode, int variety)
-            => new Preprocessor().GenerateBasicSteppedDialogueRequest(npc, prevNode, variety);
-
-        public static string GenerateBasicBranchedDialogueRequest(this SmartNPC npc, int depth, int variety)
-            => new Preprocessor().GenerateBasicBranchedDialogueRequest(npc, depth, variety);
-
-        public static string GenerateIntroductoryPhraseRequest(this SmartNPC npc)
-            => new Preprocessor().GenerateIntroductoryPhraseRequest(npc);
-
-        public static List<DialogueNode> DecodeAPISteppedDialogueResponse(this SmartNPC npc, string prevNodeKey, string response)
-            => new Postprocessor().DecodeAPISteppedDialogueResponse(npc, prevNodeKey, response);
-
-        public static DialogueEntry DecodeAPIBranchedDialogueResponse(this SmartNPC npc, string response)
-            => new Postprocessor().DecodeAPIBranchedDialogueResponse(npc, response);
-
-        public static List<string> GetAllDialogueBranches(this DialogueEntry entry)
-            => new List<string>();
-
-        public static bool CheckDialogueCorrection(this List<string> dialogueBranches)
-            => true;
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Memory/QdrantMemory.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Memory/QdrantMemory.cs @ 2026-04-07 17:27:37
 ```
 ﻿using Google.Protobuf.Collections;
 using Qdrant.Client;
 using Qdrant.Client.Grpc;
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Memory;
 
 namespace TextGenerator.Infrastructure.Memory;
 
@@ -1342,28 +1280,18 @@ namespace TextGenerator.Infrastructure.Memory;
 
         public async Task AddMemory(string text, float[] embedding, string metadata)
         {
-            // Convert float[] to ReadOnlyMemory<float>
-            var vectorMemory = new ReadOnlyMemory<float>(embedding);
-
-            // Build payload as MapField<string, Value>
-            var payload = new MapField<string, Value>
-            {
-                { "text", new Value { StringValue = text } },
-                { "metadata", new Value { StringValue = metadata } }
-            };
-
             var point = new PointStruct
             {
                 Id = Guid.NewGuid(),
-                Vectors = new Vectors
+                Vectors = embedding,
+                Payload =
                 {
-                    Vector = embedding
+                    ["text"] = new Value { StringValue = text },
+                    ["metadata"] = new Value { StringValue = metadata },
+                    ["timestamp"] = DateTime.UtcNow.Ticks   // добавлено
                 }
             };
             
-            point.Payload.Add("text", new Value { StringValue = text });
-            point.Payload.Add("metadata", new Value { StringValue = metadata });
-
             await _client.UpsertAsync(CollectionName, new[] { point });
         }
 
@@ -1383,17 +1311,38 @@ namespace TextGenerator.Infrastructure.Memory;
             }
             return result;
         }
+        
+        public async Task<List<(string Text, float Score, DateTime Timestamp)>> RetrieveRelevantWithTimestamp(string query, float[] queryEmbedding, int topK)
+        {
+            var searchResult = await _client.SearchAsync(CollectionName, queryEmbedding, limit: (ulong)topK);
+    
+            var result = new List<(string Text, float Score, DateTime Timestamp)>();
+            foreach (var scoredPoint in searchResult)
+            {
+                if (scoredPoint.Payload.TryGetValue("text", out var textValue) &&
+                    scoredPoint.Payload.TryGetValue("timestamp", out var tsValue))
+                {
+                    var text = textValue.StringValue ?? string.Empty;
+                    var timestamp = tsValue.HasIntegerValue
+                        ? new DateTime(tsValue.IntegerValue, DateTimeKind.Utc)
+                        : DateTime.MinValue;
+                    result.Add((text, scoredPoint.Score, timestamp));
+                }
+            }
+            return result;
+        }
     }
 ```
 
 ---
-#### TextGenerator.Infrastructure/Memory/Summarizer.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Memory/Summarizer.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Infrastructure.EdgeAI;
+﻿using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Infrastructure.EdgeAI;
 
 namespace TextGenerator.Infrastructure.Memory;
 
-public class Summarizer
+public class Summarizer : ISummarizer
 {
     private readonly LocalLLMClient _llm;
 
@@ -1408,14 +1357,15 @@ public class Summarizer
 ```
 
 ---
-#### TextGenerator.Infrastructure/Memory/VectorMemoryService.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Memory/VectorMemoryService.cs @ 2026-04-07 17:27:37
 ```
 ﻿using Microsoft.ML.OnnxRuntime;
 using Microsoft.ML.OnnxRuntime.Tensors;
+using TextGenerator.Core.Interfaces.Memory;
 
 namespace TextGenerator.Infrastructure.Memory;
 
-public class VectorMemoryService
+public class VectorMemoryService : IVectorMemory
 {
     private readonly InferenceSession _embeddingSession;
 
@@ -1441,17 +1391,168 @@ public class VectorMemoryService
 ```
 
 ---
-#### TextGenerator.Infrastructure/Processors/Postprocessor.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/RL/RLFineTuner.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces.Processors;
+﻿using TextGenerator.Core.Interfaces.EdgeAI;
+using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Interfaces.RL;
+
+namespace TextGenerator.Infrastructure.RL;
+
+public class RLFineTuner : IRLFineTuner
+{
+    private readonly IRewardCollector _collector;
+    private readonly ILLMClient _llm;
+    
+    public RLFineTuner(IRewardCollector collector, ILLMClient llm)
+    {
+        _collector = collector;
+        _llm = llm;
+    }
+    
+    public async Task RunPeriodicFineTuningAsync()
+    {
+        // 1. Собрать накопленные данные (prompt, response, reward)
+        var dataset = await _collector.GetDatasetAsync();
+        if (dataset.Count < 100) return;
+        
+        // 2. Преобразовать в формат для DPO (например, JSONL)
+        // 3. Вызвать внешний скрипт Python (или использовать TorchSharp) для LoRA-дообучения
+        // 4. Обновить веса модели (заменить .gguf или LoRA адаптер)
+        // Здесь пока заглушка
+        Console.WriteLine($"Fine-tuning запущен с {dataset.Count} примерами");
+        await Task.CompletedTask;
+    }
+}
+```
+
+---
+#### TextGenerator.Infrastructure/Reward/RewardCalculator.cs @ 2026-04-07 17:27:37
+```
+﻿using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Interfaces.Processors;
+
+namespace TextGenerator.Infrastructure.Reward;
+
+public class RewardCalculator : IRewardCalculator
+{
+    private readonly IAnalyzer _dialogueAnalyzer;
+
+    public RewardCalculator(IAnalyzer dialogueAnalyzer) => _dialogueAnalyzer = dialogueAnalyzer;
+
+    public float CalculateReward(string generatedText, string context, string expectedStyle)
+    {
+        // 1. Синтаксическая корректность (0-1)
+        float syntaxScore = _dialogueAnalyzer.CheckCorrections(new List<string> { generatedText }) ? 1.0f : 0.3f;
+
+        // 2. Семантическая согласованность (упрощённо: проверка наличия ключевых слов контекста)
+        float contextScore = context.Contains(generatedText[..Math.Min(50, generatedText.Length)]) ? 0.8f : 0.5f;
+
+        // 3. Стилистическое соответствие (имитация)
+        float styleScore = generatedText.Contains(expectedStyle) ? 1.0f : 0.4f;
+
+        // Итоговая награда (можно настраивать веса)
+        return (syntaxScore * 0.4f + contextScore * 0.3f + styleScore * 0.3f);
+    }
+}
+```
+
+---
+#### TextGenerator.Infrastructure/Reward/RewardCollector.cs @ 2026-04-07 17:27:37
+```
+﻿using Newtonsoft.Json;
+using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Models.Feedback;
+
+namespace TextGenerator.Infrastructure.Reward;
+
+public class RewardCollector : IRewardCollector
+{
+    private readonly List<InteractionFeedback> _feedbacks = new();
+    private readonly object _lock = new();
+    
+    public void RecordFeedback(InteractionFeedback feedback)
+    {
+        lock (_lock) _feedbacks.Add(feedback);
+    }
+
+    public Task<List<InteractionFeedback>> GetDatasetAsync()
+    {
+        lock (_lock) return Task.FromResult(_feedbacks.ToList());
+    }
+
+    public async Task SaveToDatasetAsync(string path)
+    {
+        var json = JsonConvert.SerializeObject(_feedbacks, Formatting.Indented);
+        await File.WriteAllTextAsync(path, json);
+    }
+}
+```
+
+---
+#### TextGenerator.Infrastructure/Services/NarrativeEnvironmentService.cs @ 2026-04-07 17:27:37
+```
+﻿using Microsoft.Extensions.Caching.Memory;
+using Neo4j.Driver;
+using TextGenerator.Core.Interfaces.Narrative;
+using TextGenerator.Core.Models.Actions;
+using TextGenerator.Core.Models.Interactors;
+
+
+namespace TextGenerator.Infrastructure.Services;
+
+public class NarrativeEnvironmentService : INarrativeEnvironment
+{
+    private readonly IDriver _neo4jDriver;
+    private readonly IMemoryCache _cache;
+
+    public async Task<WorldContext> GetRelevantContext(SmartNPC npc, Player player, string currentInput)
+    {
+        // 1. Получить местоположение, время суток
+        // 2. Получить последние 5 событий из истории
+        // 3. Получить связи NPC с другими персонажами
+        // 4. Вернуть структурированный объект
+        var context = new WorldContext();
+        // ... реализация через Cypher-запросы
+        return new WorldContext
+        {
+            LocationDescription = "Unknown location",
+            RecentEvents = new List<string>(),
+            EntityStates = new Dictionary<string, string>(),
+            TimeOfDay = 12.0f
+        };
+    }
+
+    public Task UpdateState(string entityId, string property, object value)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<SocialConnection>> GetRelationships(int npcId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task LogInteraction(string description, DateTime timestamp)
+    {
+        throw new NotImplementedException();
+    }
+}
+```
+
+---
+#### TextGenerator.Infrastructure/Services/Processors/PostprocessorService.cs @ 2026-04-07 17:27:37
+```
+﻿using System.Text.RegularExpressions;
+using Newtonsoft.Json;
+using TextGenerator.Core.Interfaces.Processors;
 using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
 using TextGenerator.Infrastructure.Extensions;
-using System.Text.RegularExpressions;
 
-namespace TextGenerator.Infrastructure.Processors
+namespace TextGenerator.Infrastructure.Services.Processors
 {
-    public class Postprocessor : IPostprocessor
+    public class PostprocessorService : IPostprocessor
     {
         private static string npcName = "";
         private static string playerName = "";
@@ -1538,13 +1639,36 @@ namespace TextGenerator.Infrastructure.Processors
 
         public Quest ParseQuest(string response)
         {
-            throw new NotImplementedException();
+            // Извлечь JSON из ответа (модель может добавить пояснения)
+            var jsonMatch = Regex.Match(response, @"\{[\s\S]*\}");
+            if (!jsonMatch.Success) throw new ArgumentException("No JSON found");
+            var quest = JsonConvert.DeserializeObject<Quest>(jsonMatch.Value);
+            // Валидация полей
+            if (quest.Difficulty < 1 || quest.Difficulty > 5) quest.Difficulty = 3;
+            return quest;
         }
 
         private DialogueNode ParseBranch(string separator)
         {
             DialogueNode branch = new DialogueNode();
             return branch;
+        }
+        
+        public DialogueNode DecodeSingleStepDialogueResponse(SmartNPC npc, string response)
+        {
+            // Парсим строку вида: "Игрок: \"...\" NPC: \"...\""
+            var pattern = @"Игрок:\s*""(?<player>[^""]+)""\s+NPC:\s*""(?<npc>[^""]+)""";
+            var match = Regex.Match(response, pattern);
+            if (!match.Success) throw new FormatException("Invalid stepped response");
+    
+            return new DialogueNode
+            {
+                InterlocutorPlayer = "Игрок",
+                PlayerText = match.Groups["player"].Value,
+                InterlocutorNPC = npc.Name,
+                NPCText = match.Groups["npc"].Value,
+                Childs = new List<DialogueNode>()
+            };
         }
 
         private Dictionary<string, Dictionary<string, Dictionary<string, string>>> ParseTextToDict(string text)
@@ -1587,16 +1711,25 @@ namespace TextGenerator.Infrastructure.Processors
 ```
 
 ---
-#### TextGenerator.Infrastructure/Processors/Preprocessor.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Services/Processors/PreprocessorService.cs @ 2026-04-07 17:27:37
 ```
-﻿using TextGenerator.Core.Interfaces.Processors;
+﻿using Newtonsoft.Json;
+using TextGenerator.Core.Interfaces.Narrative;
+using TextGenerator.Core.Interfaces.Processors;
 using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
 
-namespace TextGenerator.Infrastructure.Processors
+namespace TextGenerator.Infrastructure.Services.Processors
 {
-    public class Preprocessor : IPreprocessor
+    public class PreprocessorService : IPreprocessor
     {
+        private readonly INarrativeEnvironment _narrativeEnv;
+
+        public PreprocessorService(INarrativeEnvironment narrativeEnv)
+        {
+            _narrativeEnv = narrativeEnv;
+        }
+        
         public string GenerateBasicBranchedDialogueRequest(SmartNPC npc, int depth, int variety)
         {
             string entry = GenerateEntryString(npc);
@@ -1618,10 +1751,25 @@ namespace TextGenerator.Infrastructure.Processors
 
         public string GenerateQuestPrompt(SmartNPC npc, Player player, string goalDescription)
         {
-            throw new NotImplementedException();
+            var context = _narrativeEnv.GetRelevantContext(npc, player, goalDescription).Result;
+            return $@"
+Ты – генератор квестов для RPG. Сгенерируй задание в формате JSON.
+NPC: {npc.Name} (профессия: {npc.Profession})
+Игрок: {player.Name}, уровень {player.Level}
+Цель: {goalDescription}
+Контекст мира: {JsonConvert.SerializeObject(context)}
+Сложность должна быть между 1 и 5, награда – предметы или опыт.
+Вывод ТОЛЬКО JSON:
+{{
+  ""name"": ""Название квеста"",
+  ""description"": ""Описание"",
+  ""difficulty"": 3,
+  ""requirements"": [{{""type"": ""kill"", ""target"": ""goblin"", ""count"": 5}}],
+  ""rewards"": [{{""type"": ""exp"", ""amount"": 100}}]
+}}";
         }
 
-        public string GenerateBasicSteppedDialogueRequest(SmartNPC npc, DialogueNode prevNode, int variety)
+        public string GenerateBasicSteppedDialogueRequest(SmartNPC npc, DialogueNode prevNode, int variety, WorldContext context)
         {
             
             string entry = $"Сгенерируй следующую ступень диалога для NPC {npc.Name}";
@@ -1684,37 +1832,53 @@ namespace TextGenerator.Infrastructure.Processors
 ```
 
 ---
-#### TextGenerator.Infrastructure/RAG/RAGService.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/Services/RAG/RAGService.cs @ 2026-04-07 17:27:37
 ```
 ﻿using System.Text;
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Interfaces.RAG;
 using TextGenerator.Infrastructure.Memory;
 
-namespace TextGenerator.Infrastructure.RAG;
+namespace TextGenerator.Infrastructure.Services.RAG;
 
-public class RAGService
+public class RAGService : IRAGService
 {
     private readonly IMemory _memory;
-    private readonly VectorMemoryService _vectorizer;
+    private readonly IVectorMemory _vectorizer;
+    private readonly ISummarizer _summarizer;
 
-    public RAGService(IMemory memory, VectorMemoryService vectorizer)
+    public RAGService(IMemory memory, IVectorMemory vectorizer, ISummarizer summarizer)
     {
         _memory = memory;
         _vectorizer = vectorizer;
+        _summarizer = summarizer;
     }
 
     public async Task<string> AugmentPrompt(string userQuery, string basePrompt)
     {
         var embedding = _vectorizer.GetEmbedding(userQuery);
-        var memories = await _memory.RetrieveRelevant(userQuery, embedding, topK: 3);
+        // Получаем воспоминания с временными метками
+        var memories = await _memory.RetrieveRelevantWithTimestamp(userQuery, embedding, topK: 3);
+        
         if (memories.Count == 0) return basePrompt;
+        
+        // Сортируем по убыванию свежести (score уже учитывает косинусное сходство, но добавим временной коэффициент)
+        var sorted = memories.OrderByDescending(m => m.Timestamp).Take(3);
 
         var context = new StringBuilder();
-        context.AppendLine("Вот что NPC помнит о прошлых взаимодействиях:");
+        context.AppendLine("Вот что NPC помнит о прошлых взаимодействиях (свежие воспоминания важнее):");
         foreach (var mem in memories)
-            context.AppendLine($"- {mem.Text}");
+            context.AppendLine($"- {mem.Text} (было {DateTime.Now.Subtract(mem.Timestamp).TotalHours:F1} ч. назад)");
 
-        return $"{basePrompt}\n\n{context}\nОтветь, учитывая эту память.";
+        // Если общая длина промпта превышает лимит (например, 1800 токенов), вызываем суммаризатор
+        var fullPrompt = $"{basePrompt}\n\n{context}";
+        
+        if (EstimateTokenCount(fullPrompt) > 1800)
+        {
+            var summary = await _summarizer.Summarize(context.ToString());
+            fullPrompt = $"{basePrompt}\n\nКраткая памятка: {summary}";
+        }
+        return fullPrompt;
     }
 
     public async Task StoreInteraction(string text, string metadata)
@@ -1722,627 +1886,18 @@ public class RAGService
         var embedding = _vectorizer.GetEmbedding(text);
         await _memory.AddMemory(text, embedding, metadata);
     }
-}
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/ChainQuestRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactions;
-using System.Linq.Expressions;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class ChainQuestRepository : IRepository<ChainQuest>
+    
+    private int EstimateTokenCount(string text)
     {
-        public void Add(in ChainQuest sender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<ChainQuest> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<ChainQuest>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ChainQuest GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ChainQuest> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ChainQuest GetByIdWithIncludes(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ChainQuest> GetByIdWithIncludesAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public ChainQuest Select(Expression<Func<ChainQuest, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<ChainQuest> SelectAsync(Expression<Func<ChainQuest, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(in ChainQuest sender)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/DialogueEntryRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using Microsoft.EntityFrameworkCore;
-using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactions;
-using System.Linq.Expressions;
-using TextGenerator.Infrastructure.Contexts;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class DialogueEntryRepository : IRepository<DialogueEntry>
-    {
-        private readonly BasicDbContext _dbContext;
-
-        public DialogueEntryRepository(BasicDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        public void Add(in DialogueEntry entry)
-        {
-            _dbContext.DialogueEntries.Add(entry);
-
-            foreach (var node in entry.Childs)
-            {
-                AddDialogueNodeAndChildren(node);
-            }
-
-            _dbContext.SaveChanges();
-        }
-
-        private void AddDialogueNodeAndChildren(DialogueNode node)
-        {
-            _dbContext.DialogueNodes.Add(node);
-
-            if (node.Childs != null && node.Childs.Any())
-            {
-                foreach (var childNode in node.Childs)
-                {
-                    AddDialogueNodeAndChildren(childNode);
-                }
-            }
-        }
-
-        public IEnumerable<DialogueEntry> GetAll()
-            => _dbContext.DialogueEntries.Include(x => x.Childs).ToList();
-
-        public Task<List<DialogueEntry>> GetAllAsync()
-            => _dbContext.DialogueEntries.Include(x => x.Childs).ToListAsync();
-
-        public DialogueEntry GetById(int id) 
-            => _dbContext.DialogueEntries.Include(x => x.Childs)
-                                         .FirstOrDefault(x => x.ID == id);
-
-        public Task<DialogueEntry> GetByIdAsync(int id) 
-            => _dbContext.DialogueEntries.Include(x => x.Childs)
-                                         .FirstOrDefaultAsync(x => x.ID == id);
-
-        public DialogueEntry GetByIdWithIncludes(int id) 
-            => _dbContext.DialogueEntries.Include(x => x.Childs)
-                                         .FirstOrDefault(x => x.ID == id);
-
-        public Task<DialogueEntry> GetByIdWithIncludesAsync(int id) 
-            => _dbContext.DialogueEntries.Include(x => x.Childs)
-                                         .FirstOrDefaultAsync(x => x.ID == id);
-
-        public bool Remove(int id)
-        {
-            var entry = _dbContext.DialogueEntries.FirstOrDefault(x => x.ID == id);
-            if (entry != null)
-            {
-                _dbContext.DialogueEntries.Remove(entry);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-
-        public int Save()
-            => _dbContext.SaveChanges();
-
-        public Task<int> SaveAsync()
-            => _dbContext.SaveChangesAsync();
-        
-
-        public DialogueEntry Select(Expression<Func<DialogueEntry, bool>> predicate) 
-            => _dbContext.DialogueEntries.Include(x => x.Childs)
-                                         .FirstOrDefault(predicate);
-
-        public Task<DialogueEntry> SelectAsync(Expression<Func<DialogueEntry, bool>> predicate) 
-            => _dbContext.DialogueEntries.Include(x => x.Childs)
-                                         .FirstOrDefaultAsync(predicate);
-
-        public void Update(in DialogueEntry entry)
-        {
-            _dbContext.DialogueEntries.Update(entry);
-            _dbContext.SaveChanges();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/DialogueNodeRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using Microsoft.EntityFrameworkCore;
-using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactions;
-using System.Linq.Expressions;
-using System.Linq;                    // LINQ
-using TextGenerator.Infrastructure.Contexts;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class DialogueNodeRepository : IRepository<DialogueNode>
-    {
-        private readonly BasicDbContext _dbContext;
-
-        public DialogueNodeRepository(BasicDbContext dbContext)
-        {
-            _dbContext = dbContext;
-        }
-
-        public void Add(in DialogueNode sender)
-        {
-            _dbContext.DialogueNodes.Add(sender);
-            _dbContext.SaveChanges();
-        }
-
-        public IEnumerable<DialogueNode> GetAll()
-            => _dbContext.DialogueNodes.ToList();
-
-        public async Task<List<DialogueNode>> GetAllAsync()
-            => await _dbContext.DialogueNodes.AsQueryable().ToListAsync();
-
-        public DialogueNode GetById(int id) 
-            => _dbContext.DialogueNodes.FirstOrDefault(x => x.ID == id);
-
-        public async Task<DialogueNode> GetByIdAsync(int id) 
-            => await _dbContext.DialogueNodes.AsQueryable().FirstOrDefaultAsync(x => x.ID == id);
-
-        // Add any necessary includes here
-        public DialogueNode GetByIdWithIncludes(int id)
-            => _dbContext.DialogueNodes.Include(x => x.Childs).FirstOrDefault(x => x.ID == id);
-
-        // Add any necessary includes here
-        public Task<DialogueNode> GetByIdWithIncludesAsync(int id)
-            => _dbContext.DialogueNodes.Include(x => x.Childs).FirstOrDefaultAsync(x => x.ID == id);
-
-        public bool Remove(int id)
-        {
-            var entity = _dbContext.DialogueNodes.FirstOrDefault(x => x.ID == id);
-            if (entity != null)
-            {
-                _dbContext.DialogueNodes.Remove(entity);
-                _dbContext.SaveChanges();
-                return true;
-            }
-            return false;
-        }
-
-        public int Save()
-            => _dbContext.SaveChanges();
-       
-        public Task<int> SaveAsync()
-            => _dbContext.SaveChangesAsync();
-
-        public DialogueNode Select(Expression<Func<DialogueNode, bool>> predicate)
-            => _dbContext.DialogueNodes.FirstOrDefault(predicate);
-
-        public Task<DialogueNode> SelectAsync(Expression<Func<DialogueNode, bool>> predicate)
-            => _dbContext.DialogueNodes.FirstOrDefaultAsync(predicate);
-
-        public void Update(in DialogueNode sender)
-        {
-            _dbContext.Entry(sender).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _dbContext.SaveChanges();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/EnvironmentRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactors;
-using System.Linq.Expressions;
-using Environment = TextGenerator.Core.Models.Interactors.Environment;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class EnvironmentRepository : IRepository<Environment>
-    {
-        public void Add(in Environment sender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Environment> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Environment>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Environment GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Environment> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Environment GetByIdWithIncludes(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Environment> GetByIdWithIncludesAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Environment Select(Expression<Func<Environment, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Environment> SelectAsync(Expression<Func<Environment, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(in Environment sender)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/NPCRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactors;
-using System.Linq.Expressions;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class NPCRepository : IRepository<SmartNPC>
-    {
-        public void Add(in SmartNPC sender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<SmartNPC> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<SmartNPC>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public SmartNPC GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<SmartNPC> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public SmartNPC GetByIdWithIncludes(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<SmartNPC> GetByIdWithIncludesAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public SmartNPC Select(Expression<Func<SmartNPC, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<SmartNPC> SelectAsync(Expression<Func<SmartNPC, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(in SmartNPC sender)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/PlayerRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactors;
-using System.Linq.Expressions;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class PlayerRepository : IRepository<Player>
-    {
-        public void Add(in Player sender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Player> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Player>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Player GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Player> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Player GetByIdWithIncludes(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Player> GetByIdWithIncludesAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Player Select(Expression<Func<Player, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Player> SelectAsync(Expression<Func<Player, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(in Player sender)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Repositories/QuestRepository.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces;
-using TextGenerator.Core.Models.Interactions;
-using System.Linq.Expressions;
-
-namespace TextGenerator.Infrastructure.Repositories
-{
-    public class QuestRepository : IRepository<Quest>
-    {
-        public void Add(in Quest sender)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Quest> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Quest>> GetAllAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Quest GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Quest> GetByIdAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Quest GetByIdWithIncludes(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Quest> GetByIdWithIncludesAsync(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public int Save()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> SaveAsync()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Quest Select(Expression<Func<Quest, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Quest> SelectAsync(Expression<Func<Quest, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Update(in Quest sender)
-        {
-            throw new NotImplementedException();
-        }
-    }
-}
-
-```
-
----
-#### TextGenerator.Infrastructure/Reward/RewardCalculator.cs @ 2026-04-07 15:37:13
-```
-﻿using TextGenerator.Core.Interfaces.Memorize;
-
-namespace TextGenerator.Infrastructure.Reward;
-
-public class RewardCalculator : IRewardSystem
-{
-    private readonly Analyzer.Analyzer _analyzer;
-
-    public RewardCalculator(Analyzer.Analyzer analyzer) => _analyzer = analyzer;
-
-    public float CalculateReward(string generatedText, string context, string expectedStyle)
-    {
-        // 1. Синтаксическая корректность (0-1)
-        float syntaxScore = _analyzer.CheckCorrections(new List<string> { generatedText }) ? 1.0f : 0.3f;
-
-        // 2. Семантическая согласованность (упрощённо: проверка наличия ключевых слов контекста)
-        float contextScore = context.Contains(generatedText[..Math.Min(50, generatedText.Length)]) ? 0.8f : 0.5f;
-
-        // 3. Стилистическое соответствие (имитация)
-        float styleScore = generatedText.Contains(expectedStyle) ? 1.0f : 0.4f;
-
-        // Итоговая награда (можно настраивать веса)
-        return (syntaxScore * 0.4f + contextScore * 0.3f + styleScore * 0.3f);
+        // Простая эвристика: 1 токен ≈ 4 символов для английского, 2 символа для кириллицы.
+        // В реальном проекте используйте настоящий токенизатор (например, LLamaSharp's Tokenizer).
+        return (int)(text.Length * 0.75);
     }
 }
 ```
 
 ---
-#### TextGenerator.Infrastructure/TextGenerator.Infrastructure.csproj @ 2026-04-07 15:37:13
+#### TextGenerator.Infrastructure/TextGenerator.Infrastructure.csproj @ 2026-04-07 17:27:37
 ```
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
@@ -2355,8 +1910,8 @@ public class RewardCalculator : IRewardSystem
 <Authors>InanisPluvia</Authors>
 <PackageOutputPath>C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\NugetRepo</PackageOutputPath>
 <Version>1.1.18</Version>
-<TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
 <Nullable>enable</Nullable>
+<TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
@@ -2379,6 +1934,7 @@ public class RewardCalculator : IRewardSystem
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
     <PackageReference Include="LLamaSharp.Jinja.Executors" Version="1.0.0" />
+    <PackageReference Include="Neo4j.Driver" Version="6.0.0" />
   </ItemGroup>
 
 </Project>
@@ -2386,15 +1942,12 @@ public class RewardCalculator : IRewardSystem
 ```
 
 ---
-#### TextGenerator.Service/Controllers/DialogueController.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Service/Controllers/DialogueController.cs @ 2026-04-07 17:27:37
 ```
 ﻿using Microsoft.AspNetCore.Mvc;
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Narrative;
 using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
-using TextGenerator.Infrastructure.API;
-using TextGenerator.Infrastructure.Extensions;
-using TextGenerator.Infrastructure.Helpers;
 
 namespace TextGenerator.Service.Controllers;
 
@@ -2428,10 +1981,10 @@ public class DialogueController : ControllerBase
 ```
 
 ---
-#### TextGenerator.Service/Controllers/QuestController.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Service/Controllers/QuestController.cs @ 2026-04-07 17:27:37
 ```
 ﻿using Microsoft.AspNetCore.Mvc;
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Narrative;
 using TextGenerator.Core.Models.Interactions;
 using TextGenerator.Core.Models.Interactors;
 
@@ -2462,7 +2015,7 @@ public class QuestController : ControllerBase
 ```
 
 ---
-#### TextGenerator.Service/GPTTextGenerator.Service.http @ 2026-04-07 15:37:13
+#### TextGenerator.Service/GPTTextGenerator.Service.http @ 2026-04-07 17:27:37
 ```
 @GPTTextGenerator.Service_HostAddress = http://localhost:5208
 
@@ -2474,48 +2027,52 @@ Accept: application/json
 ```
 
 ---
-#### TextGenerator.Service/Program.cs @ 2026-04-07 15:37:13
+#### TextGenerator.Service/Program.cs @ 2026-04-07 17:27:37
 ```
-using TextGenerator.Core.Interfaces.Memorize;
+using TextGenerator.Core.Interfaces.Cache;
+using TextGenerator.Core.Interfaces.EdgeAI;
+using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Core.Interfaces.Narrative;
 using TextGenerator.Core.Interfaces.Processors;
+using TextGenerator.Core.Interfaces.RAG;
 using TextGenerator.Infrastructure.Agents;
-using TextGenerator.Infrastructure.API;
-using TextGenerator.Infrastructure.Processors;
 using TextGenerator.Infrastructure.Analyzer;
+using TextGenerator.Infrastructure.Caching;
 using TextGenerator.Infrastructure.EdgeAI;
 using TextGenerator.Infrastructure.Memory;
-using TextGenerator.Infrastructure.RAG;
 using TextGenerator.Infrastructure.Reward;
+using TextGenerator.Infrastructure.Services;
+using TextGenerator.Infrastructure.Services.Processors;
+using TextGenerator.Infrastructure.Services.RAG;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Настройка OpenAI
-var openAIConfig = builder.Configuration.GetSection("OpenAI");
-var apiKey = openAIConfig["ApiKey"] ?? throw new InvalidOperationException("OpenAI ApiKey missing");
-var baseUrl = openAIConfig["BaseUrl"] ?? "https://api.openai.com/v1/";
-var model = openAIConfig["Model"] ?? "gpt-3.5-turbo";
-
-builder.Services.AddSingleton(new GptApiClient(apiKey, baseUrl, model));
 
 // 1. Конфигурация локальной LLM
 builder.Services.Configure<LLamaSharpOptions>(builder.Configuration.GetSection("LocalLLM"));
-builder.Services.AddSingleton<LocalLLMClient>();
+builder.Services.AddSingleton<ILLMClient, LocalLLMClient>();
 
 // 2. Компоненты памяти и RAG
-builder.Services.AddSingleton<VectorMemoryService>();
+builder.Services.AddSingleton<IVectorMemory, VectorMemoryService>();
 builder.Services.AddSingleton<IMemory, QdrantMemory>(); // требуется Qdrant.Client
-builder.Services.AddScoped<RAGService>();
-builder.Services.AddScoped<Summarizer>();
+builder.Services.AddScoped<IRAGService, RAGService>();
+builder.Services.AddScoped<ISummarizer, Summarizer>();
+builder.Services.AddScoped<IDialogueCache, DialogueCache>();
+builder.Services.AddMemoryCache(); // IMemoryCache
 
-// 3. Пре/постпроцессоры
-builder.Services.AddScoped<IPreprocessor, Preprocessor>();
-builder.Services.AddScoped<IPostprocessor, Postprocessor>();
+// 3. Narrative Environment
+builder.Services.AddSingleton<INarrativeEnvironment, NarrativeEnvironmentService>();
 
-// 4. Система наград
-builder.Services.AddSingleton<IAnalyzer, Analyzer>(); // если модель ONNX доступна
-builder.Services.AddSingleton<IRewardSystem, RewardCalculator>();
+// 4. Пре/постпроцессоры
+builder.Services.AddScoped<IPreprocessor, PreprocessorService>();
+builder.Services.AddScoped<IPostprocessor, PostprocessorService>();
 
-// 5. Нарративный агент
+// 5. Система наград и метрик
+builder.Services.AddSingleton<IAnalyzer, DialogueAnalyzer>(); // если модель ONNX доступна
+builder.Services.AddSingleton<IRewardCalculator, RewardCalculator>();
+builder.Services.AddSingleton<IRewardCollector, RewardCollector>();
+
+// 6. Нарративный агент
 builder.Services.AddScoped<INarrativeAgent, NarrativeAgent>();
 
 builder.Services.AddControllers();
@@ -2537,7 +2094,7 @@ app.Run();
 ```
 
 ---
-#### TextGenerator.Service/Properties/launchSettings.json @ 2026-04-07 15:37:13
+#### TextGenerator.Service/Properties/launchSettings.json @ 2026-04-07 17:27:37
 ```json
 ﻿{
   "$schema": "http://json.schemastore.org/launchsettings.json",
@@ -2584,7 +2141,7 @@ app.Run();
 ```
 
 ---
-#### TextGenerator.Service/TextGenerator.Service.csproj @ 2026-04-07 15:37:13
+#### TextGenerator.Service/TextGenerator.Service.csproj @ 2026-04-07 17:27:37
 ```
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -2608,16 +2165,11 @@ app.Run();
 ```
 
 ---
-#### TextGenerator.Service/appsettings.Development.json @ 2026-04-07 15:37:13
+#### TextGenerator.Service/appsettings.Development.json @ 2026-04-07 17:27:37
 ```json
 {
   "LocalLLM": {
     "ModelPath": "models/llama-3-8b-q4.gguf"
-  },
-  "OpenAI": {
-    "ApiKey": "your-api-key",
-    "BaseUrl": "https://api.openai.com/v1/",
-    "Model": "gpt-3.5-turbo"
   },
   "Logging": {
     "LogLevel": {
@@ -2630,17 +2182,12 @@ app.Run();
 ```
 
 ---
-#### TextGenerator.Service/appsettings.json @ 2026-04-07 15:37:13
+#### TextGenerator.Service/appsettings.json @ 2026-04-07 17:27:37
 ```json
 {
   "LocalLLM": {
     "ModelPath": "models/llama-3-8b-q4.gguf"
-  },
-  "OpenAI": {
-    "ApiKey": "your-api-key",
-    "BaseUrl": "https://api.openai.com/v1/",
-    "Model": "gpt-3.5-turbo"
-  },
+  }
   "Logging": {
     "LogLevel": {
       "Default": "Information",

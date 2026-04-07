@@ -1,8 +1,9 @@
-﻿using TextGenerator.Infrastructure.EdgeAI;
+﻿using TextGenerator.Core.Interfaces.Memory;
+using TextGenerator.Infrastructure.EdgeAI;
 
 namespace TextGenerator.Infrastructure.Memory;
 
-public class Summarizer
+public class Summarizer : ISummarizer
 {
     private readonly LocalLLMClient _llm;
 
