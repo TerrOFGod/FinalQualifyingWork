@@ -35,13 +35,11 @@ public class RAGService : IRAGService
             context.AppendLine($"- {mem.Text} ({DateTime.Now.Subtract(mem.Timestamp).TotalHours:F1} hours ago)");
 
         var fullPrompt = $"{basePrompt}\n\n{context}";
-    
-        if (EstimateTokenCount(fullPrompt) > 1800)
-        {
-            var summary = await _textSummarizer.Summarize(context.ToString());
-            fullPrompt = $"{basePrompt}\n\nBrief reminder: {summary}";
-        }
-        return fullPrompt;
+
+        if (EstimateTokenCount(fullPrompt) <= 1800) return fullPrompt;
+        
+        var summary = await _textSummarizer.Summarize(context.ToString());
+        return $"{basePrompt}\n\nBrief reminder: {summary}";
     }
 
     public async Task StoreInteraction(string text, string metadata)

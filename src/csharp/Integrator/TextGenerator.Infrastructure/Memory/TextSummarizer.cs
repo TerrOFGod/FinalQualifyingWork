@@ -14,7 +14,7 @@ public class TextSummarizer : ITextSummarizer
 
     public async Task<string> Summarize(string longText)
     {
-        var prompt = $"Кратко перескажи следующий диалог или событие (не более 2 предложений):\n{longText}";
+        var prompt = $"Briefly retell the following dialogue or event (no more than 2 sentences):\n{longText}";
         return await _llm.GenerateAsync(prompt, maxTokens: 100);
     }
 }
