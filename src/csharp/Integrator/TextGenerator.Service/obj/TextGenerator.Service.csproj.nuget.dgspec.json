@@ -18,15 +18,15 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.1"
+          "net8.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.1": {
-            "targetAlias": "netstandard2.1",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -43,8 +43,8 @@
         "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
-        "netstandard2.1": {
-          "targetAlias": "netstandard2.1",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -56,12 +56,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.23, 8.0.23]"
+            }
+          ],
           "frameworkReferences": {
-            "NETStandard.Library": {
+            "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Users\\VseTTrofimchuk\\.dotnet\\sdk\\9.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Users\\VseTTrofimchuk\\.dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -111,13 +125,21 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AllMiniLmL6V2Sharp": {
+              "target": "Package",
+              "version": "[0.0.3, )"
+            },
             "FastBertTokenizer": {
               "target": "Package",
-              "version": "[1.0.28, )"
+              "version": "[1.1.30-alpha, )"
             },
             "LLamaSharp": {
               "target": "Package",
               "version": "[0.26.0, )"
+            },
+            "LLamaSharp.Backend.Cuda11.Windows": {
+              "target": "Package",
+              "version": "[0.24.0, )"
             },
             "LLamaSharp.Jinja.Executors": {
               "target": "Package",
@@ -133,19 +155,27 @@
             },
             "Microsoft.ML": {
               "target": "Package",
-              "version": "[3.0.1, )"
+              "version": "[5.0.0, )"
             },
             "Microsoft.ML.OnnxRuntime": {
               "target": "Package",
-              "version": "[1.18.0, )"
+              "version": "[1.23.2, )"
             },
             "Microsoft.ML.OnnxRuntime.Managed": {
               "target": "Package",
-              "version": "[1.18.0, )"
+              "version": "[1.24.3, )"
             },
             "Microsoft.ML.OnnxTransformer": {
               "target": "Package",
               "version": "[3.0.1, )"
+            },
+            "Microsoft.VisualStudio.Threading": {
+              "target": "Package",
+              "version": "[17.14.15, )"
+            },
+            "Mosaik.Core": {
+              "target": "Package",
+              "version": "[25.10.62118, )"
             },
             "Neo4j.Driver": {
               "target": "Package",
@@ -153,7 +183,7 @@
             },
             "Newtonsoft.Json": {
               "target": "Package",
-              "version": "[13.0.3, )"
+              "version": "[13.0.5-beta1, )"
             },
             "Qdrant.Client": {
               "target": "Package",
@@ -161,7 +191,15 @@
             },
             "RestSharp": {
               "target": "Package",
-              "version": "[111.2.0, )"
+              "version": "[114.0.0, )"
+            },
+            "SentenceTransformers": {
+              "target": "Package",
+              "version": "[25.6.59118, )"
+            },
+            "SentenceTransformers.MiniLM": {
+              "target": "Package",
+              "version": "[25.6.59118, )"
             }
           },
           "imports": [

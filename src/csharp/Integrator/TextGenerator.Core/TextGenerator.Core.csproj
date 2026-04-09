@@ -1,15 +1,16 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-	<LangVersion>10.0</LangVersion>
+	<LangVersion>latest</LangVersion>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageId>gpt-text-generator-entities</PackageId>
 	<Title>GPTTextGenerator.Entites</Title>
 	<Authors>InanisPluvia</Authors>
 	<PackageOutputPath>C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\NugetRepo</PackageOutputPath>
 	<Version>1.1.18</Version>
+	<Nullable>enable</Nullable>
   </PropertyGroup>
 
 </Project>

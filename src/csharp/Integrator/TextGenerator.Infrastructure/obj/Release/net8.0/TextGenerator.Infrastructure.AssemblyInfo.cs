@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("InanisPluvia")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.18.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.18+bdcccd68e13961fe348ef599c3bf86bac1387c0c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.18+1ce1b0d3d904aad69daf6e137b6cfc3d394571d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("TextGenerator.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TextGenerator.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.18.0")]

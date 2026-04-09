@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
-	<LangVersion>10.0</LangVersion>
+	<LangVersion>latest</LangVersion>
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<PackageId>gpt-text-generator-infrastructure</PackageId>
 	<Title>GPTTextGenerator.Infrastructure</Title>
@@ -14,17 +14,23 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="FastBertTokenizer" Version="1.0.28" />
+    <PackageReference Include="AllMiniLmL6V2Sharp" Version="0.0.3" />
+    <PackageReference Include="FastBertTokenizer" Version="1.1.30-alpha" />
     <PackageReference Include="LLamaSharp" Version="0.26.0" />
+    <PackageReference Include="LLamaSharp.Backend.Cuda11.Windows" Version="0.24.0" />
     <PackageReference Include="LLamaSharp.semantic-kernel" Version="0.26.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
-    <PackageReference Include="Microsoft.ML" Version="3.0.1" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.18.0" />
-    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.18.0" />
+    <PackageReference Include="Microsoft.ML" Version="5.0.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.23.2" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.24.3" />
     <PackageReference Include="Microsoft.ML.OnnxTransformer" Version="3.0.1" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.VisualStudio.Threading" Version="17.14.15" />
+    <PackageReference Include="Mosaik.Core" Version="25.10.62118" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.5-beta1" />
     <PackageReference Include="Qdrant.Client" Version="1.17.0" />
-    <PackageReference Include="RestSharp" Version="111.2.0" />
+    <PackageReference Include="RestSharp" Version="114.0.0" />
+    <PackageReference Include="SentenceTransformers" Version="25.6.59118" />
+    <PackageReference Include="SentenceTransformers.MiniLM" Version="25.6.59118" />
   </ItemGroup>
 
   <ItemGroup>

@@ -6,6 +6,9 @@ using TextGenerator.Core.Models.Interactions.Dialogues;
 
 namespace TextGenerator.Infrastructure.Caching;
 
+/// <summary>
+/// Реализация кэша диалогов на основе IMemoryCache.
+/// </summary>
 public class DialogueCache : IDialogueCache
 {
     private readonly IMemoryCache _cache;

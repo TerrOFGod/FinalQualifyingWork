@@ -11,14 +11,17 @@ using TextGenerator.Core.Models.Interactions.Quests;
 
 namespace TextGenerator.Infrastructure.Narrative.Agents;
 
+/// <summary>
+/// Основной генератор диалогов и квестов, использующий LLM, RAG, кэш и контекст мира.
+/// </summary>
     public class NarrativeAgent : INarrativeAgent
     {
         private readonly ILLMClient _llm;
         private readonly IPreprocessor _preprocessor;
         private readonly IPostprocessor _postprocessor;
-        private readonly IRAGService _rag;
-        private readonly IRewardCalculator _reward;
-        private readonly ISummarizer _summarizer;
+        private readonly IRAGService _rag; 
+        //private readonly IRewardCalculator _reward;
+        private readonly ITextSummarizer _textSummarizer;
         private readonly IMemoryCache _cache;
         private readonly INarrativeEnvironment _narrativeEnv;
         
@@ -26,14 +29,14 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
         private readonly ConcurrentDictionary<(int npcId, int playerId), DialogueNode> _lastNode = new();
 
         public NarrativeAgent(ILLMClient llm, IPreprocessor preprocessor, IPostprocessor postprocessor,
-            IRAGService rag, IRewardCalculator reward, ISummarizer summarizer, IMemoryCache cache, INarrativeEnvironment narrativeEnv)
+            IRAGService rag, IRewardCalculator reward, ITextSummarizer textSummarizer, IMemoryCache cache, INarrativeEnvironment narrativeEnv)
         {
             _llm = llm;
             _preprocessor = preprocessor;
             _postprocessor = postprocessor;
             _rag = rag;
-            _reward = reward;
-            _summarizer = summarizer;
+            //_reward = reward;
+            _textSummarizer = textSummarizer;
             _cache = cache;
             _narrativeEnv = narrativeEnv;
         }
@@ -52,7 +55,7 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
             var context = await _narrativeEnv.GetRelevantContext(npc, player, playerInput);
 
             // 3. Формирование промпта для следующего шага (stepped)
-            string prompt = _preprocessor.GenerateBasicSteppedDialogueRequest(npc, lastNode, variety, context);
+            string prompt = _preprocessor.BuildSteppedDialoguePrompt(npc, lastNode, variety, context);
 
             // 4. RAG-усиление
             var augmentedPrompt = await _rag.AugmentPrompt(playerInput, prompt);
@@ -61,14 +64,14 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
             string rawResponse = await _llm.GenerateAsync(augmentedPrompt, maxTokens: 256);
 
             // 6. Постобработка – получаем только следующий узел диалога
-            var nextNode = _postprocessor.DecodeSingleStepDialogueResponse(npc, rawResponse);
+            var nextNode = _postprocessor.ParseSteppedDialogueResponse(npc, rawResponse);
             var entry = new DialogueEntry { Text = nextNode.NPCText, Childs = new List<DialogueNode> { nextNode } };
 
             // 7. Сохраняем в кэш
             _cache.Set(cacheKey, entry, TimeSpan.FromMinutes(10));
 
             // 8. Сохраняем в память (RAG)
-            await _rag.StoreInteraction($"NPC:{npc.Name} сказал: {nextNode.NPCText}", $"playerInput={playerInput}");
+            await _rag.StoreInteraction($"NPC:{npc.Name} said: {nextNode.NPCText}", $"playerInput={playerInput}");
     
             _lastNode[key] = nextNode; // для следующего шага
             return entry;
@@ -76,9 +79,9 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
 
         public async Task<Quest> GenerateQuest(SmartNPC npc, Player player, string goalDescription)
         {
-            var prompt = _preprocessor.GenerateQuestPrompt(npc, player, goalDescription); // новый метод в PreprocessorService
+            var prompt = _preprocessor.BuildQuestPrompt(npc, player, goalDescription); // новый метод в LLMPromptBuilder
             var rawQuest = await _llm.GenerateAsync(prompt);
-            var quest = _postprocessor.ParseQuest(rawQuest);
+            var quest = _postprocessor.ParseQuestResponse(rawQuest);
             await _rag.StoreInteraction($"Сгенерирован квест: {quest.Name}", $"NPC={npc.Name}");
             return quest;
         }

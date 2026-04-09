@@ -3,11 +3,14 @@ using TextGenerator.Infrastructure.EdgeAI;
 
 namespace TextGenerator.Infrastructure.Memory;
 
-public class Summarizer : ISummarizer
+/// <summary>
+/// Суммаризация текста через локальную LLM.
+/// </summary>
+public class TextSummarizer : ITextSummarizer
 {
     private readonly LocalLLMClient _llm;
 
-    public Summarizer(LocalLLMClient llm) => _llm = llm;
+    public TextSummarizer(LocalLLMClient llm) => _llm = llm;
 
     public async Task<string> Summarize(string longText)
     {

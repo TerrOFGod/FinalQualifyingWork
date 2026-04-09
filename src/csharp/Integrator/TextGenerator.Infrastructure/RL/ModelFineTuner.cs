@@ -4,12 +4,15 @@ using TextGenerator.Core.Interfaces.RL;
 
 namespace TextGenerator.Infrastructure.RL;
 
-public class RLFineTuner : IRLFineTuner
+/// <summary>
+/// Периодическое дообучение модели на собранных данных.
+/// </summary>
+public class ModelFineTuner : IModelFineTuner
 {
-    private readonly IRewardCollector _collector;
+    private readonly IFeedbackCollector _collector;
     private readonly ILLMClient _llm;
     
-    public RLFineTuner(IRewardCollector collector, ILLMClient llm)
+    public ModelFineTuner(IFeedbackCollector collector, ILLMClient llm)
     {
         _collector = collector;
         _llm = llm;

@@ -13,7 +13,12 @@
     <SourceRoot Include="C:\Users\VseTTrofimchuk\.nuget\packages\" />
   </ItemGroup>
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <Import Project="$(NuGetPackageRoot)microsoft.ml\3.0.1\build\netstandard2.0\Microsoft.ML.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml\3.0.1\build\netstandard2.0\Microsoft.ML.props')" />
-    <Import Project="$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.18.0\build\netstandard2.1\Microsoft.ML.OnnxRuntime.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.18.0\build\netstandard2.1\Microsoft.ML.OnnxRuntime.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.23.2\build\netstandard2.1\Microsoft.ML.OnnxRuntime.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml.onnxruntime\1.23.2\build\netstandard2.1\Microsoft.ML.OnnxRuntime.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.ml\5.0.0\build\netstandard2.0\Microsoft.ML.props" Condition="Exists('$(NuGetPackageRoot)microsoft.ml\5.0.0\build\netstandard2.0\Microsoft.ML.props')" />
+    <Import Project="$(NuGetPackageRoot)llamasharp.backend.cpu\0.24.0\build\netstandard2.0\LLamaSharp.Backend.Cpu.props" Condition="Exists('$(NuGetPackageRoot)llamasharp.backend.cpu\0.24.0\build\netstandard2.0\LLamaSharp.Backend.Cpu.props')" />
+    <Import Project="$(NuGetPackageRoot)libtorch-cpu-win-x64\2.1.0.1\buildTransitive\netstandard2.0\libtorch-cpu-win-x64.props" Condition="Exists('$(NuGetPackageRoot)libtorch-cpu-win-x64\2.1.0.1\buildTransitive\netstandard2.0\libtorch-cpu-win-x64.props')" />
   </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_VisualStudio_Threading_Analyzers Condition=" '$(PkgMicrosoft_VisualStudio_Threading_Analyzers)' == '' ">C:\Users\VseTTrofimchuk\.nuget\packages\microsoft.visualstudio.threading.analyzers\17.14.15</PkgMicrosoft_VisualStudio_Threading_Analyzers>
+  </PropertyGroup>
 </Project>

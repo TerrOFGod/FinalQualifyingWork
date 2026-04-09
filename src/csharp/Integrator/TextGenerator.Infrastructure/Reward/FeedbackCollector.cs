@@ -4,7 +4,10 @@ using TextGenerator.Core.Models.Feedback;
 
 namespace TextGenerator.Infrastructure.Reward;
 
-public class RewardCollector : IRewardCollector
+/// <summary>
+/// Сбор обратной связи в памяти и сохранение в JSON.
+/// </summary>
+public class FeedbackCollector : IFeedbackCollector
 {
     private readonly List<InteractionFeedback> _feedbacks = new();
     private readonly object _lock = new();

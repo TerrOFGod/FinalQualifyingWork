@@ -2,5 +2,5 @@
 
 public class LLamaSharpOptions
 {
-    public string ModelPath { get; set; } = "models/llama-3-8b-q4.gguf";
+    public string ModelPath { get; set; } = "models/Meta-Llama-3-8B.Q4_K_M.gguf";
 }

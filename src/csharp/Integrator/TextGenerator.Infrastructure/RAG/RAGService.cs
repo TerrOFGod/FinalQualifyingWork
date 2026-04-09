@@ -4,42 +4,42 @@ using TextGenerator.Core.Interfaces.RAG;
 
 namespace TextGenerator.Infrastructure.RAG;
 
+/// <summary>
+/// Реализация RAG-усиления промпта: извлечение релевантных воспоминаний и их добавление.
+/// </summary>
 public class RAGService : IRAGService
 {
-    private readonly IMemory _memory;
-    private readonly IVectorMemory _vectorizer;
-    private readonly ISummarizer _summarizer;
+    private readonly IVectorMemoryStore _vectorMemoryStore;
+    private readonly IEmbeddingGenerator _vectorizer;
+    private readonly ITextSummarizer _textSummarizer;
 
-    public RAGService(IMemory memory, IVectorMemory vectorizer, ISummarizer summarizer)
+    public RAGService(IVectorMemoryStore vectorMemoryStore, IEmbeddingGenerator vectorizer, ITextSummarizer textSummarizer)
     {
-        _memory = memory;
+        _vectorMemoryStore = vectorMemoryStore;
         _vectorizer = vectorizer;
-        _summarizer = summarizer;
+        _textSummarizer = textSummarizer;
     }
 
     public async Task<string> AugmentPrompt(string userQuery, string basePrompt)
     {
         var embedding = _vectorizer.GetEmbedding(userQuery);
-        // Получаем воспоминания с временными метками
-        var memories = await _memory.RetrieveRelevantWithTimestamp(userQuery, embedding, topK: 3);
-        
+        var memories = await _vectorMemoryStore.RetrieveRelevantWithTimestamp(userQuery, embedding, topK: 3);
+    
         if (memories.Count == 0) return basePrompt;
-        
-        // Сортируем по убыванию свежести (score уже учитывает косинусное сходство, но добавим временной коэффициент)
+    
         var sorted = memories.OrderByDescending(m => m.Timestamp).Take(3);
 
         var context = new StringBuilder();
-        context.AppendLine("Вот что NPC помнит о прошлых взаимодействиях (свежие воспоминания важнее):");
+        context.AppendLine("Here is what the NPC remembers about past interactions (recent memories are more important):");
         foreach (var mem in memories)
-            context.AppendLine($"- {mem.Text} (было {DateTime.Now.Subtract(mem.Timestamp).TotalHours:F1} ч. назад)");
+            context.AppendLine($"- {mem.Text} ({DateTime.Now.Subtract(mem.Timestamp).TotalHours:F1} hours ago)");
 
-        // Если общая длина промпта превышает лимит (например, 1800 токенов), вызываем суммаризатор
         var fullPrompt = $"{basePrompt}\n\n{context}";
-        
+    
         if (EstimateTokenCount(fullPrompt) > 1800)
         {
-            var summary = await _summarizer.Summarize(context.ToString());
-            fullPrompt = $"{basePrompt}\n\nКраткая памятка: {summary}";
+            var summary = await _textSummarizer.Summarize(context.ToString());
+            fullPrompt = $"{basePrompt}\n\nBrief reminder: {summary}";
         }
         return fullPrompt;
     }
@@ -47,7 +47,7 @@ public class RAGService : IRAGService
     public async Task StoreInteraction(string text, string metadata)
     {
         var embedding = _vectorizer.GetEmbedding(text);
-        await _memory.AddMemory(text, embedding, metadata);
+        await _vectorMemoryStore.AddMemory(text, embedding, metadata);
     }
     
     private int EstimateTokenCount(string text)

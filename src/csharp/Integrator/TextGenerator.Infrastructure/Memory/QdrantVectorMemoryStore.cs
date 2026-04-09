@@ -5,12 +5,15 @@ using TextGenerator.Core.Interfaces.Memory;
 
 namespace TextGenerator.Infrastructure.Memory;
 
-    public class QdrantMemory : IMemory
+/// <summary>
+/// Реализация векторного хранилища на базе Qdrant.
+/// </summary>
+    public class QdrantVectorMemoryStore : IVectorMemoryStore
     {
         private readonly QdrantClient _client;
         private const string CollectionName = "game_memories";
 
-        public QdrantMemory(string host = "localhost", int port = 6333)
+        public QdrantVectorMemoryStore(string host = "localhost", int port = 6333)
         {
             _client = new QdrantClient(host, port);
             EnsureCollectionExists().GetAwaiter().GetResult();

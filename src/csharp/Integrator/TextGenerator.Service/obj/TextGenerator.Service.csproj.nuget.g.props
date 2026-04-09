@@ -15,8 +15,10 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.apidescription.server\6.0.5\build\Microsoft.Extensions.ApiDescription.Server.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.apidescription.server\6.0.5\build\Microsoft.Extensions.ApiDescription.Server.props')" />
     <Import Project="$(NuGetPackageRoot)swashbuckle.aspnetcore\6.6.2\build\Swashbuckle.AspNetCore.props" Condition="Exists('$(NuGetPackageRoot)swashbuckle.aspnetcore\6.6.2\build\Swashbuckle.AspNetCore.props')" />
+    <Import Project="$(NuGetPackageRoot)libtorch-cpu-win-x64\2.1.0.1\buildTransitive\netstandard2.0\libtorch-cpu-win-x64.props" Condition="Exists('$(NuGetPackageRoot)libtorch-cpu-win-x64\2.1.0.1\buildTransitive\netstandard2.0\libtorch-cpu-win-x64.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_Extensions_ApiDescription_Server Condition=" '$(PkgMicrosoft_Extensions_ApiDescription_Server)' == '' ">C:\Users\VseTTrofimchuk\.nuget\packages\microsoft.extensions.apidescription.server\6.0.5</PkgMicrosoft_Extensions_ApiDescription_Server>
+    <PkgMicrosoft_VisualStudio_Threading_Analyzers Condition=" '$(PkgMicrosoft_VisualStudio_Threading_Analyzers)' == '' ">C:\Users\VseTTrofimchuk\.nuget\packages\microsoft.visualstudio.threading.analyzers\17.14.15</PkgMicrosoft_VisualStudio_Threading_Analyzers>
   </PropertyGroup>
 </Project>
