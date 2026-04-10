@@ -14,11 +14,13 @@ namespace TextGenerator.Infrastructure.EdgeAI;
 public class LocalLLMClient : ILLMClient
 {
     private readonly AsyncLazy<InteractiveExecutor> _executor;
+    private readonly LLamaSharpOptions _options;
 
     public LocalLLMClient(IOptions<LLamaSharpOptions> options, JoinableTaskContext joinableTaskContext)
     {
+        _options = options.Value;
         _executor = new AsyncLazy<InteractiveExecutor>(
-            async () => await LoadModelAsync(options.Value.ModelPath),
+            async () => await LoadModelAsync(_options.ModelPath),
             joinableTaskContext.Factory);
     }
     
@@ -26,9 +28,9 @@ public class LocalLLMClient : ILLMClient
     {
         var parameters = new ModelParams(modelPath)
         {
-            ContextSize = 2048,
-            GpuLayerCount = 20,   // использовать GPU
-            BatchSize = 512
+            ContextSize = _options.ContextSize,
+            GpuLayerCount = _options.GpuLayerCount,   // 0 = CPU, >0 = GPU
+            BatchSize = _options.BatchSize
         };
         var model = await Task.Run(() => LLamaWeights.LoadFromFile(parameters));
         var context = model.CreateContext(parameters);

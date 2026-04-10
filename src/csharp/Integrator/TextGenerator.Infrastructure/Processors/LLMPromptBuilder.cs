@@ -16,23 +16,23 @@ namespace TextGenerator.Infrastructure.Processors;
 public class LLMPromptBuilder : ILLMPromptBuilder
 {
     private readonly INarrativeEnvironment _narrativeEnv;
-    private readonly IRAGService _rag;
+    //private readonly IRAGService _rag;
     private readonly ITextSummarizer _summarizer;
     private readonly PromptOptions _options;
 
     public LLMPromptBuilder(
         INarrativeEnvironment narrativeEnv,
-        IRAGService rag,
+        //IRAGService rag,
         ITextSummarizer summarizer,
         IOptions<PromptOptions> options)
     {
         _narrativeEnv = narrativeEnv;
-        _rag = rag;
+        //_rag = rag;
         _summarizer = summarizer;
         _options = options.Value;
     }
         
-    public async Task<string> BuildBranchedDialoguePromptAsync(SmartNPC npc, int depth, int variety)
+    public Task<string> BuildBranchedDialoguePromptAsync(SmartNPC npc, int depth, int variety)
     {
         var npcProfile = BuildNPCProfile(npc);
         var constraints = BuildBranchConstraints(depth, variety);
@@ -50,10 +50,10 @@ public class LLMPromptBuilder : ILLMPromptBuilder
                       """;
         
         // Улучшение: RAG-усиление базового промпта
-        return await _rag.AugmentPrompt("branched dialogue generation", prompt);
+        return Task.FromResult(prompt);
     }
 
-    public async Task<string> BuildSteppedDialoguePromptAsync(SmartNPC npc, DialogueNode? previousNode, int variety, WorldContext context)
+    public Task<string> BuildSteppedDialoguePromptAsync(SmartNPC npc, DialogueNode? previousNode, int variety, WorldContext context)
     {
         var npcProfile = BuildNPCProfile(npc);
         var prevStep = previousNode != null 
@@ -73,7 +73,7 @@ public class LLMPromptBuilder : ILLMPromptBuilder
                       Keep each phrase under 2 sentences.
                       """;
         
-        return await _rag.AugmentPrompt($"dialogue step for {npc.Name}", prompt);
+        return Task.FromResult(prompt);
     }
 
     public async Task<string> BuildQuestPromptAsync(SmartNPC npc, Player player, string goalDescription)
