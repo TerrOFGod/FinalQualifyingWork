@@ -4,7 +4,6 @@ namespace TextGenerator.Core.Models.Interactions.Quests
 {
     public class QuestChain : IEntity
     {
-        public int Id => ChainQuestId;
-        public int ChainQuestId { get; set; }
+        public Guid Id { get; } = Guid.NewGuid();
     }
 }

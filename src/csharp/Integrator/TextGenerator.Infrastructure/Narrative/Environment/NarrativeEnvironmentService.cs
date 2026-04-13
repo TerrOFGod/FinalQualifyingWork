@@ -23,93 +23,105 @@ public class NarrativeEnvironmentService : INarrativeEnvironment
         _cache = memoryCache;
     }
 
-    public async Task<WorldContext> GetRelevantContext(SmartNPC npc, Player player, string currentInput)
+    public Task<WorldContext> GetRelevantContext(SmartNPC npc, Player player, string currentInput)
     {
-        string cacheKey = $"{CacheKeyPrefix}{npc.Id}_{player.Id}";
-        if (_cache.TryGetValue(cacheKey, out WorldContext cachedContext))
-            return cachedContext;
-
-        var context = new WorldContext();
-        await using var session = _neo4jDriver.AsyncSession();
-
-        // 1. Местоположение и время суток
-        var locationResult = await session.RunAsync(
-            @"MATCH (n:NPC {id: $npcId})-[:LOCATED_AT]->(loc:Location)
-              RETURN loc.description AS location, loc.timeOfDay AS timeOfDay",
-            new { npcId = npc.Id });
-        var locationRecord = await locationResult.SingleAsync();
-        context.LocationDescription = locationRecord["location"].As<string>();
-        context.TimeOfDay = locationRecord["timeOfDay"].As<float>();
-
-        // 2. Последние 5 событий из истории взаимодействий
-        var eventsResult = await session.RunAsync(
-            @"MATCH (n:NPC {id: $npcId})-[r:INTERACTED_WITH]->(p:Player {id: $playerId})
-              RETURN r.description AS event
-              ORDER BY r.timestamp DESC LIMIT 5",
-            new { npcId = npc.Id, playerId = player.Id });
-        var events = await eventsResult.ToListAsync();
-        context.RecentEvents = events.Select(r => r["event"].As<string>()).ToList();
-
-        // 3. Состояния сущностей (например, двери открыта/закрыта)
-        var statesResult = await session.RunAsync(
-            @"MATCH (e:Entity)
-              WHERE e.id STARTS WITH 'world_'
-              RETURN e.id AS entityId, e.state AS state");
-        var states = await statesResult.ToListAsync();
-        context.EntityStates = states.ToDictionary(
-            s => s["entityId"].As<string>(),
-            s => s["state"].As<string>());
-
-        // Make sure to add the key to tracker after setting cache:
-        var cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
-        _cache.Set(cacheKey, context, cacheEntryOptions);
-        _cacheKeys.TryAdd(cacheKey, 0);
-        return context;
-    }
-
-    public async Task UpdateState(string entityId, string property, object value)
-    {
-        await using var session = _neo4jDriver.AsyncSession();
-        await session.RunAsync(
-            @"MATCH (e:Entity {id: $entityId})
-              SET e.$property = $value",
-            new { entityId, property, value });
-        // Инвалидируем кэш, связанный с этой сущностью
-        var keysToRemove = _cacheKeys.Keys.Where(k => k.Contains(entityId)).ToList();
-        foreach (var key in keysToRemove)
+        // string cacheKey = $"{CacheKeyPrefix}{npc.Id}_{player.Id}";
+        // if (_cache.TryGetValue(cacheKey, out WorldContext cachedContext))
+        //     return cachedContext;
+        //
+        // var context = new WorldContext();
+        // await using var session = _neo4jDriver.AsyncSession();
+        //
+        // // 1. Местоположение и время суток
+        // var locationResult = await session.RunAsync(
+        //     @"MATCH (n:NPC {id: $npcId})-[:LOCATED_AT]->(loc:Location)
+        //       RETURN loc.description AS location, loc.timeOfDay AS timeOfDay",
+        //     new { npcId = npc.Id });
+        // var locationRecord = await locationResult.SingleAsync();
+        // context.LocationDescription = locationRecord["location"].As<string>();
+        // context.TimeOfDay = locationRecord["timeOfDay"].As<float>();
+        //
+        // // 2. Последние 5 событий из истории взаимодействий
+        // var eventsResult = await session.RunAsync(
+        //     @"MATCH (n:NPC {id: $npcId})-[r:INTERACTED_WITH]->(p:Player {id: $playerId})
+        //       RETURN r.description AS event
+        //       ORDER BY r.timestamp DESC LIMIT 5",
+        //     new { npcId = npc.Id, playerId = player.Id });
+        // var events = await eventsResult.ToListAsync();
+        // context.RecentEvents = events.Select(r => r["event"].As<string>()).ToList();
+        //
+        // // 3. Состояния сущностей (например, двери открыта/закрыта)
+        // var statesResult = await session.RunAsync(
+        //     @"MATCH (e:Entity)
+        //       WHERE e.id STARTS WITH 'world_'
+        //       RETURN e.id AS entityId, e.state AS state");
+        // var states = await statesResult.ToListAsync();
+        // context.EntityStates = states.ToDictionary(
+        //     s => s["entityId"].As<string>(),
+        //     s => s["state"].As<string>());
+        //
+        // // Make sure to add the key to tracker after setting cache:
+        // var cacheEntryOptions = new MemoryCacheEntryOptions().SetAbsoluteExpiration(TimeSpan.FromMinutes(5));
+        // _cache.Set(cacheKey, context, cacheEntryOptions);
+        // _cacheKeys.TryAdd(cacheKey, 0);
+        // return context;
+        
+        return Task.FromResult(new WorldContext
         {
-            _cache.Remove(key);
-            _cacheKeys.TryRemove(key, out _);
-        }
+            LocationDescription = "A dark forest clearing",
+            RecentEvents = new List<string> { "You hear wolves howling in the distance." },
+            EntityStates = new Dictionary<string, string> { { "gate", "closed" } },
+            TimeOfDay = 0.75f // вечер
+        });
     }
 
-    public async Task<IEnumerable<SocialConnection>> GetRelationships(int npcId)
+    public Task UpdateState(string entityId, string property, object value)
     {
-        await using var session = _neo4jDriver.AsyncSession();
-        var result = await session.RunAsync(
-            @"MATCH (n:NPC {id: $npcId})-[r:RELATED_TO]->(other:NPC)
-              RETURN other.id AS relatedId, other.name AS relatedName, type(r) AS relationType, r.description AS relationshipDesc",
-            new { npcId });
-        var records = await result.ToListAsync();
-        var connections = new List<SocialConnection>();
-        foreach (var record in records)
-        {
-            connections.Add(new SocialConnection
-            {
-                ID = 0, // ID не хранится в графе, можно сгенерировать
-                RelatedNPC = new SmartNPC { ID = record["relatedId"].As<int>(), Name = record["relatedName"].As<string>() },
-                Type = record["relationType"].As<string>(),
-                Relationships = record["relationshipDesc"].As<string>()
-            });
-        }
-        return connections;
+        // await using var session = _neo4jDriver.AsyncSession();
+        // await session.RunAsync(
+        //     @"MATCH (e:Entity {id: $entityId})
+        //       SET e.$property = $value",
+        //     new { entityId, property, value });
+        // // Инвалидируем кэш, связанный с этой сущностью
+        // var keysToRemove = _cacheKeys.Keys.Where(k => k.Contains(entityId)).ToList();
+        // foreach (var key in keysToRemove)
+        // {
+        //     _cache.Remove(key);
+        //     _cacheKeys.TryRemove(key, out _);
+        // }
+
+        return Task.FromResult(Task.CompletedTask);
     }
 
-    public async Task LogInteraction(string description, DateTime timestamp)
+    public Task<IEnumerable<SocialConnection>> GetRelationships(int npcId)
     {
-        await using var session = _neo4jDriver.AsyncSession();
-        await session.RunAsync(
-            @"CREATE (e:Event {description: $description, timestamp: $timestamp})",
-            new { description, timestamp });
+        // await using var session = _neo4jDriver.AsyncSession();
+        // var result = await session.RunAsync(
+        //     @"MATCH (n:NPC {id: $npcId})-[r:RELATED_TO]->(other:NPC)
+        //       RETURN other.id AS relatedId, other.name AS relatedName, type(r) AS relationType, r.description AS relationshipDesc",
+        //     new { npcId });
+        // var records = await result.ToListAsync();
+        // var connections = new List<SocialConnection>();
+        // foreach (var record in records)
+        // {
+        //     connections.Add(new SocialConnection
+        //     {
+        //         ID = 0, // ID не хранится в графе, можно сгенерировать
+        //         RelatedNPC = new SmartNPC { ID = record["relatedId"].As<int>(), Name = record["relatedName"].As<string>() },
+        //         Type = record["relationType"].As<string>(),
+        //         Relationships = record["relationshipDesc"].As<string>()
+        //     });
+        // }
+        // return connections;
+        return Task.FromResult(Enumerable.Empty<SocialConnection>());
+    }
+
+    public Task LogInteraction(string description, DateTime timestamp)
+    {
+        // await using var session = _neo4jDriver.AsyncSession();
+        // await session.RunAsync(
+        //     @"CREATE (e:Event {description: $description, timestamp: $timestamp})",
+        //     new { description, timestamp });
+        return Task.FromResult(Task.CompletedTask);
     }
 }

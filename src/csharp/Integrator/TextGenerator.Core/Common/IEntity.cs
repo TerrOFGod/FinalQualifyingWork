@@ -6,6 +6,6 @@
     public interface IEntity
     {
         /// <summary>Уникальный идентификатор сущности.</summary>
-        public int Id { get; }
+        public Guid Id { get; }
     }
 }

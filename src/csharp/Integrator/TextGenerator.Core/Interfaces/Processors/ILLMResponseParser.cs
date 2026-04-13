@@ -11,10 +11,10 @@ namespace TextGenerator.Core.Interfaces.Processors
     public interface ILLMResponseParser
     {
         /// <summary>Разобрать ответ для ветвистого диалога (несколько вариантов).</summary>
-        Task<DialogueEntry> ParseBranchedDialogueResponse(SmartNPC npc, string response);
+        Task<DialogueNode> ParseBranchedDialogueResponse(SmartNPC npc, string response);
         
         /// <summary>Разобрать ответ для пошагового диалога (один следующий шаг).</summary>
-        Task<DialogueNode> ParseSteppedDialogueResponse(SmartNPC npc, string response);
+        Task ParseSteppedDialogueResponse(SmartNPC npc, DialogueNode parentNode, string response);
 
         /// <summary>Разобрать JSON-ответ в объект квеста.</summary>
         Task<Quest> ParseQuestResponse(string response);

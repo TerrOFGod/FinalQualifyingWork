@@ -32,7 +32,7 @@ public class LLMPromptBuilder : ILLMPromptBuilder
         _options = options.Value;
     }
         
-    public Task<string> BuildBranchedDialoguePromptAsync(SmartNPC npc, int depth, int variety)
+    public Task<string> BuildBranchedDialoguePromptAsync(SmartNPC npc, int? depth, int variety)
     {
         var npcProfile = BuildNPCProfile(npc);
         var constraints = BuildBranchConstraints(depth, variety);
@@ -57,7 +57,9 @@ public class LLMPromptBuilder : ILLMPromptBuilder
     {
         var npcProfile = BuildNPCProfile(npc);
         var prevStep = previousNode != null 
-            ? $"Previous: Player said \"{previousNode.PlayerText}\" → {npc.Name} replied \"{previousNode.NPCText}\""
+            ? !string.IsNullOrEmpty(previousNode.PlayerText) ? 
+                $"Previous: Player said \"{previousNode.PlayerText}\" → {npc.Name} replied \"{previousNode.NPCText}\"" : 
+                $"{npc.Name}: \"{previousNode.NPCText}\""
             : "This is the start of conversation.";
         
         var contextInfo = JsonConvert.SerializeObject(context, Formatting.Indented);
@@ -128,11 +130,12 @@ public class LLMPromptBuilder : ILLMPromptBuilder
                 """;
     }
 
-    private string BuildBranchConstraints(int depth, int variety)
+    private string BuildBranchConstraints(int? depth, int variety)
     {
+        if (depth == null) return "";
         var sb = new StringBuilder();
         sb.AppendLine($"Generate a dialogue tree of depth {depth} with {variety} branches at each level.");
-        sb.AppendLine($"Total leaf nodes: {Math.Pow(variety, depth)}.");
+        sb.AppendLine($"Total leaf nodes: {Math.Pow(variety, (double)depth!)}.");
         sb.AppendLine("Level 0: NPC's opening line.");
         for (int i = 1; i <= depth; i++)
             sb.AppendLine($"Level {i}: For each previous player option, provide {variety} player responses and corresponding NPC replies.");

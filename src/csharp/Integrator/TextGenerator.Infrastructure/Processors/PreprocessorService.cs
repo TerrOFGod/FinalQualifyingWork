@@ -13,7 +13,7 @@ public class PreprocessorService : IPreprocessor
         _promptBuilder = promptBuilder;
     }
 
-    public string BuildBranchedDialoguePrompt(SmartNPC npc, int depth, int variety)
+    public string BuildBranchedDialoguePrompt(SmartNPC npc, int? depth, int variety)
         => _promptBuilder.BuildBranchedDialoguePromptAsync(npc, depth, variety).GetAwaiter().GetResult();
 
     public string BuildSteppedDialoguePrompt(SmartNPC npc, DialogueNode? prevNode, int variety, WorldContext context)

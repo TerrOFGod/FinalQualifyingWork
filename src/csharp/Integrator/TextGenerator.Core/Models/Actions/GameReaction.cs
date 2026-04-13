@@ -4,9 +4,7 @@ namespace TextGenerator.Core.Models.Actions
 {
     public class GameReaction : IEntity
     {
-        public int ID { get; set; }
-
-        public int Id => ID;
+        public Guid Id { get; } = Guid.NewGuid();
 
         public string Name { get; set; }
         public string Description { get; set; }

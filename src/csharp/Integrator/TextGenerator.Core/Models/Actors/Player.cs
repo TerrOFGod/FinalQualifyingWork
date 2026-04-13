@@ -9,15 +9,14 @@ namespace TextGenerator.Core.Models.Actors
 {
     public class Player : IEntity
     {
-        public int Id => ID;
-        public int ID { get; set; }
+        public Guid Id { get; } = Guid.NewGuid();
         public string Name { get; set; }
         public string Type { get; set; }
         public Vector3 Position { get; set; }
         public int Health { get; set; }
         public int Level { get; set; }
         public Inventory Inventory { get; set; }
-        public List<DialogueEntry> Dialogues { get; set; }
+        public List<DialogueNode> Dialogues { get; set; }
         public List<GameReaction> Reactions { get; set; }
         public List<GameAction> Actions { get; set; }
     }

@@ -4,9 +4,7 @@ namespace TextGenerator.Core.Models.Interactions.Quests
 {
     public class Requirement : IEntity
     {
-        public int ID { get; set; }
-
-        public int Id => ID;
+        public Guid Id { get; } = Guid.NewGuid();
 
         public string Name { get; set; }
         public string Type { get; set; }

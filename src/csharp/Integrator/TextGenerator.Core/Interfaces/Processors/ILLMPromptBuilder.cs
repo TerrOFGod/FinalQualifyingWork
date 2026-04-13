@@ -10,7 +10,7 @@ namespace TextGenerator.Core.Interfaces.Processors
     public interface ILLMPromptBuilder
     {
         /// <summary>Промпт для генерации ветвистого диалога с заданной глубиной и вариативностью.</summary>
-        Task<string> BuildBranchedDialoguePromptAsync(SmartNPC npc, int depth, int variety);
+        Task<string> BuildBranchedDialoguePromptAsync(SmartNPC npc, int? depth, int variety);
         
         /// <summary>Промпт для генерации квеста на основе описания цели.</summary>
         Task<string> BuildQuestPromptAsync(SmartNPC npc, Player player, string goalDescription);

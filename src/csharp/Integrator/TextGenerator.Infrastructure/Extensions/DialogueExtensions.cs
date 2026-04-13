@@ -11,69 +11,37 @@ namespace TextGenerator.Infrastructure.Extensions
 {
     public static class DialogueExtensions
     {
-        public static void AddChildToEntry(this DialogueEntry entry, DialogueNode node)
-        {
-            entry.Childs ??= new List<DialogueNode>();
-
-            if (!entry.Childs.Contains(node))
-            {
-                entry.Childs.Add(node);
-            }
-        }
-
-        public static void AddChildToNode(this DialogueNode parent, DialogueNode child)
+        public static void AddChild(this DialogueNode parent, DialogueNode child)
         {
             parent.Childs ??= new List<DialogueNode>();
-
             if (!parent.Childs.Contains(child))
-            {
                 parent.Childs.Add(child);
-            }
         }
 
-        public static DialogueNode GetDialogueNodeByName(this DialogueEntry dialogueEntry, string name)
+        public static DialogueNode GetDialogueNodeByName(this DialogueNode root, string name)
         {
-            if (dialogueEntry == null)
-            {
-                throw new ArgumentNullException("dialogueEntry cannot be null.");
-            }
-
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentNullException("name cannot be null or empty.");
-            }
-
-            return dialogueEntry.GetDialogueNodeByNameRecursive(name, 0);
+            if (root == null) throw new ArgumentNullException(nameof(root));
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException(nameof(name));
+            return GetDialogueNodeByNameRecursive(root, name, 0);
         }
 
-        private static DialogueNode GetDialogueNodeByNameRecursive(this DialogueEntry dialogueEntry, string name, int currentLevel)
+        private static DialogueNode GetDialogueNodeByNameRecursive(DialogueNode node, string name, int currentLevel)
         {
-            if (dialogueEntry == null)
-            {
-                return null;
-            }
+            var targetParts = name.Split('.');
+            if (currentLevel >= targetParts.Length) return null;
 
-            int nextLevel = currentLevel + 1;
-            string pattern = @"(?<variant>\d(\.\d){" + currentLevel + "})";
-            Regex regex = new(pattern);
-
-            foreach (var child in dialogueEntry.Childs)
+            string currentPart = targetParts[currentLevel];
+            foreach (var child in node.Childs)
             {
-                Match match = regex.Match(child.Name);
-                if (match.Success && match.Value == name[..(currentLevel * 2 + 1)])
+                var childParts = child.Name?.Split('.');
+                if (childParts != null && childParts.Length > currentLevel && childParts[currentLevel] == currentPart)
                 {
-                    if (nextLevel == name.Split('.').Length)
-                    {
+                    if (currentLevel + 1 == targetParts.Length)
                         return child;
-                    }
                     else
-                    {
-                        DialogueEntry childEntry = new() { Childs = child.Childs };
-                        return childEntry.GetDialogueNodeByNameRecursive(name, nextLevel);
-                    }
+                        return GetDialogueNodeByNameRecursive(child, name, currentLevel + 1);
                 }
             }
-
             return null;
         }
     }

@@ -15,5 +15,5 @@ public class InteractionFeedback : IEntity
     public double TimeToRespondMs { get; set; }           // время чтения/выбора
     public bool QuestAccepted { get; set; }               // для квестов
     public TimeSpan QuestCompletionTime { get; set; }     // время выполнения квеста
-    public int Id { get; }
+    public Guid Id { get; } = Guid.NewGuid();
 }

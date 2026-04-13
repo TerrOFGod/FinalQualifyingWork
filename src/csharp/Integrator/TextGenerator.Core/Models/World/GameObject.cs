@@ -5,10 +5,9 @@ namespace TextGenerator.Core.Models.World
 {
     public class GameObject : IEntity
     {
-        public int Id => PObjectId;
-        public int PObjectId { get; set; }
+        public Guid Id { get; } = Guid.NewGuid();
         public IEnumerable<Stat>? Stats { get; set; }
-        public ItemType PObjectType { get; set; }
+        public ItemType GameObjectType { get; set; }
         public string History { get; set; }
     }
 }

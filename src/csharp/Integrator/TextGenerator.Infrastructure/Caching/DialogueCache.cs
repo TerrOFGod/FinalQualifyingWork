@@ -16,8 +16,8 @@ public class DialogueCache : IDialogueCache
     
     public DialogueCache(IMemoryCache cache) => _cache = cache;
     
-    public bool TryGet(string key, out DialogueEntry entry) => _cache.TryGetValue(key, out entry);
-    public void Set(string key, DialogueEntry entry, TimeSpan? ttl = null) 
+    public bool TryGet(string key, out DialogueNode entry) => _cache.TryGetValue(key, out entry);
+    public void Set(string key, DialogueNode entry, TimeSpan? ttl = null) 
         => _cache.Set(key, entry, ttl ?? _defaultTtl);
     
     public string MakeKey(SmartNPC npc, Player player, string playerInput, string contextHash)

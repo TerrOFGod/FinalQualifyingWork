@@ -12,12 +12,12 @@ public interface IPostprocessor
     /// <summary>
     /// Парсит ответ LLM в древовидную структуру диалога
     /// </summary>
-    DialogueEntry ParseBranchedDialogueResponse(SmartNPC npc, string rawResponse);
+    DialogueNode ParseBranchedDialogueResponse(SmartNPC npc, string rawResponse);
     
     /// <summary>
     /// Парсит ответ LLM для одного шага диалога
     /// </summary>
-    DialogueNode ParseSteppedDialogueResponse(SmartNPC npc, string rawResponse);
+    void ParseSteppedDialogueResponse(SmartNPC npc, DialogueNode parentNode, string rawResponse);
     
     /// <summary>
     /// Парсит ответ LLM в объект Quest

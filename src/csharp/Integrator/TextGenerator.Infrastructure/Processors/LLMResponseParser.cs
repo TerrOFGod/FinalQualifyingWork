@@ -16,10 +16,10 @@ public class LLMResponseParser : ILLMResponseParser
     private static string npcName = "";
     private static string playerName = "";
 
-    public async Task<DialogueEntry> ParseBranchedDialogueResponse(SmartNPC npc, string response)
+    public async Task<DialogueNode> ParseBranchedDialogueResponse(SmartNPC npc, string response)
     {
-        DialogueEntry dialogueEntry = new DialogueEntry();
-        dialogueEntry.Childs = new List<DialogueNode>();
+        var root = new DialogueNode();
+        root.Childs = new List<DialogueNode>();
 
         string pattern = @"(?<variant>[0]{1})\s+(?<npcName>\w+)\s*:\s*""(?<npcPhrase>[^""]+)""";
 
@@ -27,7 +27,7 @@ public class LLMResponseParser : ILLMResponseParser
 
         foreach (Match match in matches)
         {
-            dialogueEntry.Text = match.Groups["npcPhrase"].Value;
+            root.NPCText = match.Groups["npcPhrase"].Value;
         }
 
         var result = ParseTextToDict(response);
@@ -60,16 +60,16 @@ public class LLMResponseParser : ILLMResponseParser
 
             if (level - 1 == 0)
             {
-                dialogueEntry.AddChildToEntry(node);
+                root.AddChild(node);
             }
             else
             {
-                var parent = dialogueEntry.GetDialogueNodeByName(line.Key.Remove(line.Key.Length - 2));
-                parent.AddChildToNode(node);
+                var parent = root.GetDialogueNodeByName(line.Key.Remove(line.Key.Length - 2));
+                parent.AddChild(node);
             }
         }
 
-        return dialogueEntry;
+        return root;
     }
 
     public async Task<Quest> ParseQuestResponse(string response)
@@ -84,21 +84,27 @@ public class LLMResponseParser : ILLMResponseParser
         return quest;
     }
 
-    public async Task<DialogueNode> ParseSteppedDialogueResponse(SmartNPC npc, string response)
+    public async Task ParseSteppedDialogueResponse(SmartNPC npc, DialogueNode parentNode, string response)
     {
-        // Parse string like: "Player: \"...\" NPC: \"...\""
-        var pattern = @"Player:\s*""(?<player>[^""]+)""\s+NPC:\s*""(?<npc>[^""]+)""";
-        var match = Regex.Match(response, pattern);
-        if (!match.Success) throw new FormatException($"Invalid stepped response from LLM: {response}");
-
-        return new DialogueNode
+        // Ищем все варианты в ответе LLM
+        var pattern = @"\d+\.\s*Player:\s*""(?<player>[^""]+)""\s*\n\s+NPC:\s*""(?<npc>[^""]+)""";
+        var matches = Regex.Matches(response, pattern);
+    
+        if (matches.Count == 0)
+            throw new FormatException($"No valid stepped responses found in: {response}");
+    
+        foreach (Match match in matches)
         {
-            InterlocutorPlayer = "Player",
-            PlayerText = match.Groups["player"].Value,
-            InterlocutorNPC = npc.Name,
-            NPCText = match.Groups["npc"].Value,
-            Childs = new List<DialogueNode>()
-        };
+            var childNode = new DialogueNode
+            {
+                InterlocutorPlayer = "Player",
+                PlayerText = match.Groups["player"].Value,
+                InterlocutorNPC = npc.Name,
+                NPCText = match.Groups["npc"].Value,
+                Childs = new List<DialogueNode>() // дочерние узлы для будущих шагов
+            };
+            parentNode.AddChild(childNode);
+        }
     }
 
     private Dictionary<string, Dictionary<string, Dictionary<string, string>>> ParseTextToDict(string text)

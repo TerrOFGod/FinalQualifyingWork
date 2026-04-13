@@ -16,23 +16,23 @@ public class PostprocessorService : IPostprocessor
         _responseParser = responseParser;
     }
     
-    public DialogueEntry ParseBranchedDialogueResponse(SmartNPC npc, string rawResponse)
+    public DialogueNode ParseBranchedDialogueResponse(SmartNPC npc, string rawResponse)
         => _responseParser.ParseBranchedDialogueResponse(npc, rawResponse).GetAwaiter().GetResult();
 
-    public DialogueNode ParseSteppedDialogueResponse(SmartNPC npc, string rawResponse)
-        => _responseParser.ParseSteppedDialogueResponse(npc, rawResponse).GetAwaiter().GetResult();
+    public void ParseSteppedDialogueResponse(SmartNPC npc, DialogueNode parentNode, string rawResponse)
+        => _responseParser.ParseSteppedDialogueResponse(npc, parentNode, rawResponse).GetAwaiter().GetResult();
 
     public Quest ParseQuestResponse(string rawResponse)
         => _responseParser.ParseQuestResponse(rawResponse).GetAwaiter().GetResult();
     
     // Obsolete методы для обратной совместимости
     [Obsolete("Use ParseBranchedDialogueResponse")]
-    public DialogueEntry DecodeAPIBranchedDialogueResponse(SmartNPC npc, string response) 
+    public DialogueNode DecodeAPIBranchedDialogueResponse(SmartNPC npc, string response) 
         => ParseBranchedDialogueResponse(npc, response);
     
     [Obsolete("Use ParseSteppedDialogueResponse")]
-    public DialogueNode DecodeSingleStepDialogueResponse(SmartNPC npc, string response) 
-        => ParseSteppedDialogueResponse(npc, response);
+    public void DecodeSingleStepDialogueResponse(SmartNPC npc, DialogueNode parentNode, string response) 
+        => ParseSteppedDialogueResponse(npc, parentNode, response);
     
     [Obsolete("Use ParseQuestResponse")]
     public Quest ParseQuest(string response) => ParseQuestResponse(response);

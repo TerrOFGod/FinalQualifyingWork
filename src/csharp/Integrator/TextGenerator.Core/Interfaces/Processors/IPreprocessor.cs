@@ -11,7 +11,7 @@ public interface IPreprocessor
     /// <summary>
     /// Генерация промпта для разветвлённого диалога (одним запросом)
     /// </summary>
-    string BuildBranchedDialoguePrompt(SmartNPC npc, int depth, int variety);
+    string BuildBranchedDialoguePrompt(SmartNPC npc, int? depth, int variety);
     
     /// <summary>
     /// Генерация промпта для пошагового диалога (step-by-step)
