@@ -1,0 +1,16 @@
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\TextGenerator.Core.deps.json
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\TextGenerator.Core.dll
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\TextGenerator.Core.pdb
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.AssemblyInfoInputs.cache
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.AssemblyInfo.cs
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.csproj.CoreCompileInputs.cache
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.sourcelink.json
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.dll
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\refint\TextGenerator.Core.dll
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\TextGenerator.Core.pdb
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\obj\Release\net8.0\ref\TextGenerator.Core.dll
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\models\all-MiniLM-L6-v2\model.onnx
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\models\all-MiniLM-L6-v2\vocab.txt
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\models\Meta-Llama-3-8B.Q4_K_M.gguf
+D:\VTTrofimchuk\repositories\FinalQualifyingWork\src\csharp\Integrator\TextGenerator.Core\bin\Release\net8.0\models\Meta-Llama-3-8B-Instruct.Q4_K_M.gguf

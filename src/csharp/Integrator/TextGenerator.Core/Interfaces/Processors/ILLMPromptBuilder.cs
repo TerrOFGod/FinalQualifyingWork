@@ -18,5 +18,6 @@ namespace TextGenerator.Core.Interfaces.Processors
         /// <summary>Промпт для генерации следующего шага диалога с учётом предыдущего узла.</summary>
         Task<string> BuildSteppedDialoguePromptAsync(SmartNPC npc, DialogueNode prevNode, int variety, WorldContext context);
         Task<string> BuildIntroductoryPhrasePromptAsync(SmartNPC npc);
+        string BuildSystemPrompt(SmartNPC npc);
     }
 }

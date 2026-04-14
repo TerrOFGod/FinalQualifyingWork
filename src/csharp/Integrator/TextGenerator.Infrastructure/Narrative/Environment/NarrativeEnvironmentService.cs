@@ -12,15 +12,18 @@ namespace TextGenerator.Infrastructure.Narrative.Environment;
 /// </summary>
 public class NarrativeEnvironmentService : INarrativeEnvironment
 {
-    private readonly IDriver _neo4jDriver;
-    private readonly IMemoryCache _cache;
-    private readonly ConcurrentDictionary<string, byte> _cacheKeys = new();
-    private const string CacheKeyPrefix = "narrative_env_";
+    //private readonly IDriver _neo4jDriver;
+    //private readonly IMemoryCache _cache;
+    //private readonly ConcurrentDictionary<string, byte> _cacheKeys = new();
+    //private const string CacheKeyPrefix = "narrative_env_";
 
-    public NarrativeEnvironmentService(IDriver neo4jDriver, IMemoryCache memoryCache)
+    public NarrativeEnvironmentService(
+        //IDriver neo4jDriver, 
+        //IMemoryCache memoryCache
+        )
     {
-        _neo4jDriver = neo4jDriver;
-        _cache = memoryCache;
+        //_neo4jDriver = neo4jDriver;
+        //_cache = memoryCache;
     }
 
     public Task<WorldContext> GetRelevantContext(SmartNPC npc, Player player, string currentInput)

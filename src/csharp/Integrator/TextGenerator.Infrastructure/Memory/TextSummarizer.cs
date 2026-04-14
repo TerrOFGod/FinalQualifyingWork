@@ -1,4 +1,5 @@
-﻿using TextGenerator.Core.Interfaces.Memory;
+﻿using TextGenerator.Core.Interfaces.EdgeAI;
+using TextGenerator.Core.Interfaces.Memory;
 using TextGenerator.Infrastructure.EdgeAI;
 
 namespace TextGenerator.Infrastructure.Memory;
@@ -8,9 +9,9 @@ namespace TextGenerator.Infrastructure.Memory;
 /// </summary>
 public class TextSummarizer : ITextSummarizer
 {
-    private readonly LocalLLMClient _llm;
+    private readonly ILLMClient _llm;
 
-    public TextSummarizer(LocalLLMClient llm) => _llm = llm;
+    public TextSummarizer(ILLMClient llm) => _llm = llm;
 
     public async Task<string> Summarize(string longText)
     {

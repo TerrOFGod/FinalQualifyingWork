@@ -11,12 +11,14 @@
 	<Version>1.1.18</Version>
 	<Nullable>enable</Nullable>
 	<TargetFramework>net8.0</TargetFramework>
+      <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="AllMiniLmL6V2Sharp" Version="0.0.3" />
     <PackageReference Include="FastBertTokenizer" Version="1.1.30-alpha" />
     <PackageReference Include="LLamaSharp" Version="0.26.0" />
+    <PackageReference Include="LLamaSharp.Backend.Cpu" Version="0.26.0" />
     <PackageReference Include="LLamaSharp.Backend.Cuda11.Windows" Version="0.24.0" />
     <PackageReference Include="LLamaSharp.semantic-kernel" Version="0.26.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
@@ -45,5 +47,12 @@
   <ItemGroup>
     <Folder Include="Narrative\" />
   </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\models\**\*">
+            <Link>models\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
 
 </Project>

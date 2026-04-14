@@ -12,7 +12,14 @@ public class EmbeddingGeneratorService : IEmbeddingGenerator
 
     public EmbeddingGeneratorService()
     {
-        _embedder = new AllMiniLmL6V2Embedder("models/all-MiniLM-L6-v2/model.onnx");
+        // Получаем директорию, где находится исполняемый файл (TextGenerator.Service)
+        var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        var modelPath = Path.Combine(baseDirectory, "models", "all-MiniLM-L6-v2", "model.onnx");
+            
+        if (!File.Exists(modelPath))
+            throw new FileNotFoundException($"Модель не найдена: {modelPath}");
+            
+        _embedder = new AllMiniLmL6V2Embedder(modelPath);
     }
 
     public float[] GetEmbedding(string text)
@@ -22,6 +29,8 @@ public class EmbeddingGeneratorService : IEmbeddingGenerator
 
         // Генерация эмбеддинга для одного предложения
         var embedding = _embedder.GenerateEmbedding(text);
-        return embedding.ToArray();
+        var arr = embedding.ToArray();
+        Console.WriteLine($"Embedding generated for text: '{text.Substring(0, Math.Min(20, text.Length))}...', dimension: {arr.Length}");
+        return arr;
     }
 }

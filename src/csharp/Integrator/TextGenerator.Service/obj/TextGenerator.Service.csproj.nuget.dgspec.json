@@ -137,6 +137,10 @@
               "target": "Package",
               "version": "[0.26.0, )"
             },
+            "LLamaSharp.Backend.Cpu": {
+              "target": "Package",
+              "version": "[0.26.0, )"
+            },
             "LLamaSharp.Backend.Cuda11.Windows": {
               "target": "Package",
               "version": "[0.24.0, )"

@@ -175,352 +175,10 @@
           }
         }
       },
-      "LLamaSharp.Backend.Cpu/0.24.0": {
+      "LLamaSharp.Backend.Cpu/0.26.0": {
         "type": "package",
         "build": {
           "build/netstandard2.0/_._": {}
-        },
-        "runtimeTargets": {
-          "runtimes/linux-arm64/native/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-arm64/native/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-arm64/native/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-arm64/native/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-arm64/native/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-arm64"
-          },
-          "runtimes/linux-musl-x64/native/avx/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx2/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx2/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx2/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx2/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx2/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx512/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx512/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx512/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx512/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/avx512/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/noavx/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/noavx/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/noavx/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/noavx/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-musl-x64/native/noavx/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-musl-x64"
-          },
-          "runtimes/linux-x64/native/avx/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx2/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx2/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx2/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx2/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx2/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx512/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx512/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx512/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx512/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/avx512/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/noavx/libggml-base.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/noavx/libggml-cpu.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/noavx/libggml.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/noavx/libllama.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/linux-x64/native/noavx/libllava_shared.so": {
-            "assetType": "native",
-            "rid": "linux-x64"
-          },
-          "runtimes/osx-arm64/native/ggml-metal.metal": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libggml-base.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libggml-blas.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libggml-cpu.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libggml-metal.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libggml.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libllama.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-arm64/native/libllava_shared.dylib": {
-            "assetType": "native",
-            "rid": "osx-arm64"
-          },
-          "runtimes/osx-x64/native/libggml-base.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/libggml-blas.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/libggml-cpu.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/libggml.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/libllama.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/libllava_shared.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/rosetta2/libggml-base.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/rosetta2/libggml-blas.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/rosetta2/libggml-cpu.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/rosetta2/libggml.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/rosetta2/libllama.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/osx-x64/native/rosetta2/libllava_shared.dylib": {
-            "assetType": "native",
-            "rid": "osx-x64"
-          },
-          "runtimes/win-x64/native/avx/ggml-base.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx/ggml-cpu.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx/ggml.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx/llama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx/llava_shared.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx2/ggml-base.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx2/ggml-cpu.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx2/ggml.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx2/llama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx2/llava_shared.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx512/ggml-base.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx512/ggml-cpu.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx512/ggml.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx512/llama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/avx512/llava_shared.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/noavx/ggml-base.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/noavx/ggml-cpu.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/noavx/ggml.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/noavx/llama.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          },
-          "runtimes/win-x64/native/noavx/llava_shared.dll": {
-            "assetType": "native",
-            "rid": "win-x64"
-          }
         }
       },
       "LLamaSharp.Backend.Cuda11.Windows/0.24.0": {
@@ -1877,6 +1535,7 @@
           "AllMiniLmL6V2Sharp": "0.0.3",
           "FastBertTokenizer": "1.1.30-alpha",
           "LLamaSharp": "0.26.0",
+          "LLamaSharp.Backend.Cpu": "0.26.0",
           "LLamaSharp.Backend.Cuda11.Windows": "0.24.0",
           "LLamaSharp.Jinja.Executors": "1.0.0",
           "LLamaSharp.semantic-kernel": "0.26.0",
@@ -2109,102 +1768,102 @@
         "llamasharp.nuspec"
       ]
     },
-    "LLamaSharp.Backend.Cpu/0.24.0": {
-      "sha512": "B5uUhRdhQKeiBShqMy+x+6QKDYd9TOOTR6LstdHfGxmS+2Qh+mETBlIcau7ya/17EHf8bDjeReWVIG/zZ02AKQ==",
+    "LLamaSharp.Backend.Cpu/0.26.0": {
+      "sha512": "xqWvja7N+Dw5CsIyhM/StQ6Uv5GhE0N27dfGevMVSWYZDsA/D9BDfQrAdgrdrzgK/6HK6bR/E/e3K9b5SbpBSg==",
       "type": "package",
-      "path": "llamasharp.backend.cpu/0.24.0",
+      "path": "llamasharp.backend.cpu/0.26.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "LLamaSharpRuntimes/linux-arm64/native/libggml-base.so",
+        "LLamaSharpRuntimes/linux-arm64/native/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-arm64/native/libggml.so",
+        "LLamaSharpRuntimes/linux-arm64/native/libllama.so",
+        "LLamaSharpRuntimes/linux-arm64/native/libmtmd.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx/libggml-base.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx/libggml.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx/libllama.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx/libmtmd.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx2/libggml-base.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx2/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx2/libggml.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx2/libllama.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx2/libmtmd.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx512/libggml-base.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx512/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx512/libggml.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx512/libllama.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/avx512/libmtmd.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/noavx/libggml-base.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/noavx/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/noavx/libggml.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/noavx/libllama.so",
+        "LLamaSharpRuntimes/linux-musl-x64/native/noavx/libmtmd.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx/libggml-base.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx/libggml.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx/libllama.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx/libmtmd.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx2/libggml-base.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx2/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx2/libggml.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx2/libllama.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx2/libmtmd.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx512/libggml-base.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx512/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx512/libggml.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx512/libllama.so",
+        "LLamaSharpRuntimes/linux-x64/native/avx512/libmtmd.so",
+        "LLamaSharpRuntimes/linux-x64/native/noavx/libggml-base.so",
+        "LLamaSharpRuntimes/linux-x64/native/noavx/libggml-cpu.so",
+        "LLamaSharpRuntimes/linux-x64/native/noavx/libggml.so",
+        "LLamaSharpRuntimes/linux-x64/native/noavx/libllama.so",
+        "LLamaSharpRuntimes/linux-x64/native/noavx/libmtmd.so",
+        "LLamaSharpRuntimes/osx-arm64/native/ggml-metal.metal",
+        "LLamaSharpRuntimes/osx-arm64/native/libggml-base.dylib",
+        "LLamaSharpRuntimes/osx-arm64/native/libggml-blas.dylib",
+        "LLamaSharpRuntimes/osx-arm64/native/libggml-cpu.dylib",
+        "LLamaSharpRuntimes/osx-arm64/native/libggml-metal.dylib",
+        "LLamaSharpRuntimes/osx-arm64/native/libggml.dylib",
+        "LLamaSharpRuntimes/osx-arm64/native/libllama.dylib",
+        "LLamaSharpRuntimes/osx-arm64/native/libmtmd.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/libggml-base.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/libggml-blas.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/libggml-cpu.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/libggml.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/libllama.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/libmtmd.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/rosetta2/libggml-base.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/rosetta2/libggml-blas.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/rosetta2/libggml-cpu.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/rosetta2/libggml.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/rosetta2/libllama.dylib",
+        "LLamaSharpRuntimes/osx-x64/native/rosetta2/libmtmd.dylib",
+        "LLamaSharpRuntimes/win-x64/native/avx/ggml-base.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx/ggml-cpu.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx/ggml.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx/llama.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx/mtmd.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx2/ggml-base.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx2/ggml-cpu.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx2/ggml.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx2/llama.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx2/mtmd.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx512/ggml-base.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx512/ggml-cpu.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx512/ggml.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx512/llama.dll",
+        "LLamaSharpRuntimes/win-x64/native/avx512/mtmd.dll",
+        "LLamaSharpRuntimes/win-x64/native/noavx/ggml-base.dll",
+        "LLamaSharpRuntimes/win-x64/native/noavx/ggml-cpu.dll",
+        "LLamaSharpRuntimes/win-x64/native/noavx/ggml.dll",
+        "LLamaSharpRuntimes/win-x64/native/noavx/llama.dll",
+        "LLamaSharpRuntimes/win-x64/native/noavx/mtmd.dll",
         "build/netstandard2.0/LLamaSharp.Backend.Cpu.props",
         "icon512.png",
-        "llamasharp.backend.cpu.0.24.0.nupkg.sha512",
-        "llamasharp.backend.cpu.nuspec",
-        "runtimes/linux-arm64/native/libggml-base.so",
-        "runtimes/linux-arm64/native/libggml-cpu.so",
-        "runtimes/linux-arm64/native/libggml.so",
-        "runtimes/linux-arm64/native/libllama.so",
-        "runtimes/linux-arm64/native/libllava_shared.so",
-        "runtimes/linux-musl-x64/native/avx/libggml-base.so",
-        "runtimes/linux-musl-x64/native/avx/libggml-cpu.so",
-        "runtimes/linux-musl-x64/native/avx/libggml.so",
-        "runtimes/linux-musl-x64/native/avx/libllama.so",
-        "runtimes/linux-musl-x64/native/avx/libllava_shared.so",
-        "runtimes/linux-musl-x64/native/avx2/libggml-base.so",
-        "runtimes/linux-musl-x64/native/avx2/libggml-cpu.so",
-        "runtimes/linux-musl-x64/native/avx2/libggml.so",
-        "runtimes/linux-musl-x64/native/avx2/libllama.so",
-        "runtimes/linux-musl-x64/native/avx2/libllava_shared.so",
-        "runtimes/linux-musl-x64/native/avx512/libggml-base.so",
-        "runtimes/linux-musl-x64/native/avx512/libggml-cpu.so",
-        "runtimes/linux-musl-x64/native/avx512/libggml.so",
-        "runtimes/linux-musl-x64/native/avx512/libllama.so",
-        "runtimes/linux-musl-x64/native/avx512/libllava_shared.so",
-        "runtimes/linux-musl-x64/native/noavx/libggml-base.so",
-        "runtimes/linux-musl-x64/native/noavx/libggml-cpu.so",
-        "runtimes/linux-musl-x64/native/noavx/libggml.so",
-        "runtimes/linux-musl-x64/native/noavx/libllama.so",
-        "runtimes/linux-musl-x64/native/noavx/libllava_shared.so",
-        "runtimes/linux-x64/native/avx/libggml-base.so",
-        "runtimes/linux-x64/native/avx/libggml-cpu.so",
-        "runtimes/linux-x64/native/avx/libggml.so",
-        "runtimes/linux-x64/native/avx/libllama.so",
-        "runtimes/linux-x64/native/avx/libllava_shared.so",
-        "runtimes/linux-x64/native/avx2/libggml-base.so",
-        "runtimes/linux-x64/native/avx2/libggml-cpu.so",
-        "runtimes/linux-x64/native/avx2/libggml.so",
-        "runtimes/linux-x64/native/avx2/libllama.so",
-        "runtimes/linux-x64/native/avx2/libllava_shared.so",
-        "runtimes/linux-x64/native/avx512/libggml-base.so",
-        "runtimes/linux-x64/native/avx512/libggml-cpu.so",
-        "runtimes/linux-x64/native/avx512/libggml.so",
-        "runtimes/linux-x64/native/avx512/libllama.so",
-        "runtimes/linux-x64/native/avx512/libllava_shared.so",
-        "runtimes/linux-x64/native/noavx/libggml-base.so",
-        "runtimes/linux-x64/native/noavx/libggml-cpu.so",
-        "runtimes/linux-x64/native/noavx/libggml.so",
-        "runtimes/linux-x64/native/noavx/libllama.so",
-        "runtimes/linux-x64/native/noavx/libllava_shared.so",
-        "runtimes/osx-arm64/native/ggml-metal.metal",
-        "runtimes/osx-arm64/native/libggml-base.dylib",
-        "runtimes/osx-arm64/native/libggml-blas.dylib",
-        "runtimes/osx-arm64/native/libggml-cpu.dylib",
-        "runtimes/osx-arm64/native/libggml-metal.dylib",
-        "runtimes/osx-arm64/native/libggml.dylib",
-        "runtimes/osx-arm64/native/libllama.dylib",
-        "runtimes/osx-arm64/native/libllava_shared.dylib",
-        "runtimes/osx-x64/native/libggml-base.dylib",
-        "runtimes/osx-x64/native/libggml-blas.dylib",
-        "runtimes/osx-x64/native/libggml-cpu.dylib",
-        "runtimes/osx-x64/native/libggml.dylib",
-        "runtimes/osx-x64/native/libllama.dylib",
-        "runtimes/osx-x64/native/libllava_shared.dylib",
-        "runtimes/osx-x64/native/rosetta2/libggml-base.dylib",
-        "runtimes/osx-x64/native/rosetta2/libggml-blas.dylib",
-        "runtimes/osx-x64/native/rosetta2/libggml-cpu.dylib",
-        "runtimes/osx-x64/native/rosetta2/libggml.dylib",
-        "runtimes/osx-x64/native/rosetta2/libllama.dylib",
-        "runtimes/osx-x64/native/rosetta2/libllava_shared.dylib",
-        "runtimes/win-x64/native/avx/ggml-base.dll",
-        "runtimes/win-x64/native/avx/ggml-cpu.dll",
-        "runtimes/win-x64/native/avx/ggml.dll",
-        "runtimes/win-x64/native/avx/llama.dll",
-        "runtimes/win-x64/native/avx/llava_shared.dll",
-        "runtimes/win-x64/native/avx2/ggml-base.dll",
-        "runtimes/win-x64/native/avx2/ggml-cpu.dll",
-        "runtimes/win-x64/native/avx2/ggml.dll",
-        "runtimes/win-x64/native/avx2/llama.dll",
-        "runtimes/win-x64/native/avx2/llava_shared.dll",
-        "runtimes/win-x64/native/avx512/ggml-base.dll",
-        "runtimes/win-x64/native/avx512/ggml-cpu.dll",
-        "runtimes/win-x64/native/avx512/ggml.dll",
-        "runtimes/win-x64/native/avx512/llama.dll",
-        "runtimes/win-x64/native/avx512/llava_shared.dll",
-        "runtimes/win-x64/native/noavx/ggml-base.dll",
-        "runtimes/win-x64/native/noavx/ggml-cpu.dll",
-        "runtimes/win-x64/native/noavx/ggml.dll",
-        "runtimes/win-x64/native/noavx/llama.dll",
-        "runtimes/win-x64/native/noavx/llava_shared.dll"
+        "llamasharp.backend.cpu.0.26.0.nupkg.sha512",
+        "llamasharp.backend.cpu.nuspec"
       ]
     },
     "LLamaSharp.Backend.Cuda11.Windows/0.24.0": {

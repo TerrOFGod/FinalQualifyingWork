@@ -13,7 +13,7 @@ namespace TextGenerator.Infrastructure.Memory;
         private readonly QdrantClient _client;
         private const string CollectionName = "game_memories";
 
-        public QdrantVectorMemoryStore(string host = "localhost", int port = 6333)
+        public QdrantVectorMemoryStore(string host = "localhost", int port = 6334)
         {
             _client = new QdrantClient(host, port);
             EnsureCollectionExists().GetAwaiter().GetResult();

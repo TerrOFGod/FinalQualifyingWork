@@ -22,7 +22,14 @@ public class RAGService : IRAGService
 
     public async Task<string> AugmentPrompt(string userQuery, string basePrompt)
     {
+        // Не выполняем RAG для пустого или слишком короткого запроса
+        if (string.IsNullOrWhiteSpace(userQuery) || userQuery.Length < 5)
+            return basePrompt;
+        
         var embedding = _vectorizer.GetEmbedding(userQuery);
+        if (embedding == null || embedding.Length == 0)
+            return basePrompt;
+        
         var memories = await _vectorMemoryStore.RetrieveRelevantWithTimestamp(userQuery, embedding, topK: 3);
     
         if (memories.Count == 0) return basePrompt;

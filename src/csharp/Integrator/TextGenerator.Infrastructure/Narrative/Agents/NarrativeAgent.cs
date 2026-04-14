@@ -1,6 +1,8 @@
 ﻿using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Logging;
 using TextGenerator.Core.Interfaces.EdgeAI;
 using TextGenerator.Core.Interfaces.Memory;
 using TextGenerator.Core.Interfaces.Narrative;
@@ -25,12 +27,14 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
         private readonly ITextSummarizer _textSummarizer;
         private readonly IMemoryCache _cache;
         private readonly INarrativeEnvironment _narrativeEnv;
+        private readonly ILogger<NarrativeAgent> _logger;
         
         // Храним последний узел диалога для каждой пары (NPC, Player)
         private readonly ConcurrentDictionary<(int npcId, int playerId), DialogueNode> _lastNode = new();
 
         public NarrativeAgent(ILLMClient llm, IPreprocessor preprocessor, IPostprocessor postprocessor,
-            IRAGService rag, IRewardCalculator reward, ITextSummarizer textSummarizer, IMemoryCache cache, INarrativeEnvironment narrativeEnv)
+            IRAGService rag, ITextSummarizer textSummarizer, IMemoryCache cache, INarrativeEnvironment narrativeEnv,
+            ILogger<NarrativeAgent> logger)
         {
             _llm = llm;
             _preprocessor = preprocessor;
@@ -40,10 +44,13 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
             _textSummarizer = textSummarizer;
             _cache = cache;
             _narrativeEnv = narrativeEnv;
+            _logger =  logger;
         }
 
         public async Task<DialogueNode> GenerateDialogue(SmartNPC npc, Player player, DialogueNode? parentNode, int? depth, int variety)
         {
+            var systemPrompt = _preprocessor.BuildSystemPrompt(npc);
+            
             // Определяем playerInput на основе выбранного узла
             string playerInput = parentNode?.PlayerText ?? string.Empty;
             
@@ -74,20 +81,25 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
                 
                 if (parentNode == null)
                 {
+                    _logger.LogDebug("Creating intro phrase");
                     // Вступительная фраза – возвращает string
-                    currentNode.NPCText = await ProcessWithPipeline(
+                    currentNode.NPCText = ExtractNpcPhrase(await ProcessWithPipeline(
                         playerInput,
+                        systemPrompt,
                         () => _preprocessor.BuildIntroductoryPhrasePrompt(npc),
-                        256,
+                        512,
                         raw => raw  // без постобработки, просто строка
-                    );
+                    ), npc.Name);
+                    _logger.LogDebug("Intro phrase: {phrase}", currentNode.NPCText);
                 }
                 
+                _logger.LogDebug("Make step");
                 // Stepped режим – постобработчик добавляет варианты в currentNode
                 await ProcessWithPipeline(
                     playerInput,
+                    systemPrompt,
                     () => _preprocessor.BuildSteppedDialoguePrompt(npc, currentNode, variety, context),
-                    256,
+                    1024,
                     raw =>
                     {
                         _postprocessor.ParseSteppedDialogueResponse(npc, currentNode, raw);
@@ -102,6 +114,7 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
                 // Branched режим
                 result = await ProcessWithPipeline(
                     playerInput,
+                    systemPrompt,
                     () => _preprocessor.BuildBranchedDialoguePrompt(npc, depth, variety),
                     2048,
                     raw => _postprocessor.ParseBranchedDialogueResponse(npc, raw)
@@ -148,20 +161,64 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
         
         private async Task<T> ProcessWithPipeline<T>(
             string playerInput,
+            string systemPrompt,
             Func<string> buildPrompt,           // фабрика промпта (синхронная, но может быть async)
             int maxTokens,
             Func<string, T> postprocess         // постобработка ответа LLM
         )
         {
+            _logger.LogInformation("ProcessWithPipeline started. PlayerInput: {PlayerInput}, MaxTokens: {MaxTokens}", 
+                playerInput?.Length > 50 ? playerInput[..50] + "..." : playerInput, maxTokens);
+            
             // 3. Формирование промпта для следующего шага
             var prompt = buildPrompt();
+            _logger.LogDebug("Generated prompt length: {PromptLength} characters", prompt.Length);
+            
+            _logger.LogDebug("Generated prompt length: {PromptLength} characters", prompt.Length);
             
             // 4. RAG-усиление
+            var stopwatch = Stopwatch.StartNew();
             var augmented = await _rag.AugmentPrompt(playerInput, prompt);
+            stopwatch.Stop();
+            _logger.LogInformation("RAG augmentation completed in {ElapsedMs} ms. Augmented prompt length: {Length}", 
+                stopwatch.ElapsedMilliseconds, augmented.Length);
             
             // 5. Генерация через локальную LLM
-            var rawResponse = await _llm.GenerateAsync(augmented, maxTokens);
-            return postprocess(rawResponse);
+            stopwatch.Restart();
+            stopwatch.Restart();
+            string rawResponse;
+            try
+            {
+                rawResponse = await _llm.GenerateWithSystemAsync(augmented, systemPrompt, maxTokens);
+                stopwatch.Stop();
+                _logger.LogInformation("LLM generation completed in {ElapsedMs} ms. Response length: {ResponseLength}", 
+                    stopwatch.ElapsedMilliseconds, rawResponse.Length);
+                _logger.LogTrace("LLM raw response: {RawResponse}", 
+                    rawResponse.Length > 200 ? rawResponse[..200] + "..." : rawResponse);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "LLM generation failed after {ElapsedMs} ms", stopwatch.ElapsedMilliseconds);
+                throw;
+            }
+            
+            _logger.LogDebug("Augmented prompt: {Prompt}", augmented);
+            _logger.LogDebug("Raw LLM response: {Response}", rawResponse);
+    
+            // Постобработка
+            T result;
+            try
+            {
+                result = postprocess(rawResponse);
+                _logger.LogInformation("Postprocessing completed successfully");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Postprocessing failed for response: {RawResponse}", 
+                    rawResponse.Length > 200 ? rawResponse[..200] + "..." : rawResponse);
+                throw;
+            }
+            return result;
         }
 
 // Альтернатива: если buildPrompt асинхронный
@@ -183,5 +240,29 @@ namespace TextGenerator.Infrastructure.Narrative.Agents;
             
             // 6. Постобработка – получаем диалог
             return postprocess(rawResponse);
+        }
+        
+        private string ExtractNpcPhrase(string rawResponse, string npcName)
+        {
+            if (string.IsNullOrWhiteSpace(rawResponse))
+                return string.Empty;
+    
+            // 1. Ищем "NPCName: "текст""
+            var pattern = $@"{Regex.Escape(npcName)}:\s*""(?<phrase>[^""]+)""";
+            var match = Regex.Match(rawResponse, pattern);
+            if (match.Success)
+                return match.Groups["phrase"].Value;
+    
+            // 2. Ищем просто текст в двойных кавычках
+            match = Regex.Match(rawResponse, @"""(?<phrase>[^""]+)""");
+            if (match.Success)
+                return match.Groups["phrase"].Value;
+    
+            // 3. Если кавычек нет, обрезаем "User:" в конце
+            var trimmed = rawResponse.Trim();
+            if (trimmed.EndsWith("User:", StringComparison.OrdinalIgnoreCase))
+                trimmed = trimmed.Substring(0, trimmed.Length - 5).Trim();
+    
+            return trimmed;
         }
     }

@@ -86,9 +86,12 @@ public class LLMResponseParser : ILLMResponseParser
 
     public async Task ParseSteppedDialogueResponse(SmartNPC npc, DialogueNode parentNode, string response)
     {
-        // Ищем все варианты в ответе LLM
-        var pattern = @"\d+\.\s*Player:\s*""(?<player>[^""]+)""\s*\n\s+NPC:\s*""(?<npc>[^""]+)""";
-        var matches = Regex.Matches(response, pattern);
+        // Экранируем имя NPC на случай спецсимволов (например, точка в "Dr. Smith")
+        string escapedName = Regex.Escape(npc.Name);
+    
+        // Паттерн: номер. Player: "текст" (любые пробелы/переносы) (NPC|ИмяNPC): "текст"
+        string pattern = $@"\d+\.\s*Player:\s*""(?<player>[^""]+)""\s+(?:NPC|{escapedName}):\s*""(?<npcText>[^""]+)""";
+        var matches = Regex.Matches(response, pattern, RegexOptions.Multiline);
     
         if (matches.Count == 0)
             throw new FormatException($"No valid stepped responses found in: {response}");
@@ -100,7 +103,7 @@ public class LLMResponseParser : ILLMResponseParser
                 InterlocutorPlayer = "Player",
                 PlayerText = match.Groups["player"].Value,
                 InterlocutorNPC = npc.Name,
-                NPCText = match.Groups["npc"].Value,
+                NPCText = match.Groups["npcText"].Value,
                 Childs = new List<DialogueNode>() // дочерние узлы для будущих шагов
             };
             parentNode.AddChild(childNode);

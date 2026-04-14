@@ -24,6 +24,9 @@ public class PreprocessorService : IPreprocessor
 
     public string BuildIntroductoryPhrasePrompt(SmartNPC npc)
         => _promptBuilder.BuildIntroductoryPhrasePromptAsync(npc).GetAwaiter().GetResult();
+
+    public string BuildSystemPrompt(SmartNPC npc)
+        => _promptBuilder.BuildSystemPrompt(npc);
     
     // Старые методы помечены Obsolete (опционально)
     [Obsolete("Use BuildBranchedDialoguePrompt instead")]

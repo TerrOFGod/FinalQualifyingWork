@@ -11,6 +11,13 @@
 	<PackageOutputPath>C:\Users\LordVT\Desktop\FinalQualifyingWork\src\csharp\NugetRepo</PackageOutputPath>
 	<Version>1.1.18</Version>
 	<Nullable>enable</Nullable>
+	  <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
+	<ItemGroup>
+		<Content Include="..\models\**\*">
+			<Link>models\%(RecursiveDir)%(Filename)%(Extension)</Link>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 </Project>

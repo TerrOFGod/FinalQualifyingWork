@@ -16,4 +16,11 @@
       <ProjectReference Include="..\TextGenerator.Infrastructure\TextGenerator.Infrastructure.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="..\models\**\*">
+            <Link>models\%(RecursiveDir)%(Filename)%(Extension)</Link>
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
 </Project>

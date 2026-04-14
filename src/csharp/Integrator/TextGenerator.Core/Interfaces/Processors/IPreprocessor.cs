@@ -27,4 +27,6 @@ public interface IPreprocessor
     /// Генерация вступительной фразы NPC
     /// </summary>
     string BuildIntroductoryPhrasePrompt(SmartNPC npc);
+
+    string BuildSystemPrompt(SmartNPC npc);
 }

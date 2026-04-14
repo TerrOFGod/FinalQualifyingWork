@@ -10,4 +10,7 @@ public interface ILLMClient
     /// <param name="maxTokens">Максимальное количество токенов в ответе.</param>
     /// <param name="temperature">Температура (случайность) генерации.</param>
     Task<string> GenerateAsync(string prompt, int maxTokens = 256, float temperature = 0.7f);
+    
+    /// <summary>Генерация с заданием системной роли (для изолированного чат-сеанса).</summary>
+    Task<string> GenerateWithSystemAsync(string prompt, string systemPrompt, int maxTokens = 256, float temperature = 0.7f);
 }

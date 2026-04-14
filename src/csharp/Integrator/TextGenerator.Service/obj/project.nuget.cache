@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oRRtThboJig=",
+  "dgSpecHash": "7TK7MLRaq9U=",
   "success": true,
   "projectFilePath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Service\\TextGenerator.Service.csproj",
   "expectedPackageFiles": [
@@ -13,7 +13,7 @@
     "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\grpc.net.common\\2.71.0\\grpc.net.common.2.71.0.nupkg.sha512",
     "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\libtorch-cpu-win-x64\\2.1.0.1\\libtorch-cpu-win-x64.2.1.0.1.nupkg.sha512",
     "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\llamasharp\\0.26.0\\llamasharp.0.26.0.nupkg.sha512",
-    "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\llamasharp.backend.cpu\\0.24.0\\llamasharp.backend.cpu.0.24.0.nupkg.sha512",
+    "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\llamasharp.backend.cpu\\0.26.0\\llamasharp.backend.cpu.0.26.0.nupkg.sha512",
     "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\llamasharp.backend.cuda11.windows\\0.24.0\\llamasharp.backend.cuda11.windows.0.24.0.nupkg.sha512",
     "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\llamasharp.jinja.executors\\1.0.0\\llamasharp.jinja.executors.1.0.0.nupkg.sha512",
     "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\llamasharp.semantic-kernel\\0.26.0\\llamasharp.semantic-kernel.0.26.0.nupkg.sha512",

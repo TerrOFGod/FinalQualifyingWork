@@ -5,7 +5,7 @@ public class LLamaSharpOptions
     public string ModelPath { get; set; } = "models/Meta-Llama-3-8B.Q4_K_M.gguf";
     
     /// <summary>Количество слоёв, выгружаемых на GPU. 0 = только CPU.</summary>
-    public int GpuLayerCount { get; set; } = 20;
+    public int GpuLayerCount { get; set; } = 5;
     
     /// <summary>Размер контекста (токенов).</summary>
     public uint ContextSize { get; set; } = 2048;

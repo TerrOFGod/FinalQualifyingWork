@@ -55,26 +55,35 @@ public class LLMPromptBuilder : ILLMPromptBuilder
 
     public Task<string> BuildSteppedDialoguePromptAsync(SmartNPC npc, DialogueNode? previousNode, int variety, WorldContext context)
     {
-        var npcProfile = BuildNPCProfile(npc);
         var prevStep = previousNode != null 
-            ? !string.IsNullOrEmpty(previousNode.PlayerText) ? 
-                $"Previous: Player said \"{previousNode.PlayerText}\" → {npc.Name} replied \"{previousNode.NPCText}\"" : 
-                $"{npc.Name}: \"{previousNode.NPCText}\""
+            ? !string.IsNullOrEmpty(previousNode.PlayerText) 
+                ? $"Previous: Player said \"{previousNode.PlayerText}\" → {npc.Name} replied \"{previousNode.NPCText}\""
+                : $"{npc.Name}: \"{previousNode.NPCText}\""
             : "This is the start of conversation.";
-        
+    
         var contextInfo = JsonConvert.SerializeObject(context, Formatting.Indented);
-        var options = string.Join("\n", Enumerable.Range(1, variety)
-            .Select(i => $"{i}. Player: \"[Option {i}]\"\n   {npc.Name}: \"[Response to option {i}]\""));
-        
+    
+        // Чёткий шаблон без плейсхолдеров "Example" и без инструкций "Replace"
+        var formatTemplate = string.Join("\n\n", Enumerable.Range(1, variety)
+            .Select(i => $"{i}. Player: \"Player's phrase here\"\n   {npc.Name}: \"NPC's response here\""));
+    
         var prompt = $"""
-                      {npcProfile}
                       World context: {contextInfo}
                       {prevStep}
-                      Generate {variety} possible next steps. Each step must include a player phrase and NPC's response.
-                      {options}
-                      Keep each phrase under 2 sentences.
+
+                      Generate exactly {variety} possible next steps in the conversation.
+
+                      FORMAT (copy this structure, but replace the dummy text):
+
+                      {formatTemplate}
+
+                      RULES:
+                      - Do NOT write any extra text before the list (no explanations, no labels like "Option 1:").
+                      - Do NOT write anything after the list.
+                      - Keep each player phrase and NPC response under 2 sentences.
+                      - Enclose all phrases in double quotes.
                       """;
-        
+    
         return Task.FromResult(prompt);
     }
 
@@ -112,22 +121,23 @@ public class LLMPromptBuilder : ILLMPromptBuilder
 
     public async Task<string> BuildIntroductoryPhrasePromptAsync(SmartNPC npc)
     {
-        var npcProfile = BuildNPCProfile(npc);
-        return $"{npcProfile}\nGenerate a single opening line from {npc.Name} to start a conversation. No more than 2 sentences.";
+        return "Generate a single opening line to start a conversation. No more than 2 sentences.";
     }
 
     // Вспомогательные методы
     private string BuildNPCProfile(SmartNPC npc)
     {
-        return $"""
-                NPC: {npc.Name}
-                Type: {npc.Type}
-                Age: {npc.Age}
-                Appearance: {npc.Appearance}
-                Profession: {npc.Profession}
-                Personality: {string.Join(", ", npc.PersonalCharacteristics)}
-                Behavior: {string.Join(", ", npc.Behaviors)}
-                """;
+        return $"""Name: {npc.Name}. Type: {npc.Type}. Age: {npc.Age}. Appearance: {npc.Appearance}. Profession: {npc.Profession}. Personal characteristics: {string.Join(", ", npc.PersonalCharacteristics)}. Behavior: {string.Join(", ", npc.Behaviors)}.""";
+    }
+    
+    public string BuildSystemPrompt(SmartNPC npc)
+    {
+        // Используем существующий метод BuildNPCProfile из LLMPromptBuilder
+        // Для этого нужно либо внедрить ILLMPromptBuilder, либо вынести формирование профиля в отдельный статический класс.
+        // Простейший вариант – скопировать логику сюда (но лучше через DI).
+        var profile = BuildNPCProfile(npc);
+    
+        return $"You are an NPC in an RPG game. Your personality is {profile} Stay in character, speak naturally, and never generate text for the Player. Keep responses concise (one sentence).";
     }
 
     private string BuildBranchConstraints(int? depth, int variety)
