@@ -57,31 +57,29 @@ public class LLMPromptBuilder : ILLMPromptBuilder
     {
         var prevStep = previousNode != null 
             ? !string.IsNullOrEmpty(previousNode.PlayerText) 
-                ? $"Previous: Player said \"{previousNode.PlayerText}\" → {npc.Name} replied \"{previousNode.NPCText}\""
+                ? $"Previous: Player said \"{previousNode.PlayerText}\" → {npc.Name} replied \"{previousNode.NPCText}\"" 
                 : $"{npc.Name}: \"{previousNode.NPCText}\""
             : "This is the start of conversation.";
     
         var contextInfo = JsonConvert.SerializeObject(context, Formatting.Indented);
     
-        // Чёткий шаблон без плейсхолдеров "Example" и без инструкций "Replace"
-        var formatTemplate = string.Join("\n\n", Enumerable.Range(1, variety)
-            .Select(i => $"{i}. Player: \"Player's phrase here\"\n   {npc.Name}: \"NPC's response here\""));
-    
         var prompt = $"""
                       World context: {contextInfo}
                       {prevStep}
 
-                      Generate exactly {variety} possible next steps in the conversation.
+                      Provide {variety} different ways the player could respond, each followed by {npc.Name}'s reply.
 
-                      FORMAT (copy this structure, but replace the dummy text):
+                      Format exactly like this example (use double quotes around each phrase):
 
-                      {formatTemplate}
+                      1. Player: "Phrase"
+                         {npc.Name}: "Phrase"
 
-                      RULES:
-                      - Do NOT write any extra text before the list (no explanations, no labels like "Option 1:").
-                      - Do NOT write anything after the list.
-                      - Keep each player phrase and NPC response under 2 sentences.
-                      - Enclose all phrases in double quotes.
+                      2. Player: "Phrase"
+                         {npc.Name}: "Phrase"
+
+                      (Continue numbering up to {variety}. Replace phrase with your text.)
+
+                      IMPORTANT: Do not include any introductory or concluding text. Start directly with "1.".
                       """;
     
         return Task.FromResult(prompt);
@@ -90,32 +88,39 @@ public class LLMPromptBuilder : ILLMPromptBuilder
     public async Task<string> BuildQuestPromptAsync(SmartNPC npc, Player player, string goalDescription)
     {
         var context = await _narrativeEnv.GetRelevantContext(npc, player, goalDescription);
-        var questTemplate = new
+    
+        var exampleQuest = new
         {
-            name = "Quest name",
-            description = "Description",
-            difficulty = 3,
-            requirements = new[] { new { type = "kill", target = "goblin", count = 5 } },
-            rewards = new[] { new { type = "exp", amount = 100 } }
+            name = "The Missing Artifact",
+            description = "Retrieve the ancient artifact from the goblin camp.",
+            difficulty = 2,
+            requirements = new[] 
+            { 
+                new { type = "collect", target = "Ancient Artifact", count = 1 },
+                new { type = "kill", target = "Goblin", count = 5 }
+            },
+            rewards = new[] 
+            { 
+                new { type = "exp", amount = 150 },
+                new { type = "gold", amount = 50 }
+            }
         };
-        
+
+        string exampleJson = JsonConvert.SerializeObject(exampleQuest, Formatting.Indented);
+
         var prompt = $"""
-                      You are an RPG quest generator. 
-                      NPC: {npc.Name} (profession: {npc.Profession}, traits: {string.Join(", ", npc.PersonalCharacteristics)})
-                      Player: {player.Name}, level {player.Level}
+                      You are a NPC that generate quest for a fantasy RPG game.
+
+                      Player: {player.Name}, Level {player.Level}
                       Goal: {goalDescription}
                       World context: {JsonConvert.SerializeObject(context)}
-                      Difficulty must be 1-5, rewards: exp, gold, items.
-                      Output ONLY valid JSON in this format:
-                      {JsonConvert.SerializeObject(questTemplate, Formatting.Indented)}
+
+                      Generate a quest as a JSON object. Follow exactly this format:
+                      {exampleJson}
+
+                      Output ONLY the JSON object. Do not include any other text.
                       """;
-        
-        // Ограничиваем длину промпта
-        if (EstimateTokenCount(prompt) > _options.MaxPromptTokens)
-        {
-            var summary = await _summarizer.Summarize(JsonConvert.SerializeObject(context));
-            return $"{prompt}\n(Summarized context: {summary})";
-        }
+
         return prompt;
     }
 

@@ -12,5 +12,6 @@ public interface ILLMClient
     Task<string> GenerateAsync(string prompt, int maxTokens = 256, float temperature = 0.7f);
     
     /// <summary>Генерация с заданием системной роли (для изолированного чат-сеанса).</summary>
-    Task<string> GenerateWithSystemAsync(string prompt, string systemPrompt, int maxTokens = 256, float temperature = 0.7f);
+    Task<string> GenerateWithSystemAsync(string prompt, string systemPrompt, int? variety, int maxTokens = 256,
+        float temperature = 0.7f);
 }

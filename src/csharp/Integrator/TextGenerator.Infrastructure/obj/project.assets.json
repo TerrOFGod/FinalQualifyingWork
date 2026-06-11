@@ -3468,20 +3468,28 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\": {}
+    "C:\\Users\\LordVT\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet": {}
   },
   "project": {
     "version": "1.1.18",
     "restore": {
-      "projectUniqueName": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj",
+      "projectUniqueName": "F:\\repo\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj",
       "projectName": "gpt-text-generator-infrastructure",
-      "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\VseTTrofimchuk\\.nuget\\packages\\",
-      "outputPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\obj\\",
+      "projectPath": "F:\\repo\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\TextGenerator.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\LordVT\\.nuget\\packages\\",
+      "outputPath": "F:\\repo\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet"
+      ],
       "configFilePaths": [
-        "C:\\Users\\VseTTrofimchuk\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\LordVT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -3494,8 +3502,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj": {
-              "projectPath": "D:\\VTTrofimchuk\\repositories\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj"
+            "F:\\repo\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj": {
+              "projectPath": "F:\\repo\\FinalQualifyingWork\\src\\csharp\\Integrator\\TextGenerator.Core\\TextGenerator.Core.csproj"
             }
           }
         }
@@ -3510,7 +3518,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -3608,26 +3616,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[8.0.23, 8.0.23]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.23, 8.0.23]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.23, 8.0.23]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\VseTTrofimchuk\\.dotnet\\sdk\\9.0.309/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

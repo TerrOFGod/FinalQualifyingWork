@@ -38,7 +38,7 @@ public class RAGService : IRAGService
 
         var context = new StringBuilder();
         context.AppendLine("Here is what the NPC remembers about past interactions (recent memories are more important):");
-        foreach (var mem in memories)
+        foreach (var mem in sorted)
             context.AppendLine($"- {mem.Text} ({DateTime.Now.Subtract(mem.Timestamp).TotalHours:F1} hours ago)");
 
         var fullPrompt = $"{basePrompt}\n\n{context}";

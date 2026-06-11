@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TextGenerator.Service")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0323ff1cbc98052be7c0937ae7b16cdbfc361d41")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5353e46f7dac0c6a0728d85ba0f9ff69e0f92ac5")]
 [assembly: System.Reflection.AssemblyProductAttribute("TextGenerator.Service")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TextGenerator.Service")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using TextGenerator.Core.Interfaces.Processors;
 using TextGenerator.Core.Models.Actors;
@@ -15,6 +16,12 @@ public class LLMResponseParser : ILLMResponseParser
 {
     private static string npcName = "";
     private static string playerName = "";
+    private readonly ILogger<LLMResponseParser> _logger;
+    
+    public LLMResponseParser(ILogger<LLMResponseParser> logger)
+    {
+        _logger = logger;
+    }
 
     public async Task<DialogueNode> ParseBranchedDialogueResponse(SmartNPC npc, string response)
     {
@@ -74,14 +81,35 @@ public class LLMResponseParser : ILLMResponseParser
 
     public async Task<Quest> ParseQuestResponse(string response)
     {
-        // Извлечь JSON из ответа (модель может добавить пояснения)
-        var jsonMatch = Regex.Match(response, @"\{[\s\S]*\}");
-        if (!jsonMatch.Success) throw new ArgumentException("No JSON found");
+        // Найти первую '{' и последнюю '}'
+        int start = response.IndexOf('{');
+        int end = response.LastIndexOf('}');
+    
+        if (start == -1 || end == -1 || start >= end)
+        {
+            // Логирование сырого ответа для отладки
+            _logger?.LogError("No JSON found in LLM response: {Response}", response);
+            throw new ArgumentException("No JSON found in LLM response");
+        }
+    
+        string json = response.Substring(start, end - start + 1);
+    
+        try
+        {
+            var quest = JsonConvert.DeserializeObject<Quest>(json);
+            if (quest == null) throw new JsonException("Deserialized quest is null");
         
-        var quest = JsonConvert.DeserializeObject<Quest>(jsonMatch.Value);
-        // Валидация полей
-        if (quest!.Difficulty < 1 || quest.Difficulty > 5) quest.Difficulty = 3;
-        return quest;
+            // Валидация полей
+            if (quest.Difficulty < 1 || quest.Difficulty > 5)
+                quest.Difficulty = 3;
+        
+            return quest;
+        }
+        catch (JsonException ex)
+        {
+            _logger?.LogError(ex, "Failed to parse quest JSON: {Json}", json);
+            throw new ArgumentException("Invalid JSON in LLM response", ex);
+        }
     }
 
     public async Task ParseSteppedDialogueResponse(SmartNPC npc, DialogueNode parentNode, string response)

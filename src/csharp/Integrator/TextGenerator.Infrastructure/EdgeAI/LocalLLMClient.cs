@@ -56,10 +56,14 @@ public class LocalLLMClient : ILLMClient
     // }
 
     public async Task<string> GenerateAsync(string prompt, int maxTokens = 256, float temperature = 0.7f)
-        => await GenerateWithSystemAsync(prompt, string.Empty, maxTokens, temperature);
+        => await GenerateWithSystemAsync(prompt, string.Empty, null, maxTokens, temperature);
     
-    public async Task<string> GenerateWithSystemAsync(string prompt, string systemPrompt, int maxTokens = 256, float temperature = 0.7f)
+    public async Task<string> GenerateWithSystemAsync(string prompt, string systemPrompt, int? variety, int maxTokens = 256, float temperature = 0.7f)
     {
+        int nextNumber = 0;
+        if (variety != null)
+            nextNumber = (int)(variety + 1);
+        
         var chatHistory = new ChatHistory();
         
         // Добавляем системное сообщение, если оно задано
@@ -71,7 +75,7 @@ public class LocalLLMClient : ILLMClient
         var inferenceParams = new InferenceParams
         {
             MaxTokens = maxTokens,
-            AntiPrompts = new[] { "User:" },// "Player:", "NPC:", "\n\n" }, // остановка при появлении меток игрока или пустой строки
+            AntiPrompts = nextNumber == 0 ? new[] { "User:" } : new[] { "User:", $"{nextNumber}." },// "Player:", "NPC:", "\n\n" }, // остановка при появлении меток игрока или пустой строки
             SamplingPipeline = new DefaultSamplingPipeline
             {
                 TopP = 0.95f,

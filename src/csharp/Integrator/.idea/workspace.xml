@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="36863dfe-869f-4558-ad61-66e549e6afc8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/config/applicationhost.config" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/config/applicationhost.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/Interfaces/EdgeAI/ILLMClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/Interfaces/EdgeAI/ILLMClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/bin/Release/net8.0/TextGenerator.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/bin/Release/net8.0/TextGenerator.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/bin/Release/net8.0/TextGenerator.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/bin/Release/net8.0/TextGenerator.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.GlobalUsings.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/TextGenerator.Core.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/ref/TextGenerator.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/ref/TextGenerator.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/refint/TextGenerator.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/Release/net8.0/refint/TextGenerator.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/TextGenerator.Core.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/TextGenerator.Core.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/TextGenerator.Core.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/TextGenerator.Core.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Core/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Core/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/EdgeAI/LocalLLMClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/EdgeAI/LocalLLMClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/Narrative/Agents/NarrativeAgent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/Narrative/Agents/NarrativeAgent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/Processors/LLMPromptBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/Processors/LLMPromptBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/Processors/LLMResponseParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/Processors/LLMResponseParser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/RAG/RAGService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/RAG/RAGService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Infrastructure.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Infrastructure.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/bin/Release/net8.0/TextGenerator.Infrastructure.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.GlobalUsings.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/TextGenerator.Infrastructure.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/ref/TextGenerator.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/ref/TextGenerator.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/refint/TextGenerator.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/Release/net8.0/refint/TextGenerator.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/TextGenerator.Infrastructure.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/TextGenerator.Infrastructure.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/TextGenerator.Infrastructure.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/TextGenerator.Infrastructure.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Infrastructure/obj/rider.project.restore.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Core.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Core.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Core.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Core.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Infrastructure.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Infrastructure.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Infrastructure.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Infrastructure.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.deps.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.exe" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/bin/Debug/net8.0/TextGenerator.Service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.AssemblyInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.AssemblyInfoInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.GlobalUsings.g.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.genruntimeconfig.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.sourcelink.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/TextGenerator.Service.sourcelink.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/apphost.exe" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/apphost.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/ref/TextGenerator.Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/ref/TextGenerator.Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/refint/TextGenerator.Service.dll" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/refint/TextGenerator.Service.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/rjsmrazor.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/rjsmrazor.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/rpswa.dswa.cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/rpswa.dswa.cache.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/staticwebassets.build.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/staticwebassets.build.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/staticwebassets.build.json.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/Debug/net8.0/staticwebassets.build.json.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/TextGenerator.Service.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/TextGenerator.Service.csproj.nuget.dgspec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/TextGenerator.Service.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/TextGenerator.Service.csproj.nuget.g.props" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/project.assets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/project.nuget.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/project.packagespec.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/rider.project.model.nuget.info" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/rider.project.model.nuget.info" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TextGenerator.Service/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/TextGenerator.Service/obj/rider.project.restore.info" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="3DsfySHvfO0yA4NyQZcQQZtlDBo" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="36863dfe-869f-4558-ad61-66e549e6afc8" name="Changes" comment="" />
+      <created>1779075953389</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779075953389</updated>
+      <workItem from="1779075955654" duration="17000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
